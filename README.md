@@ -35,6 +35,7 @@
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
 - [官网](https://dozenesstudio.github.io/Chunkoid/)
+- [网盘（qou6）](https://cloud.189.cn/web/share?code=f2EBruq2Urqa)
 
 ## 使用说明
 
