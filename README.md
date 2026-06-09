@@ -1,8 +1,8 @@
 # Chunkoid
 
-<p align="center">
-  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Chunkoid Logo" width="128" height="128">
-</p>
+<div align="center">
+  <img src="ic_launcher.png" alt="Chunkoid Logo" width="128">
+</div>
 
 众所周知，在 Chunker 网页转换器下架多年以来，MC 世界转换方面就几乎被电脑端软件所垄断。
 
@@ -84,7 +84,7 @@ Weiyin 1A
 
 本项目使用了以下开源软件：
 
-- **chunker-cli** (v1.15.0) - 核心转换引擎，源自 [chunker](https://github.com/MCChunker/Chunker) 开源项目
+- **chunker-cli** (v1.15.0) - 核心转换引擎，源自The Hive的 [chunker](https://github.com/HiveGamesOSS/Chunker) 开源项目
   - 许可证：MIT License
   - 文件位置：`app/src/main/assets/chunker-cli-1.15.0.jar`
 
