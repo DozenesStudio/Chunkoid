@@ -5,11 +5,13 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+# 授予 Pages 部署所需的全部权限
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 防止同时运行多个部署任务
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -21,17 +23,30 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 代码
         uses: actions/checkout@v4
-      
-      - name: Setup Pages
+
+      - name: 列出文件结构（这是为了调试，可以看到你的 website 文件夹）
+        run: ls -la
+
+      - name: 验证 website 文件夹存在
+        run: |
+          if [ -d "./website" ]; then
+            echo "✅ website 文件夹存在"
+            ls -la ./website
+          else
+            echo "❌ 错误：找不到 ./website 文件夹"
+            exit 1
+          fi
+
+      - name: 配置 Pages
         uses: actions/configure-pages@v5
-      
-      - name: Upload artifact
+
+      - name: 上传 website 文件夹内容
         uses: actions/upload-pages-artifact@v3
         with:
           path: './website'
-      
-      - name: Deploy to GitHub Pages
+
+      - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
