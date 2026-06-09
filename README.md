@@ -1,5 +1,9 @@
 # Chunkoid
 
+<p align="center">
+  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Chunkoid Logo" width="128" height="128">
+</p>
+
 众所周知，在 Chunker 网页转换器下架多年以来，MC 世界转换方面就几乎被电脑端软件所垄断。
 
 在这期间，想在安卓端转换世界存档，门槛极高，需要技术基础，零基础小白几乎无从下手。
