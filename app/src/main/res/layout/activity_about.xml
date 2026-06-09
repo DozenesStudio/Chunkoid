@@ -137,13 +137,6 @@
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_bilibili"
-                    android:textColor="@color/minecraft_gray"
-                    android:textSize="14sp"/>
-
 
                 <TextView
                     android:layout_width="match_parent"

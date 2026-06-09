@@ -15,10 +15,9 @@
     <string name="about_credits">Chunker-Cli.jar from Hive Game open source project Chunker.</string>
     <string name="about_author">Author: Dozener</string>
     <string name="about_thanks">Special Thanks: Ryan Steven\nWeiyin 1A</string>
-    <string name="about_github">Website &amp; GitHub:</string>
-    <string name="about_bilibili">Bilibili Tutorial:</string>
+    <string name="about_github">Website &amp; GitHub: https://dozenesstudio.github.io/Chunkoid/</string>
     <string name="about_sponsor">Sponsor:</string>
-    <string name="about_date">2025/5/10</string>
+    <string name="about_date">2026/6/9</string>
     <string name="check_update">Check for Updates</string>
     <string name="donate">Donate</string>
     <string name="extracting_world">Extracting world...</string>
