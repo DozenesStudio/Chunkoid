@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chunkoid - Minecraft 世界转换器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a url('bg.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 60px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 80px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 36px;
+            font-weight: 400;
+            color: #8b8b8b;
+            margin-bottom: 30px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 450px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #4ade80;
+            color: #0a0a0a;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-bilibili {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+        }
+
+        .btn-bilibili:hover {
+            background: linear-gradient(135deg, #ff85ad, #d65a7d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .hero-images {
+            flex: 0.7;
+            max-width: 580px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .image-card {
+            background: transparent;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border: none;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .image-card img {
+            width: auto;
+            height: 300px;
+            border-radius: 12px;
+            display: block;
+            object-fit: contain;
+            background: rgba(10, 10, 10, 0.9);
+        }
+
+        .image-card.phone img {
+            height: 400px;
+        }
+
+        .image-card.tablet img {
+            height: 280px;
+        }
+
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 30, 0.85);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-description {
+            color: #b0b0b0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .download-section {
+            background: rgba(30, 30, 30, 0.85);
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .download-section h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .download-section p {
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+
+        .btn-primary.btn-github {
+            display: flex;
+            align-items: center;
+            color: #0a0a0a;
+        }
+
+        .btn-cloud {
+            background: #4ade80;
+            color: #0a0a0a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-cloud:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: #6b6b6b;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #4ade80;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* GitHub链接样式 */
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .github-icon {
+            width: 16px;
+            height: 16px;
+            color: #8b8b8b;
+        }
+
+        .github-link:hover .github-icon {
+            color: #ffffff;
+        }
+
+        /* 捐赠链接样式 */
+        .donate-link {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .donate-link:hover {
+            color: #f59e0b;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 40px 60px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-message {
+            color: #ffffff;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .hero-desc {
+                margin: 0 auto 40px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <img src="logo.png" alt="Chunkoid Logo" class="logo">
+                <span class="logo-text">Chunkoid</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">功能特性</a>
+                <a href="#download">下载</a>
+                <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
+                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    Github
+                </a>
+                <a href="#" class="donate-link">捐赠</a>
+            </nav>
+        </header>
+
+        <!-- 捐赠弹窗 -->
+        <div id="donate-modal" class="modal">
+            <div class="modal-content">
+                <p class="modal-message">该渠道暂未开放</p>
+            </div>
+        </div>
+
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1 class="hero-title">Chunkoid</h1>
+                <p class="hero-subtitle">世界转换器</p>
+                <p class="hero-desc">
+                    全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑！
+                </p>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn btn-primary">下载应用</a>
+                    <a href="https://space.bilibili.com/xxx" class="btn btn-bilibili">B站教程</a>
+                    <a href="https://github.com/DozenesStudio/Chunkoid" class="btn btn-secondary">查看源码</a>
+                </div>
+            </div>
+
+            <div class="hero-images">
+                <div class="image-card phone">
+                    <img src="phone.jpg" alt="手机端截图">
+                </div>
+                <div class="image-card tablet">
+                    <img src="pad.png" alt="平板端截图">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title">功能特性</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-title">界面简洁</h3>
+                    <p class="feature-description">操作界面一目了然，零学习成本，新手能轻松上手</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">双端互转</h3>
+                    <p class="feature-description">Java 版和基岩版世界之间的相互转换，版本自由升降</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">日志输出</h3>
+                    <p class="feature-description">白箱运行，每一步都看得见</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">输出管理</h3>
+                    <p class="feature-description">转换结果统一管理，导入导出更方便</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">高级设置</h3>
+                    <p class="feature-description">JVM 内存调整、保留原始 NBT 等专业选项</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">下一步...</h3>
+                    <p class="feature-description">将开发【地图下载器】【材质转换】【冈易存档解密】甚至【NBT编辑】？</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="download" class="download-section">
+            <h2>即刻下载！</h2>
+            <p>现有下载渠道</p>
+            <div class="download-buttons">
+                <a href="https://github.com/DozenesStudio/Chunkoid/releases" class="btn btn-primary btn-github">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub Release
+                </a>
+                <a href="#" class="btn btn-cloud">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 18H6a4 4 0 01-.38-7.98C5.5 7.05 8.04 5 11 5h1a5.5 5.5 0 015.5 5.5c0 2-.78 3.82-2 5H19zm-7-9.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+                    </svg>
+                    国内网盘下载
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 DozenesStudio. Licensed under GNU General Public License v3.0</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/DozenesStudio/Chunkoid">GitHub</a> |
+                <span style="color: #4ade80;">加入开发版QQ群：1103983368</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 捐赠弹窗逻辑
+        const donateLink = document.querySelector('.donate-link');
+        const modal = document.getElementById('donate-modal');
+
+        donateLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.classList.add('show');
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
