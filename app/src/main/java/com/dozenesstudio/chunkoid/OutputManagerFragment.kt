@@ -245,34 +245,23 @@ class OutputManagerFragment : Fragment() {
     }
 
     private fun showGameLauncherMenu(anchor: View) {
-        val popup = PopupMenu(requireContext(), anchor)
-        popup.menuInflater.inflate(R.menu.menu_game_launcher, popup.menu)
-        popup.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.action_bedrock_netease -> {
-                    launchMinecraft("com.netease.x19")
-                    true
-                }
-                R.id.action_bedrock_international -> {
-                    launchMinecraft("com.mojang.minecraftpe")
-                    true
-                }
-                R.id.action_java_pojav -> {
-                    launchMinecraft("net.kdt.pojavlaunch")
-                    true
-                }
-                R.id.action_java_fcl -> {
-                    launchMinecraft("com.tungsten.fcl")
-                    true
-                }
-                R.id.action_java_hmcl -> {
-                    launchMinecraft("com.tungsten.fcl")
-                    true
-                }
-                else -> false
-            }
+        val items = arrayOf(
+            "基岩版：网易" to { launchMinecraft("com.netease.x19") },
+            "基岩版：国际版" to { launchMinecraft("com.mojang.minecraftpe") },
+            "Java版：Pojav" to { launchMinecraft("net.kdt.pojavlaunch") },
+            "Java版：Fcl" to { launchMinecraft("com.tungsten.fcl") },
+            "Java版：HMCL-PE" to { launchMinecraft("com.tungsten.fcl") }
+        )
+
+        val builder = android.app.AlertDialog.Builder(requireContext(), R.style.DialogTheme)
+        builder.setTitle("选择启动软件")
+        builder.setItems(items.map { it.first }.toTypedArray()) { _, which ->
+            items[which].second()
         }
-        popup.show()
+
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_rounded_background)
+        dialog.show()
     }
 
     private fun launchMinecraft(packageName: String) {

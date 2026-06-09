@@ -130,12 +130,16 @@
                     android:background="@color/minecraft_gray"/>
 
                 <TextView
+                    android:id="@+id/tv_github_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/about_github"
-                    android:textColor="@color/minecraft_gray"
+                    android:textColor="@color/minecraft_green"
                     android:textSize="14sp"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:linksClickable="true"
+                    android:autoLink="web"/>
 
 
                 <TextView

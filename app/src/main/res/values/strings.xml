@@ -15,7 +15,7 @@
     <string name="about_credits">Chunker-Cli.jar from Hive Game open source project Chunker.</string>
     <string name="about_author">Author: Dozener</string>
     <string name="about_thanks">Special Thanks: Ryan Steven\nWeiyin 1A</string>
-    <string name="about_github">Website &amp; GitHub: https://dozenesstudio.github.io/Chunkoid/</string>
+    <string name="about_github"><a href="https://dozenesstudio.github.io/Chunkoid/">Click to visit website</a></string>
     <string name="about_sponsor">Sponsor:</string>
     <string name="about_date">2026/6/9</string>
     <string name="check_update">Check for Updates</string>
