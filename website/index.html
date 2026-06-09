@@ -6,6 +6,11 @@
     <title>Chunkoid - 首个安卓端MC世界转换器</title>
     <link rel="icon" type="image/png" href="logo.png">
     <style>
+        @font-face {
+            font-family: 'UranusPixel';
+            src: url('uranus_pixel_11px.ttf') format('truetype');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -50,6 +55,7 @@
             font-size: 24px;
             font-weight: 700;
             color: #ffffff;
+            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
         }
 
         .nav-links {
@@ -82,11 +88,12 @@
         }
 
         .hero-title {
-            font-size: 72px;
+            font-size: 90px;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.1;
             margin-bottom: 20px;
+            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
         }
 
         .hero-subtitle {
@@ -202,6 +209,7 @@
             color: #ffffff;
             text-align: center;
             margin-bottom: 60px;
+            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
         }
 
         .features {
@@ -250,6 +258,7 @@
             font-size: 32px;
             color: #ffffff;
             margin-bottom: 15px;
+            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
         }
 
         .download-section p {
@@ -437,6 +446,7 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
+                <a href="#" class="donate-link">捐赠</a>
                 <a href="#features">功能特性</a>
                 <a href="#download">下载</a>
                 <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
@@ -445,7 +455,6 @@
                     </svg>
                     Github
                 </a>
-                <a href="#" class="donate-link">捐赠</a>
             </nav>
         </header>
 
@@ -461,10 +470,15 @@
                 <h1 class="hero-title">Chunkoid</h1>
                 <p class="hero-subtitle">世界转换器 <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span></p>
                 <p class="hero-desc">
-                    全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑！
+                    全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑ヾ(≧▽≦*)o
                 </p>
                 <div class="cta-buttons">
-                    <a href="#download" class="btn btn-primary">下载应用</a>
+                    <a href="#download" class="btn btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-1.4-.52-2.94-.55-4.47-.55-1.53 0-3.07.03-4.47.55L5.65 5.67c-.18-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>
+                        </svg>
+                        下载应用
+                    </a>
                     <a href="https://space.bilibili.com/xxx" class="btn btn-bilibili">B站教程</a>
                     <a href="https://github.com/DozenesStudio/Chunkoid" class="btn btn-secondary">查看源码</a>
                 </div>
@@ -485,19 +499,19 @@
             <div class="features">
                 <div class="feature-card">
                     <h3 class="feature-title">界面简洁</h3>
-                    <p class="feature-description">操作界面一目了然，操作无障碍，在此我还弄了几张背景图</p>
+                    <p class="feature-description">操作界面一目了然，操作无障碍，加入几张背景图，格调油然而生</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">双端互转</h3>
-                    <p class="feature-description">Java 版和基岩版世界之间的相互转换，版本自由升降</p>
+                    <p class="feature-description">JE-BE世界之间相互转换，版本自由升降；之前朝思暮想，如今唾手可得</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">转换日志输出</h3>
-                    <p class="feature-description">转换时白箱运行，Bug知道是哪的问题（不是，我存档区块咋乱了？我物品栏东西哪？？）</p>
+                    <p class="feature-description">转换时白箱运行，Bug知道是哪的问题：不是，我存档区块咋乱了？我物品栏东西哪(╯‵□′)╯︵┻━┻</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">输出管理</h3>
-                    <p class="feature-description">转换结果统一管理，导入导出更方便，并自带广范围MC启动支持</p>
+                    <p class="feature-description">转换结果统一管理，从根源杜绝跟教程头晕目眩，并自带多版MC启动支持</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">高级设置</h3>
@@ -531,7 +545,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 DozenesStudio. Licensed under GNU General Public License v3.0</p>
+            <p>&copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/DozenesStudio/Chunkoid">GitHub</a> |
                 <span style="color: #4ade80;">加入开发版QQ群：1103983368</span>
