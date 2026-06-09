@@ -62,18 +62,6 @@
 
 本项目采用 GNU General Public License v3.0 协议开源。详见 [LICENSE](LICENSE) 文件。
 
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-### 贡献指南
-
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 提交 Pull Request
-
 ## 联系方式
 
 - **作者**：Dozener
@@ -82,7 +70,11 @@
 
 ## 致谢
 
-感谢所有为本项目做出贡献的开发者和用户！
+Ryan steven
+
+Weiyin 1A
+
+以及图片提供者：Offical Bean
 
 ### 第三方依赖
 
