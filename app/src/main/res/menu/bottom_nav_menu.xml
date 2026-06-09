@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_converter"
+        android:icon="@drawable/converter"
+        android:title="@string/converter" />
+    <item
+        android:id="@+id/nav_output_manager"
+        android:icon="@drawable/output"
+        android:title="@string/output_manager" />
+</menu>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Minecraft Theme Colors -->
+    <color name="minecraft_green">#5D8C22</color>
+    <color name="minecraft_green_dark">#3D5C16</color>
+    <color name="minecraft_brown">#8B6914</color>
+    <color name="minecraft_brown_dark">#5C4610</color>
+    <color name="minecraft_bg">#1A1A1A</color>
+    <color name="minecraft_surface">#2D2D2D</color>
+    <color name="minecraft_surface_dark">#1F1F1F</color>
+    <color name="minecraft_gray">#9E9E9E</color>
+    <color name="minecraft_red">#B02E26</color>
+    <color name="minecraft_blue">#2C2E8F</color>
+    <color name="minecraft_gold">#FFD700</color>
+
+    <!-- Standard Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Progress Colors -->
+    <color name="progress_background">#3D3D3D</color>
+    <color name="progress_tint">@color/minecraft_green</color>
+
+    <!-- Log Level Colors -->
+    <color name="log_info">#4CAF50</color>
+    <color name="log_warning">#FF9800</color>
+    <color name="log_error">#F44336</color>
+    <color name="log_debug">#2196F3</color>
+</resources>

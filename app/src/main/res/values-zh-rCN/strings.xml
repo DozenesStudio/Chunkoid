@@ -1,0 +1,178 @@
+<resources>
+    <string name="app_name">Chunkoid</string>
+    <string name="initializing">正在初始化...</string>
+    <string name="initializing_copying">正在初始化：复制必要文件 %1$d%%</string>
+    <string name="initializing_failed">初始化失败。是否重试？</string>
+    <string name="retry">重试</string>
+    <string name="output_folder_not_found">未找到输出文件夹</string>
+    <string name="cannot_open_folder">无法打开输出文件夹</string>
+    <string name="app_description">一个安卓版JE-BE世界转换器</string>
+    <string name="app_version">1.0.0 正式版</string>
+    <string name="about">关于</string>
+
+    <!-- About Page -->
+    <string name="about_intro">一个安卓端的我的世界JE-BE双端世界转换器\n力求为手机用户提供一个方便快捷的存档转换体验</string>
+    <string name="about_credits">【Chunker-Cli.jar】源于Hive Game的开源项目</string>
+    <string name="about_author">作者：Dozener</string>
+    <string name="about_thanks">特别鸣谢：Ryan Steven\nWeiyin 1A</string>
+    <string name="about_github">官网&amp;开源地址：</string>
+    <string name="about_bilibili">哔哩哔哩在线教程：</string>
+    <string name="about_date">2026/6/9</string>
+    <string name="check_update">检查更新</string>
+    <string name="donate">捐赠</string>
+    <string name="extracting_world">正在解压缩世界...</string>
+    <string name="update_latest">当前为最新版</string>
+
+    <!-- Main Activity -->
+    <string name="select_output_location">选择输出位置</string>
+    <string name="input_world">输入世界目录</string>
+    <string name="output_directory">输出目录</string>
+    <string name="not_selected">未选择</string>
+    <string name="start_conversion">开始转换</string>
+    <string name="settings">设置</string>
+    <string name="built_in_terminal">终端控制台</string>
+    <string name="converter">转换器</string>
+    <string name="output_manager">输出管理器</string>
+    <string name="map_downloader">线上地图下载器</string>
+    <string name="resource_converter">材质包转换器</string>
+    <string name="feature_not_available">该功能尚未开发，敬请期待！</string>
+    <string name="archive">归档格式</string>
+    <string name="folder">文件夹目录</string>
+    <string name="bedrock_edition">基岩版</string>
+    <string name="java_edition">Java版</string>
+    <string name="to_java">转Java</string>
+    <string name="to_bedrock">转基岩</string>
+
+    <!-- Conversion Settings -->
+    <string name="auto_detect">自动检测</string>
+    <string name="select_target_format">选择目标版本（JE与BE通吃）</string>
+    <string name="convert_to">转换为</string>
+
+    <!-- Java Versions -->
+    <string name="java_1_8_8">Java版 1.8.8</string>
+    <string name="java_1_9">Java版 1.9</string>
+    <string name="java_1_10">Java版 1.10</string>
+    <string name="java_1_11">Java版 1.11</string>
+    <string name="java_1_12">Java版 1.12</string>
+    <string name="java_1_13">Java版 1.13</string>
+    <string name="java_1_14">Java版 1.14</string>
+    <string name="java_1_15">Java版 1.15</string>
+    <string name="java_1_16">Java版 1.16</string>
+    <string name="java_1_17">Java版 1.17</string>
+    <string name="java_1_18">Java版 1.18</string>
+    <string name="java_1_19">Java版 1.19</string>
+    <string name="java_1_20">Java版 1.20</string>
+    <string name="java_1_21">Java版 1.21</string>
+
+    <!-- Bedrock Versions -->
+    <string name="bedrock_1_12">基岩版 1.12</string>
+    <string name="bedrock_1_13">基岩版 1.13</string>
+    <string name="bedrock_1_14">基岩版 1.14</string>
+    <string name="bedrock_1_16">基岩版 1.16</string>
+    <string name="bedrock_1_17">基岩版 1.17</string>
+    <string name="bedrock_1_18">基岩版 1.18</string>
+    <string name="bedrock_1_19">基岩版 1.19</string>
+    <string name="bedrock_1_20">基岩版 1.20</string>
+    <string name="bedrock_1_21">基岩版 1.21</string>
+    <string name="bedrock_1_26">基岩版 1.26</string>
+
+    <!-- Conversion Activity -->
+    <string name="conversion_title">正在转换世界</string>
+    <string name="conversion_progress">转换进度</string>
+    <string name="converting">正在转换…</string>
+    <string name="conversion_complete">转换完成！</string>
+    <string name="conversion_failed">转换失败</string>
+    <string name="cancel_conversion">取消</string>
+    <string name="view_logs">查看日志</string>
+    <string name="open_output">打开输出管理器</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="conversion_settings">转换器设置</string>
+    <string name="jvm_max_memory">JVM最大内存（MB）</string>
+    <string name="memory_hint">要转换大存档（超1GB）时，建议根据手机性能增加最大内存，提升转换速率；最大内存过小，转换时则容易报错</string>
+    <string name="keep_original_nbt">保留原始NBT</string>
+    <string name="keep_original_nbt_desc">保留原始存档物品栏数据，仅在相同平台转换时建议启用</string>
+    <string name="general_settings">通用</string>
+    <string name="theme_switch">外观切换</string>
+    <string name="theme_bedrock_black">基岩黑（默认背景）</string>
+    <string name="theme_far_east">远东大陆（作者自建）</string>
+    <string name="theme_jungle">MC丛林</string>
+    <string name="theme_xingyang">兴阳市（By Offcial Bean）</string>
+    <string name="theme_furry">Furry（网络来源侵权私删）</string>
+    <string name="output_management">输出管理</string>
+    <string name="developer_mode">开发者选项</string>
+    <string name="clear_all_output">清空所有输出世界</string>
+    <string name="show_undeveloped_features">侧边栏显示未开发功能</string>
+    <string name="show_terminal">侧边栏显示控制台</string>
+    <string name="output_cleared">所有输出世界已清空</string>
+    <string name="theme_changed_immediate">主页面外观已更换！</string>
+
+    <!-- Messages -->
+    <string name="error_no_input">请选择一个输入世界</string>
+    <string name="error_no_output">请选择一个输出位置</string>
+    <string name="error_no_format">请选择一个目标格式</string>
+    <string name="permission_required">需要存储权限才能访问世界文件</string>
+
+    <!-- Notifications -->
+    <string name="conversion_notification_channel">世界转换</string>
+    <string name="conversion_notification_channel_desc">世界转换进度通知</string>
+    <string name="conversion_in_progress">正在转换世界</string>
+
+    <!-- Log levels -->
+    <string name="log_info">信息</string>
+    <string name="log_warning">警告</string>
+    <string name="log_error">错误</string>
+    <string name="log_debug">调试</string>
+
+    <!-- Progress steps -->
+    <string name="reading_level_dat">正在读取 level.dat…</string>
+    <string name="analyzing_world_dimensions">正在分析世界维度…</string>
+    <string name="converting_chunks">正在转换区块…</string>
+    <string name="converting_block_data">正在转换方块数据…</string>
+    <string name="converting_entities">正在转换实体…</string>
+    <string name="writing_output">正在写入输出…</string>
+    <string name="finalizing">正在完成…</string>
+
+    <!-- Conversion Activity -->
+    <string name="conversion_details">转换详情</string>
+    <string name="log_output">日志输出</string>
+
+    <!-- Main Activity -->
+    <string name="storage_permission_required_title">需要存储权限</string>
+    <string name="storage_permission_required_message">此应用需要访问所有文件才能读取和写入 Minecraft 世界数据。</string>
+    <string name="grant">授权</string>
+    <string name="cancel">取消</string>
+
+    <!-- Log messages -->
+    <string name="starting_conversion">开始转换…</string>
+    <string name="target_format_log">目标格式：%s</string>
+    <string name="input_log">输入：%s</string>
+    <string name="output_log">输出：%s</string>
+    <string name="command_log">命令：%s</string>
+    <string name="error_log">错误：%s</string>
+    <string name="conversion_cancelled">用户已取消转换</string>
+    <string name="service_not_bound">服务未绑定</string>
+
+
+    <!-- Output Manager -->
+    <string name="export">导出</string>
+    <string name="open_folder">打开文件夹</string>
+    <string name="export_as_mcworld">导出为.mcworld</string>
+    <string name="export_as_zip">导出为.zip</string>
+    <string name="converted_to_java">%s</string>
+    <string name="converted_to_bedrock">%s</string>
+    <string name="start_game">启动游戏</string>
+    <string name="bedrock_netease">基岩版：网易</string>
+    <string name="bedrock_international">基岩版：国际</string>
+    <string name="java_pojav">Java版：Pojav</string>
+    <string name="java_fcl">Java版：Fcl</string>
+    <string name="java_hmcl">Java版：HMCL-PE</string>
+    <string name="no_worlds_found">尝试转换一个世界吧 ♪(´▽｀)</string>
+    <string name="delete_world">删除世界</string>
+    <string name="archive_decrypt">网易存档解密</string>
+    <string name="export_success">导出成功</string>
+    <string name="export_failed">导出失败</string>
+    <string name="app_not_installed">未安装该应用</string>
+    <string name="launch_failed">启动失败</string>
+</resources>

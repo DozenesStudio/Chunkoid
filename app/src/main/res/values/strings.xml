@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">Chunkoid</string>
+    <string name="initializing">Initializing...</string>
+    <string name="initializing_copying">Initializing: Copying necessary files %1$d%%</string>
+    <string name="initializing_failed">Initialization failed. Would you like to retry?</string>
+    <string name="retry">Retry</string>
+    <string name="output_folder_not_found">Output folder not found</string>
+    <string name="cannot_open_folder">Cannot open output folder</string>
+    <string name="app_description">Convert Minecraft worlds between Java and Bedrock editions</string>
+    <string name="app_version">1.0.0 Release</string>
+    <string name="about">About</string>
+
+    <!-- About Page -->
+    <string name="about_intro">A Minecraft Java-Bedrock world converter for Android devices. This unique application supports version downgrade and upgrade functionality, offering a convenient conversion environment for mobile users.</string>
+    <string name="about_credits">Chunker-Cli.jar from Hive Game open source project Chunker.</string>
+    <string name="about_author">Author: Dozener</string>
+    <string name="about_thanks">Special Thanks: Ryan Steven\nWeiyin 1A</string>
+    <string name="about_github">Website &amp; GitHub:</string>
+    <string name="about_bilibili">Bilibili Tutorial:</string>
+    <string name="about_sponsor">Sponsor:</string>
+    <string name="about_date">2025/5/10</string>
+    <string name="check_update">Check for Updates</string>
+    <string name="donate">Donate</string>
+    <string name="extracting_world">Extracting world...</string>
+    <string name="update_latest">Already the latest version</string>
+
+    <!-- Main Activity -->
+    <string name="select_output_location">Select Output Location</string>
+    <string name="input_world">Input World Directory</string>
+    <string name="output_directory">Output Directory</string>
+    <string name="not_selected">Not selected</string>
+    <string name="start_conversion">Start Conversion</string>
+    <string name="settings">Settings</string>
+    <string name="built_in_terminal">Console</string>
+    <string name="converter">Converter</string>
+    <string name="output_manager">Output Manager</string>
+    <string name="map_downloader">Map Downloader</string>
+    <string name="resource_converter">Resource Pack Converter</string>
+    <string name="feature_not_available">Feature not yet available, coming soon!</string>
+    <string name="archive">Archive Format</string>
+    <string name="folder">Folder Directory</string>
+    <string name="bedrock_edition">Bedrock Edition</string>
+    <string name="java_edition">Java Edition</string>
+    <string name="to_java">Convert to Java</string>
+    <string name="to_bedrock">Convert to Bedrock</string>
+
+    <!-- Conversion Settings -->
+    <string name="auto_detect">Auto Detect</string>
+    <string name="select_target_format">Select target format</string>
+    <string name="convert_to">Convert to</string>
+
+    <!-- Java Versions -->
+    <string name="java_1_8_8">Java 1.8.8</string>
+    <string name="java_1_9">Java 1.9</string>
+    <string name="java_1_10">Java 1.10</string>
+    <string name="java_1_11">Java 1.11</string>
+    <string name="java_1_12">Java 1.12</string>
+    <string name="java_1_13">Java 1.13</string>
+    <string name="java_1_14">Java 1.14</string>
+    <string name="java_1_15">Java 1.15</string>
+    <string name="java_1_16">Java 1.16</string>
+    <string name="java_1_17">Java 1.17</string>
+    <string name="java_1_18">Java 1.18</string>
+    <string name="java_1_19">Java 1.19</string>
+    <string name="java_1_20">Java 1.20</string>
+    <string name="java_1_21">Java 1.21</string>
+
+    <!-- Bedrock Versions -->
+    <string name="bedrock_1_12">Bedrock 1.12</string>
+    <string name="bedrock_1_13">Bedrock 1.13</string>
+    <string name="bedrock_1_14">Bedrock 1.14</string>
+    <string name="bedrock_1_16">Bedrock 1.16</string>
+    <string name="bedrock_1_17">Bedrock 1.17</string>
+    <string name="bedrock_1_18">Bedrock 1.18</string>
+    <string name="bedrock_1_19">Bedrock 1.19</string>
+    <string name="bedrock_1_20">Bedrock 1.20</string>
+    <string name="bedrock_1_21">Bedrock 1.21</string>
+    <string name="bedrock_1_26">Bedrock 1.26</string>
+
+    <!-- Conversion Activity -->
+    <string name="conversion_title">Converting World</string>
+    <string name="conversion_progress">Conversion Progress</string>
+    <string name="converting">Converting...</string>
+    <string name="conversion_complete">Conversion Complete!</string>
+    <string name="conversion_failed">Conversion Failed</string>
+    <string name="cancel_conversion">Cancel</string>
+    <string name="view_logs">View Logs</string>
+    <string name="open_output">Open Output Folder</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="conversion_settings">Converter Settings</string>
+    <string name="jvm_max_memory">JVM Maximum Memory (MB)</string>
+    <string name="memory_hint">For large worlds (over 1GB), increase memory for better performance. Too little memory may cause errors.</string>
+    <string name="keep_original_nbt">Keep Original NBT</string>
+    <string name="keep_original_nbt_desc">Preserve original world data, recommended only when converting between same versions</string>
+    <string name="general_settings">General</string>
+    <string name="theme_switch">Theme Switch</string>
+    <string name="theme_bedrock_black">Bedrock Black (Default)</string>
+    <string name="theme_far_east">Far East Continent</string>
+    <string name="theme_jungle">MC Jungle</string>
+    <string name="theme_xingyang">Xingyang City (By Offcial Bean)</string>
+    <string name="theme_furry">Furry (Internet Source)</string>
+    <string name="output_management">Output Management</string>
+    <string name="developer_mode">Developer Switch</string>
+    <string name="clear_all_output">Clear All Output Worlds</string>
+    <string name="show_undeveloped_features">Show Undeveloped Features</string>
+    <string name="show_terminal">Show Console in Sidebar</string>
+    <string name="output_cleared">All output worlds cleared</string>
+    <string name="theme_changed_immediate">Theme changed successfully!</string>
+
+    <!-- Messages -->
+    <string name="error_no_input">Please select an input world</string>
+    <string name="error_no_output">Please select an output location</string>
+    <string name="error_no_format">Please select a target format</string>
+    <string name="permission_required">Storage permission is required to access world files</string>
+
+    <!-- Notifications -->
+    <string name="conversion_notification_channel">World Conversion</string>
+    <string name="conversion_notification_channel_desc">Notifications for world conversion progress</string>
+    <string name="conversion_in_progress">World conversion in progress</string>
+
+    <!-- Log levels -->
+    <string name="log_info">INFO</string>
+    <string name="log_warning">WARN</string>
+    <string name="log_error">ERROR</string>
+    <string name="log_debug">DEBUG</string>
+
+    <!-- Progress steps -->
+    <string name="reading_level_dat">Reading level.dat...</string>
+    <string name="analyzing_world_dimensions">Analyzing world dimensions...</string>
+    <string name="converting_chunks">Converting chunks...</string>
+    <string name="converting_block_data">Converting block data...</string>
+    <string name="converting_entities">Converting entities...</string>
+    <string name="writing_output">Writing output...</string>
+    <string name="finalizing">Finalizing...</string>
+
+    <!-- Conversion Activity -->
+    <string name="conversion_details">Conversion Details</string>
+    <string name="log_output">Log Output</string>
+
+    <!-- Main Activity -->
+    <string name="storage_permission_required_title">Storage Permission Required</string>
+    <string name="storage_permission_required_message">This app needs access to all files to read and write Minecraft world data.</string>
+    <string name="grant">Grant</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Log messages -->
+    <string name="starting_conversion">Starting conversion...</string>
+    <string name="target_format_log">Target format: %s</string>
+    <string name="input_log">Input: %s</string>
+    <string name="output_log">Output: %s</string>
+    <string name="command_log">Command: %s</string>
+    <string name="error_log">Error: %s</string>
+    <string name="conversion_cancelled">Conversion cancelled by user</string>
+    <string name="service_not_bound">Service not bound</string>
+
+    <!-- Conversion details -->
+    <string name="input_details">Input: %s</string>
+    <string name="output_details">Output: %s</string>
+    <string name="format_details">Target Format: %s</string>
+
+    <!-- Output Manager -->
+    <string name="export">Export</string>
+    <string name="open_folder">Open Folder</string>
+    <string name="export_as_mcworld">Export as .mcworld</string>
+    <string name="export_as_zip">Export as .zip</string>
+    <string name="converted_to_java">%s</string>
+    <string name="converted_to_bedrock">%s</string>
+    <string name="start_game">Start Game</string>
+    <string name="bedrock_netease">Bedrock: NetEase</string>
+    <string name="bedrock_international">Bedrock: International</string>
+    <string name="java_pojav">Java: Pojav</string>
+    <string name="java_fcl">Java: Fcl</string>
+    <string name="java_hmcl">Java: HMCL-PE</string>
+    <string name="no_worlds_found">Try to converse a world</string>
+    <string name="delete_world">Delete World</string>
+    <string name="archive_decrypt">Archive Decrypt</string>
+    <string name="export_success">Export successful</string>
+    <string name="export_failed">Export failed</string>
+    <string name="app_not_installed">App not installed</string>
+    <string name="launch_failed">Launch failed</string>
+</resources>

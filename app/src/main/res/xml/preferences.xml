@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/conversion_settings">
+
+        <SeekBarPreference
+            android:key="max_memory"
+            android:title="@string/jvm_max_memory"
+            android:defaultValue="4096"
+            android:max="8192"
+            app:min="512"
+            app:seekBarIncrement="256"
+            app:showSeekBarValue="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

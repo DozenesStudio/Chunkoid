@@ -1,0 +1,37 @@
+<resources>
+    <style name="Theme.Chunkoid" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/minecraft_green</item>
+        <item name="colorPrimaryVariant">@color/minecraft_green_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/minecraft_brown</item>
+        <item name="colorSecondaryVariant">@color/minecraft_brown_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/minecraft_bg</item>
+        <item name="colorSurface">@color/minecraft_surface</item>
+        <item name="colorError">@color/minecraft_red</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/minecraft_bg</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/minecraft_gray</item>
+    </style>
+
+    <style name="Theme.ChunkerAndroid.ActionBar" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/minecraft_green</item>
+        <item name="colorPrimaryVariant">@color/minecraft_green_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="RoundedImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+</resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/minecraft_bg">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="@color/minecraft_surface">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/terminal"
+            android:tint="@color/minecraft_green"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="终端控制台"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="【退出】"
+            android:textColor="@color/minecraft_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        <TextView
+            android:id="@+id/tv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="【清空】"
+            android:textColor="@color/minecraft_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        <ImageView
+            android:id="@+id/img_terminal_status"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/circle_red"/>
+
+    </LinearLayout>
+
+    <!-- Terminal Output -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tv_terminal_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/minecraft_green"
+            android:textSize="14sp"
+            android:fontFamily="monospace"
+            android:lineSpacingMultiplier="1.2"
+            android:textIsSelectable="true"
+            android:longClickable="true"/>
+
+    </ScrollView>
+
+    <!-- Input Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/minecraft_surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:fontFamily="monospace"
+            android:text="$ "
+            android:textColor="@color/minecraft_green"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_command_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:fontFamily="monospace"
+            android:hint="输入命令..."
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/minecraft_gray"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btn_send_command"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_send"
+            android:tint="@color/minecraft_green" />
+
+    </LinearLayout>
+
+</LinearLayout>
