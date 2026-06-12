@@ -28,7 +28,8 @@ class AboutActivity : AppCompatActivity() {
 
         val btnDonate = findViewById<Button>(R.id.btn_donate)
         btnDonate.setOnClickListener {
-            ToastUtils.show(this, getString(R.string.feature_not_available))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ifdian.net/p/5ef51b66663011f1b89352540025c377"))
+            startActivity(intent)
         }
 
         val tvGithubLink = findViewById<TextView>(R.id.tv_github_link)
