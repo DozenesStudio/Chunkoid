@@ -22,7 +22,8 @@ class AboutActivity : AppCompatActivity() {
 
         val btnCheckUpdate = findViewById<Button>(R.id.btn_check_update)
         btnCheckUpdate.setOnClickListener {
-            ToastUtils.show(this, getString(R.string.update_latest))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/DozenesStudio/Chunkoid/releases"))
+            startActivity(intent)
         }
 
         val btnDonate = findViewById<Button>(R.id.btn_donate)

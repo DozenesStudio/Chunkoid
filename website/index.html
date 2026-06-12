@@ -352,50 +352,63 @@
             color: #f59e0b;
         }
 
-        /* 弹窗样式 */
-        .modal {
-            display: none;
+        /* 更新提示Toast样式 */
+        .custom-toast {
             position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
+            right: -400px;
+            bottom: 40px;
+            z-index: 9999;
+            animation: slideIn 0.5s ease forwards, slideOut 0.5s ease 3s forwards;
         }
 
-        .modal.show {
-            display: flex;
+        .toast-content {
+            background: rgba(10, 10, 10, 0.9);
+            border: 3px solid #5D8C22;
+            border-radius: 12px;
+            padding: 16px 24px;
+            max-width: 320px;
         }
 
-        .modal-content {
-            background: rgba(30, 30, 30, 0.95);
-            padding: 40px 60px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: modalFadeIn 0.3s ease;
+        .toast-text {
+            color: #5D8C22;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
         }
 
-        @keyframes modalFadeIn {
+        @keyframes slideIn {
             from {
-                opacity: 0;
-                transform: scale(0.9);
+                right: -400px;
             }
             to {
-                opacity: 1;
-                transform: scale(1);
+                right: 20px;
             }
         }
 
-        .modal-message {
-            color: #ffffff;
-            font-size: 18px;
-            margin: 0;
+        @keyframes slideOut {
+            from {
+                right: 20px;
+            }
+            to {
+                right: -400px;
+            }
+        }
+
+        /* 赞助区域样式 */
+        .sponsor-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .btn-ifdian {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ifdian-icon {
+            width: 20px;
+            height: 20px;
         }
 
         @media (max-width: 1024px) {
@@ -452,7 +465,7 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-                <a href="#" class="donate-link">捐赠</a>
+                <a href="#sponsor" class="donate-link">赞助</a>
                 <a href="#features">功能特性</a>
                 <a href="#download">下载</a>
                 <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
@@ -463,13 +476,6 @@
                 </a>
             </nav>
         </header>
-
-        <!-- 捐赠弹窗 -->
-        <div id="donate-modal" class="modal">
-            <div class="modal-content">
-                <p class="modal-message">该渠道暂未开放</p>
-            </div>
-        </div>
 
         <section class="hero-section">
             <div class="hero-text">
@@ -550,6 +556,16 @@
             </div>
         </section>
 
+        <!-- 赞助区域 -->
+        <section id="sponsor" class="sponsor-section">
+            <h2 class="section-title">支持开发</h2>
+            <p style="color: #b0b0b0; margin-bottom: 30px;">真...真的吗，会有人赞助吗？！</p>
+            <a href="https://ifdian.net/p/5ef51b66663011f1b89352540025c377" target="_blank" class="btn btn-primary btn-ifdian">
+                <img src="ifdian.png" alt="爱发电" class="ifdian-icon">
+                爱发电项目页面
+            </a>
+        </section>
+
         <footer>
             <p>&copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
             <p style="margin-top: 10px;">
@@ -557,23 +573,14 @@
                 <span style="color: #4ade80;">加入开发版QQ群：1103983368</span>
             </p>
         </footer>
+
+        <!-- 更新提示Toast -->
+        <div id="update-toast" class="custom-toast">
+            <div class="toast-content">
+                <span class="toast-text">Chunkoid-1.0.1-Hotfix已发布，修复大BUG，请前往更新！</span>
+            </div>
+        </div>
+
     </div>
-
-    <script>
-        // 捐赠弹窗逻辑
-        const donateLink = document.querySelector('.donate-link');
-        const modal = document.getElementById('donate-modal');
-
-        donateLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.classList.add('show');
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-    </script>
 </body>
 </html>

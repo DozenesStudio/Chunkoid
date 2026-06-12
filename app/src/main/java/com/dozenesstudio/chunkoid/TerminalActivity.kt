@@ -36,7 +36,7 @@ class TerminalActivity : AppCompatActivity() {
 
     companion object {
         private const val PERMISSION_REQUEST_CODE = 101
-        private const val CHUNKER_CLI_PATH = "chunker-cli-1.15.0.jar"
+        private const val CHUNKER_CLI_PATH = "chunker-cli-1.18.1.jar"
         private const val APP_FILES_DIR = "/data/user/0/com.dozenesstudio.chunkoid/files"
     }
 
@@ -141,9 +141,9 @@ class TerminalActivity : AppCompatActivity() {
                     binding.imgTerminalStatus.setBackgroundResource(R.drawable.circle_green)
                     val grayColor = ContextCompat.getColor(this, R.color.minecraft_gray)
                     appendColoredOutput("欢迎使用内置终端，当你看到Java版本信息时，说明Chunkoid初始化成功，软件可以正常使用\n", grayColor)
-                    appendColoredOutput("Chunker命令行版本-使用方法: java -jar chunker-cli-1.15.0.jar -i <输入路径> -o <输出路径> -f <目标格式>\n", grayColor)
+                    appendColoredOutput("Chunker命令行版本-使用方法: java -jar chunker-cli-1.18.1.jar -i <输入路径> -o <输出路径> -f <目标格式>\n", grayColor)
                     appendColoredOutput("Chunker命令行版本-目标格式示例: JAVA_1_21, BEDROCK_1_20_80\n", grayColor)
-                    appendColoredOutput("获取详细帮助: java -jar chunker-cli-1.15.0.jar -help\n", grayColor)
+                    appendColoredOutput("获取详细帮助: java -jar chunker-cli-1.18.1.jar -help\n", grayColor)
                     appendPrompt()
                 }
                 Thread.sleep(500)
@@ -247,8 +247,8 @@ class TerminalActivity : AppCompatActivity() {
         val chunkerCliPath = "$APP_FILES_DIR/$CHUNKER_CLI_PATH"
 
         var modifiedCommand = command
-        if (command.contains("chunker-cli-1.15.0.jar")) {
-            modifiedCommand = command.replace("chunker-cli-1.15.0.jar", chunkerCliPath)
+        if (command.contains("chunker-cli-1.18.1.jar")) {
+            modifiedCommand = command.replace("chunker-cli-1.18.1.jar", chunkerCliPath)
         }
 
         val javaArgs = modifiedCommand.substringAfter("java ").trim().split("\\s+".toRegex()).filter { it.isNotEmpty() }

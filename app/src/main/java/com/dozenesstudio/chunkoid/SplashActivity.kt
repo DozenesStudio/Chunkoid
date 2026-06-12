@@ -85,14 +85,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun copyChunkerJar(): Boolean {
-        val chunkerJar = getFileStreamPath("chunker-cli-1.15.0.jar")
+        val chunkerJar = getFileStreamPath("chunker-cli-1.18.1.jar")
         if (chunkerJar.exists()) {
             updateProgress(100)
             return true
         }
 
         try {
-            assets.open("chunker-cli-1.15.0.jar").use { input ->
+            assets.open("chunker-cli-1.18.1.jar").use { input ->
                 chunkerJar.outputStream().use { output ->
                     val totalSize = input.available()
                     var copied = 0

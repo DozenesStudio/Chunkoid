@@ -204,9 +204,9 @@
                                             android:id="@+id/tv_extract_progress"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="8dp"
-                                            android:layout_marginStart="16dp"
                                             android:layout_gravity="start"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
                                             android:text="@string/extracting_world"
                                             android:textColor="@color/white"
                                             android:textSize="18sp" />
@@ -326,38 +326,8 @@
                                                     android:id="@+id/tv_target_version"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:text="转换为 Java 1.20"
+                                                    android:text="Java 1.20"
                                                     android:textColor="@color/white"
-                                                    android:textSize="16sp"
-                                                    android:textStyle="bold" />
-
-                                            </LinearLayout>
-
-                                        </com.google.android.material.card.MaterialCardView>
-
-                                        <!-- Version Card (Temporarily Hidden) -->
-                                        <com.google.android.material.card.MaterialCardView
-                                            android:id="@+id/card_version"
-                                            android:layout_width="0dp"
-                                            android:layout_height="50dp"
-                                            android:layout_marginEnd="8dp"
-                                            android:layout_weight="1"
-                                            android:visibility="invisible"
-                                            app:cardBackgroundColor="@color/minecraft_gold"
-                                            app:cardCornerRadius="6dp"
-                                            app:cardElevation="0dp">
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:gravity="center">
-
-                                                <TextView
-                                                    android:id="@+id/tv_version"
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:text="版本"
-                                                    android:textColor="@color/black"
                                                     android:textSize="16sp"
                                                     android:textStyle="bold" />
 

@@ -13,6 +13,9 @@
     <color name="minecraft_blue">#2C2E8F</color>
     <color name="minecraft_gold">#FFD700</color>
 
+    <color name="dark_card">#2D2D2D</color>
+    <color name="dark_card_secondary">#3D3D3D</color>
+
     <!-- Standard Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

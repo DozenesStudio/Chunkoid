@@ -314,7 +314,7 @@ class ConversionService : Service() {
     }
 
     private fun getChunkerJarPath(): String {
-        return File(filesDir, "chunker-cli-1.15.0.jar").absolutePath
+        return File(filesDir, "chunker-cli-1.18.1.jar").absolutePath
     }
 
     private fun moveOutputToDocuments(sourceDir: File, worldName: String) {
