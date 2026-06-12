@@ -73,6 +73,10 @@
 - **邮箱**：[DozenesStudio@qq.com](mailto:contact@dozenesstudio.com)
 - **官网**：<https://dozenesstudio.github.io/Chunkoid/>
 
+## 赞助/捐赠
+
+- **爱发电项目页面：** [Afdian](https://ifdian.net/p/5ef51b66663011f1b89352540025c377)
+
 ## 致谢
 
 Ryan steven
