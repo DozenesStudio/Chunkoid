@@ -205,6 +205,36 @@
             height: 280px;
         }
 
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .image-label {
+            color: #4ade80;
+            font-size: 18px;
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-card {
+            position: relative;
+        }
+
+        .image-card:hover .image-overlay {
+            opacity: 1;
+        }
+
         .features-section {
             padding: 80px 0;
         }
@@ -499,9 +529,15 @@
             <div class="hero-images">
                 <div class="image-card phone">
                     <img src="phone.jpg" alt="手机端截图">
+                    <div class="image-overlay">
+                        <span class="image-label">手机端版本选择页面</span>
+                    </div>
                 </div>
                 <div class="image-card tablet">
                     <img src="pad.png" alt="平板端截图">
+                    <div class="image-overlay">
+                        <span class="image-label">平板端主页</span>
+                    </div>
                 </div>
             </div>
         </section>
