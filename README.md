@@ -89,10 +89,10 @@ Weiyin 1A
 
 本项目使用了以下开源软件：
 
-- **chunker-cli** (v1.15.0) - 核心转换引擎，源自The Hive的 [chunker](https://github.com/HiveGamesOSS/Chunker) 开源项目
+- **chunker-cli** (v1.18.0) - 核心转换引擎，源自The Hive的 [chunker](https://github.com/HiveGamesOSS/Chunker) 开源项目
   - 许可证：MIT License
   - 文件位置：`app/src/main/assets/chunker-cli-1.15.0.jar`
 
 ## 许可证
 
-Copyright © 2024 DozenesStudio. Licensed under the GNU General Public License v3.0.
+Copyright © 2026 DozenesStudio. Licensed under the GNU General Public License v3.0.
