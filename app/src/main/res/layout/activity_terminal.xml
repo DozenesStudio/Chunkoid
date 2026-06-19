@@ -63,26 +63,94 @@
 
     </LinearLayout>
 
-    <!-- Terminal Output -->
-    <ScrollView
+    <!-- Terminal Output with Floating Buttons -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp"
-        android:fillViewport="true">
+        android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/tv_terminal_output"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/minecraft_green"
-            android:textSize="14sp"
-            android:fontFamily="monospace"
-            android:lineSpacingMultiplier="1.2"
-            android:textIsSelectable="true"
-            android:longClickable="true"/>
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:fillViewport="true">
 
-    </ScrollView>
+            <TextView
+                android:id="@+id/tv_terminal_output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/minecraft_green"
+                android:textSize="14sp"
+                android:fontFamily="monospace"
+                android:lineSpacingMultiplier="1.2"
+                android:textIsSelectable="true"
+                android:longClickable="true"/>
+
+        </ScrollView>
+
+        <!-- Floating Debug Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_debug_jdk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_debug_button"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="调试JDK"
+                android:textColor="@color/minecraft_gray"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_debug_chunker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_debug_button"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="调试Chunker-CLI"
+                android:textColor="@color/minecraft_gray"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_symbol_dash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_debug_button"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text=" - "
+                android:textColor="@color/minecraft_gray"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_symbol_slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_debug_button"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text=" / "
+                android:textColor="@color/minecraft_gray"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <!-- Input Area -->
     <LinearLayout

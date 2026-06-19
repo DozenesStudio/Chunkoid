@@ -88,6 +88,22 @@ class TerminalActivity : AppCompatActivity() {
             appendPrompt()
         }
 
+        binding.tvDebugJdk.setOnClickListener {
+            executeAutoCommand("java -version")
+        }
+
+        binding.tvDebugChunker.setOnClickListener {
+            executeAutoCommand("java -jar chunker-cli-1.18.1.jar")
+        }
+
+        binding.tvSymbolDash.setOnClickListener {
+            insertSymbol("-")
+        }
+
+        binding.tvSymbolSlash.setOnClickListener {
+            insertSymbol("/")
+        }
+
         binding.etCommandInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -140,15 +156,8 @@ class TerminalActivity : AppCompatActivity() {
                     isInitialized = true
                     binding.imgTerminalStatus.setBackgroundResource(R.drawable.circle_green)
                     val grayColor = ContextCompat.getColor(this, R.color.minecraft_gray)
-                    appendColoredOutput("欢迎使用内置终端，当你看到Java版本信息时，说明Chunkoid初始化成功，软件可以正常使用\n", grayColor)
-                    appendColoredOutput("Chunker命令行版本-使用方法: java -jar chunker-cli-1.18.1.jar -i <输入路径> -o <输出路径> -f <目标格式>\n", grayColor)
-                    appendColoredOutput("Chunker命令行版本-目标格式示例: JAVA_1_21, BEDROCK_1_20_80\n", grayColor)
-                    appendColoredOutput("获取详细帮助: java -jar chunker-cli-1.18.1.jar -help\n", grayColor)
+                    appendColoredOutput("- 欢迎使用Chunkoid控制台 v2.0\n", grayColor)
                     appendPrompt()
-                }
-                Thread.sleep(500)
-                runOnUiThread {
-                    executeAutoCommand("java -version")
                 }
             } catch (e: Exception) {
                 runOnUiThread {
@@ -290,6 +299,15 @@ class TerminalActivity : AppCompatActivity() {
         binding.tvTerminalOutput.post {
             binding.tvTerminalOutput.parent.requestLayout()
         }
+    }
+
+    private fun insertSymbol(symbol: String) {
+        val editText = binding.etCommandInput
+        val start = editText.selectionStart
+        val end = editText.selectionEnd
+        editText.text?.replace(start, end, symbol)
+        editText.setSelection(start + symbol.length)
+        editText.requestFocus()
     }
 
     override fun onBackPressed() {

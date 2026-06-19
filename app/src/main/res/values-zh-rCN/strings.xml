@@ -8,20 +8,18 @@
     <string name="output_folder_not_found">未找到输出文件夹</string>
     <string name="cannot_open_folder">无法打开输出文件夹</string>
     <string name="app_description">一个安卓版JE-BE世界转换器</string>
-    <string name="app_version">1.0.1 Hotfix</string>
+    <string name="app_version">Ver.1.1.0 正式版</string>
     <string name="about">关于</string>
 
     <!-- About Page -->
     <string name="about_intro">一个安卓端的我的世界JE-BE双端世界转换器\n力求为手机用户提供一个方便快捷的存档转换体验</string>
-    <string name="about_credits">【Chunker-Cli.jar】源于Hive Game的开源项目</string>
+    <string name="about_credits">Chunker-Cli.jar：源于Hive Game的开源项目</string>
     <string name="about_author">作者：Dozener</string>
     <string name="about_thanks">特别鸣谢：Ryan Steven</string>
     <string name="about_github"><a href="https://dozenesstudio.github.io/Chunkoid/">进入开源官网</a></string>
     <string name="about_date">2026/6/9</string>
     <string name="check_update">检查更新</string>
     <string name="donate">捐赠</string>
-    <string name="extracting_world">正在解压缩世界...</string>
-    <string name="update_latest">当前为最新版</string>
 
     <!-- Main Activity -->
     <string name="select_output_location">选择输出位置</string>
@@ -38,6 +36,7 @@
     <string name="feature_not_available">该功能尚未开发，敬请期待！</string>
     <string name="archive">归档格式</string>
     <string name="folder">文件夹目录</string>
+    <string name="extracting_world">正在解压缩世界...</string>
     <string name="bedrock_edition">基岩版</string>
     <string name="java_edition">Java版</string>
     <string name="to_java">转Java</string>
@@ -292,7 +291,7 @@
     <string name="bedrock_international">基岩版：国际</string>
     <string name="java_pojav">Java版：Pojav</string>
     <string name="java_fcl">Java版：Fcl</string>
-    <string name="java_hmcl">Java版：HMCL-PE</string>
+    <string name="java_zl2">Java版：ZL2</string>
     <string name="no_worlds_found">尝试转换一个世界吧 ♪(´▽｀)</string>
     <string name="delete_world">删除世界</string>
     <string name="archive_decrypt">网易存档解密</string>

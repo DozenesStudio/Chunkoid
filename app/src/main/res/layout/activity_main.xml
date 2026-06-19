@@ -66,7 +66,7 @@
 
                             <ImageView
                                 android:id="@+id/app_text"
-                                android:layout_width="251dp"
+                                android:layout_width="270dp"
                                 android:layout_height="wrap_content"
                                 android:contentDescription="App Text"
                                 android:src="@drawable/text" />
@@ -75,7 +75,7 @@
 
                         <!-- Prepare World Section -->
                         <LinearLayout
-                            android:layout_width="360dp"
+                            android:layout_width="345dp"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
@@ -86,7 +86,7 @@
                                 android:layout_height="200dp"
                                 android:layout_marginBottom="16dp"
                                 app:cardBackgroundColor="@color/minecraft_surface"
-                                app:cardCornerRadius="8dp"
+                                app:cardCornerRadius="15dp"
                                 app:cardElevation="4dp">
 
                                 <LinearLayout
@@ -121,7 +121,7 @@
                                             android:id="@+id/tv_archive_label"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="bottom|start"
+                                            android:layout_gravity="center"
                                             android:text="@string/archive"
                                             android:textColor="#B4B4B4"
                                             android:textSize="20sp" />
@@ -151,7 +151,7 @@
                                             android:id="@+id/tv_folder_label"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="bottom|start"
+                                            android:layout_gravity="center"
                                             android:text="@string/folder"
                                             android:textColor="#B4B4B4"
                                             android:textSize="20sp" />
@@ -170,8 +170,9 @@
                                 android:layout_marginBottom="16dp"
                                 android:visibility="gone"
                                 app:cardBackgroundColor="@color/minecraft_surface"
-                                app:cardCornerRadius="8dp"
-                                app:cardElevation="4dp">
+                                app:cardCornerRadius="15dp"
+                                app:cardElevation="4dp"
+                                tools:visibility="visible">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -217,7 +218,7 @@
                                     <com.google.android.material.card.MaterialCardView
                                         android:id="@+id/card_world_info_bar"
                                         android:layout_width="match_parent"
-                                        android:layout_height="100dp"
+                                        android:layout_height="80dp"
                                         android:layout_marginBottom="12dp"
                                         app:cardBackgroundColor="@color/minecraft_surface_dark"
                                         app:cardCornerRadius="8dp"
@@ -225,7 +226,7 @@
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
+                                            android:layout_height="80dp"
                                             android:gravity="center_vertical"
                                             android:orientation="horizontal"
                                             android:padding="8dp">
@@ -233,10 +234,10 @@
                                             <!-- World Icon -->
                                             <com.google.android.material.imageview.ShapeableImageView
                                                 android:id="@+id/iv_world_icon"
-                                                android:layout_width="80dp"
-                                                android:layout_height="80dp"
+                                                android:layout_width="65dp"
+                                                android:layout_height="65dp"
                                                 android:layout_marginEnd="12dp"
-                                                android:background="@color/minecraft_green"
+                                                android:background="@color/minecraft_surface_dark"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/unknown"
                                                 app:shapeAppearanceOverlay="@style/RoundedImageStyle"
@@ -251,7 +252,7 @@
                                                 android:layout_weight="1"
                                                 android:text="世界名称"
                                                 android:textColor="@color/white"
-                                                android:textSize="24sp"
+                                                android:textSize="20sp"
                                                 android:textStyle="bold" />
 
                                         </LinearLayout>
@@ -394,7 +395,7 @@
         <LinearLayout
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="100dp"
             android:layout_gravity="bottom"
             android:background="@android:color/transparent"
             android:elevation="24dp"

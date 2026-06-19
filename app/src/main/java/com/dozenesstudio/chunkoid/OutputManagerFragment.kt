@@ -245,23 +245,49 @@ class OutputManagerFragment : Fragment() {
     }
 
     private fun showGameLauncherMenu(anchor: View) {
-        val items = arrayOf(
-            "基岩版：网易" to { launchMinecraft("com.netease.x19") },
-            "基岩版：国际版" to { launchMinecraft("com.mojang.minecraftpe") },
-            "Java版：Pojav" to { launchMinecraft("net.kdt.pojavlaunch") },
-            "Java版：Fcl" to { launchMinecraft("com.tungsten.fcl") },
-            "Java版：HMCL-PE" to { launchMinecraft("com.tungsten.fcl") }
-        )
+       data class GameInfo(val iconRes: Int, val packageName: String, val displayName: String)
+        
+       val games = listOf(
+            GameInfo(R.drawable.ne, "com.netease.x19", "基岩版：网易"),
+            GameInfo(R.drawable.be, "com.mojang.minecraftpe", "基岩版：国际版"),
+            GameInfo(R.drawable.pojav, "net.kdt.pojavlaunch", "Java版：Pojav"),
+            GameInfo(R.drawable.fcl, "com.tungsten.fcl", "Java版：Fcl"),
+            GameInfo(R.drawable.zl2, "com.movtery.zalithlauncher.v2", "Java版：ZL2")
+       )
 
-        val builder = android.app.AlertDialog.Builder(requireContext(), R.style.DialogTheme)
-        builder.setTitle("选择启动软件")
-        builder.setItems(items.map { it.first }.toTypedArray()) { _, which ->
-            items[which].second()
+       val items = games.map { it.displayName }.toTypedArray()
+       val icons = games.map { it.iconRes }.toIntArray()
+
+       val builder = android.app.AlertDialog.Builder(requireContext(), R.style.DialogTheme)
+      builder.setTitle("选择启动项")
+        
+     // 使用自定义适配器显示图标
+      builder.setAdapter(object : android.widget.BaseAdapter() {
+          override fun getCount(): Int = games.size
+
+          override fun getItem(position: Int): Any = games[position]
+
+          override fun getItemId(position: Int): Long = position.toLong()
+
+          override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+              val view = convertView ?: LayoutInflater.from(requireContext())
+                  .inflate(R.layout.launcher_menu_item, parent, false)
+
+              val icon = view.findViewById<android.widget.ImageView>(R.id.iv_icon)
+              val title = view.findViewById<android.widget.TextView>(R.id.tv_title)
+
+              icon.setImageResource(games[position].iconRes)
+              title.text = games[position].displayName
+
+              return view
         }
+       }) { _, which ->
+           launchMinecraft(games[which].packageName)
+       }
 
-        val dialog = builder.create()
-        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_rounded_background)
-        dialog.show()
+       val dialog = builder.create()
+       dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_rounded_background)
+      dialog.show()
     }
 
     private fun launchMinecraft(packageName: String) {

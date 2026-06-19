@@ -239,6 +239,11 @@ class ConversionService : Service() {
             var lastProgress = 25
 
             fun processLine(lineStr: String) {
+                // 过滤 Android linker 警告
+                if (lineStr.contains("WARNING: linker:") || lineStr.contains("has unsupported flags")) {
+                    return
+                }
+
                 Log.d(TAG, "Chunker: $lineStr")
 
                 // Parse simple percentage format like "3.21%" or "22.24%"

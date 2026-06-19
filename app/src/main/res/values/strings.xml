@@ -8,12 +8,12 @@
     <string name="output_folder_not_found">Output folder not found</string>
     <string name="cannot_open_folder">Cannot open output folder</string>
     <string name="app_description">Convert Minecraft worlds between Java and Bedrock editions</string>
-    <string name="app_version">1.0.1 Hotfix</string>
+    <string name="app_version">Ver.1.1.0 Release</string>
     <string name="about">About</string>
 
     <!-- About Page -->
     <string name="about_intro">A Minecraft Java-Bedrock world converter for Android devices. This unique application supports version downgrade and upgrade functionality, offering a convenient conversion environment for mobile users.</string>
-    <string name="about_credits">Chunker-Cli.jar from Hive Game open source project Chunker.</string>
+    <string name="about_credits">Chunker-Cli.jar: from Hive Game open source project Chunker.</string>
     <string name="about_author">Author: Dozener</string>
     <string name="about_thanks">Special Thanks: Ryan Steven</string>
     <string name="about_github"><a href="https://dozenesstudio.github.io/Chunkoid/">Click to visit website</a></string>
@@ -21,8 +21,6 @@
     <string name="about_date">2026/6/9</string>
     <string name="check_update">Check for Updates</string>
     <string name="donate">Donate</string>
-    <string name="extracting_world">Extracting world...</string>
-    <string name="update_latest">Already the latest version</string>
 
     <!-- Main Activity -->
     <string name="select_output_location">Select Output Location</string>
@@ -39,6 +37,7 @@
     <string name="feature_not_available">Feature not yet available, coming soon!</string>
     <string name="archive">Archive Format</string>
     <string name="folder">Folder Directory</string>
+    <string name="extracting_world">Extracting world...</string>
     <string name="bedrock_edition">Bedrock Edition</string>
     <string name="java_edition">Java Edition</string>
     <string name="to_java">Convert to Java</string>
@@ -296,8 +295,8 @@
     <string name="bedrock_netease">Bedrock: NetEase</string>
     <string name="bedrock_international">Bedrock: International</string>
     <string name="java_pojav">Java: Pojav</string>
-    <string name="java_fcl">Java: Fcl</string>
-    <string name="java_hmcl">Java: HMCL-PE</string>
+    <string name="java_fcl">Java: FCL</string>
+    <string name="java_zl2">Java: ZL2</string>
     <string name="no_worlds_found">Try to converse a world</string>
     <string name="delete_world">Delete World</string>
     <string name="archive_decrypt">Archive Decrypt</string>

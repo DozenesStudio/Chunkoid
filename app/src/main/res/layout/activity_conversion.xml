@@ -66,7 +66,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@color/minecraft_green"
+                        android:background="@color/minecraft_surface_dark"
                         android:scaleType="centerCrop"
                         android:src="@drawable/unknown"
                         app:shapeAppearanceOverlay="@style/RoundedImageStyle"

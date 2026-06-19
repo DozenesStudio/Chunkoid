@@ -103,8 +103,8 @@ class SettingsFragment : Fragment() {
             toggleDeveloper()
         }
 
-        // Switch for Show Undeveloped Features (default: false)
-        binding.switchShowUndeveloped.isChecked = prefs.getBoolean("show_undeveloped", false)
+        // Switch for Show Undeveloped Features (default: true)
+        binding.switchShowUndeveloped.isChecked = prefs.getBoolean("show_undeveloped", true)
         binding.switchShowUndeveloped.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("show_undeveloped", isChecked).apply()
             updateNavDrawerVisibility()

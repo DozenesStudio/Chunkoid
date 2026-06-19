@@ -12,16 +12,21 @@ android {
         applicationId "com.dozenesstudio.chunkoid"
         minSdk 26
         targetSdk 34
-        versionCode 7
-        versionName "1.0.1 Hotfix"
+        versionCode 11
+        versionName "1.1.0-Release"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
         }
     }
     compileOptions {

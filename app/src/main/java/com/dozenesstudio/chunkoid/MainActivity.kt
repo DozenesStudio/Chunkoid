@@ -47,10 +47,20 @@ class MainActivity : AppCompatActivity() {
     private var isArchiveMode = false
     private var isWorldInfoVisible = false
     private var worldPlatform = Platform.BEDROCK
+    private lateinit var archiveSearcher: ArchiveSearcher
 
     private fun mapVersionToChunkerFormat(displayName: String): String {
-        return when(displayName) {
-            // Java版
+        val versionNum = displayName.replace("Java ", "").replace("Bedrock ", "")
+        
+        return if (displayName.startsWith("Java")) {
+            mapJavaVersion(versionNum)
+        } else {
+            mapBedrockVersion(versionNum)
+        }
+    }
+
+    private fun mapJavaVersion(versionNum: String): String {
+        return when(versionNum) {
             getString(R.string.java_1_8_8) -> "JAVA_1_8_8"
             getString(R.string.java_1_9) -> "JAVA_1_9"
             getString(R.string.java_1_9_1) -> "JAVA_1_9_1"
@@ -113,7 +123,12 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.java_1_21_11) -> "JAVA_1_21_11"
             getString(R.string.java_26_1) -> "JAVA_26_1"
             getString(R.string.java_26_2) -> "JAVA_26_2"
-            // 基岩版
+            else -> "JAVA_1_21_11"
+        }
+    }
+
+    private fun mapBedrockVersion(versionNum: String): String {
+        return when(versionNum) {
             getString(R.string.bedrock_1_12) -> "BEDROCK_R12"
             getString(R.string.bedrock_1_13) -> "BEDROCK_R13"
             getString(R.string.bedrock_1_14) -> "BEDROCK_R14"
@@ -171,7 +186,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.bedrock_1_26_10) -> "BEDROCK_R26_10"
             getString(R.string.bedrock_1_26_20) -> "BEDROCK_R26_20"
             getString(R.string.bedrock_1_26_30) -> "BEDROCK_R26_30"
-            else -> displayName
+            else -> "BEDROCK_R21_130"
         }
     }
 
@@ -238,6 +253,8 @@ class MainActivity : AppCompatActivity() {
         setupSplashText()
         updateNavDrawerVisibility()
         updateBackground()
+        
+        archiveSearcher = ArchiveSearcher(contentResolver, filesDir)
 
         handleIntent(intent)
     }
@@ -467,7 +484,7 @@ class MainActivity : AppCompatActivity() {
         val navItemDecrypt = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_decrypt)
         
         val showTerminal = prefs.getBoolean("show_terminal", true)
-        val showUndeveloped = prefs.getBoolean("show_undeveloped", false)
+        val showUndeveloped = prefs.getBoolean("show_undeveloped", true)
         
         navItemTerminal.visibility = if (showTerminal) View.VISIBLE else View.GONE
         navItemMapDownloader.visibility = if (showUndeveloped) View.VISIBLE else View.GONE
@@ -598,13 +615,13 @@ class MainActivity : AppCompatActivity() {
 
         // 动态填充基岩版版本组
         populateVersionGroups(bedrockVersionsLayout, bedrockVersionGroups) { version ->
-            selectedVersion = version
+            selectedVersion = "Bedrock $version"
             updateConfirmButton()
         }
 
         // 动态填充Java版版本组
         populateVersionGroups(javaVersionsLayout, javaVersionGroups) { version ->
-            selectedVersion = version
+            selectedVersion = "Java $version"
             updateConfirmButton()
         }
 
@@ -695,53 +712,98 @@ class MainActivity : AppCompatActivity() {
             // 隐藏信息卡片和按钮
             binding.layoutInfoCards.visibility = View.GONE
             binding.btnSelectTarget.visibility = View.GONE
-            
-            // 在后台线程执行所有文件操作
-            Thread {
-                val success = extractArchiveToInput(uri)
-                
-                if (!success) {
-                    // 解压失败，回到主线程更新UI
+
+            if (archiveSearcher.isZipFile(uri)) {
+                archiveSearcher.searchAndExtractArchive(uri, object : ArchiveSearcher.SearchCallback {
+                    override fun onProgress(progress: Int, message: String) {
+                        runOnUiThread {
+                            binding.progressExtract.progress = progress
+                            binding.tvExtractProgress.text = message
+                        }
+                    }
+
+                    override fun onSuccess(worldDir: File) {
+                        runOnUiThread {
+                            binding.layoutExtractProgress.visibility = View.GONE
+                            binding.cardWorldInfoBar.visibility = View.VISIBLE
+                            binding.layoutInfoCards.visibility = View.VISIBLE
+                            binding.btnSelectTarget.visibility = View.VISIBLE
+
+                            if (!validateWorld()) {
+                                clearOutput()
+                                switchToInitialState()
+                                showCustomToast("世界读取失败！", isError = true)
+                                return@runOnUiThread
+                            }
+
+                            readWorldNameFromArchive(uri)
+                            worldPlatform = archiveSearcher.detectPlatformFromDirectory()
+                            val iconBitmap = loadWorldIconFromArchive(uri)
+                            if (iconBitmap != null) {
+                                binding.ivWorldIcon.setImageBitmap(iconBitmap)
+                            }
+
+                            updateWorldInfoDisplay()
+                            switchToWorldInfoState()
+                        }
+                    }
+
+                    override fun onError(errorMessage: String) {
+                        runOnUiThread {
+                            binding.layoutExtractProgress.visibility = View.GONE
+                            binding.cardWorldInfoBar.visibility = View.VISIBLE
+                            binding.layoutInfoCards.visibility = View.VISIBLE
+                            binding.btnSelectTarget.visibility = View.VISIBLE
+                            showCustomToast(errorMessage, isError = true)
+                            switchToInitialState()
+                        }
+                    }
+                })
+            } else {
+                Thread {
+                    val success = archiveSearcher.extractArchiveToInput(uri) { progress, message ->
+                        runOnUiThread {
+                            binding.progressExtract.progress = progress
+                            binding.tvExtractProgress.text = message
+                        }
+                    }
+
+                    if (!success) {
+                        runOnUiThread {
+                            binding.layoutExtractProgress.visibility = View.GONE
+                            binding.cardWorldInfoBar.visibility = View.VISIBLE
+                            binding.layoutInfoCards.visibility = View.VISIBLE
+                            binding.btnSelectTarget.visibility = View.VISIBLE
+                        }
+                        return@Thread
+                    }
+
+                    readWorldNameFromArchive(uri)
+                    worldPlatform = archiveSearcher.detectPlatformFromArchive(uri)
+                    val iconBitmap = loadWorldIconFromArchive(uri)
+
                     runOnUiThread {
+                        if (iconBitmap != null) {
+                            binding.ivWorldIcon.setImageBitmap(iconBitmap)
+                        }
+
                         binding.layoutExtractProgress.visibility = View.GONE
                         binding.cardWorldInfoBar.visibility = View.VISIBLE
                         binding.layoutInfoCards.visibility = View.VISIBLE
                         binding.btnSelectTarget.visibility = View.VISIBLE
+
+                        if (!validateWorld()) {
+                            clearOutput()
+                            switchToInitialState()
+                            showCustomToast("世界读取失败！", isError = true)
+                            return@runOnUiThread
+                        }
+
+                        updateWorldInfoDisplay()
+                        switchToWorldInfoState()
                     }
-                    return@Thread
-                }
-                
-                // 继续在后台线程执行读取操作
-                readWorldNameFromArchive(uri)
-                detectPlatformFromArchive(uri)
-                val iconBitmap = loadWorldIconFromArchive(uri)
-                
-                // 所有读取完成，回到主线程更新UI
-                runOnUiThread {
-                    // 设置图标
-                    if (iconBitmap != null) {
-                        binding.ivWorldIcon.setImageBitmap(iconBitmap)
-                    }
-                    
-                    // 解压完成，隐藏进度条
-                    binding.layoutExtractProgress.visibility = View.GONE
-                    // 显示世界信息卡片
-                    binding.cardWorldInfoBar.visibility = View.VISIBLE
-                    // 显示信息卡片和按钮
-                    binding.layoutInfoCards.visibility = View.VISIBLE
-                    binding.btnSelectTarget.visibility = View.VISIBLE
-                    
-                    if (!validateWorld()) {
-                        clearOutput()
-                        switchToInitialState()
-                        showCustomToast("世界读取失败！", isError = true)
-                        return@runOnUiThread
-                    }
-                    
-                    updateWorldInfoDisplay()
-                    switchToWorldInfoState()
-                }
-            }.start()
+                }.start()
+            }
         } else {
             readWorldNameFromDirectory(uri)
             detectPlatformFromDirectory(uri)
@@ -764,7 +826,10 @@ class MainActivity : AppCompatActivity() {
             val inputDir = File(filesDir, "input")
             val dbDir = File(inputDir, "db")
             val regionDir = File(inputDir, "region")
-            return dbDir.exists() && dbDir.isDirectory || regionDir.exists() && regionDir.isDirectory
+            val dimensionsDir = File(inputDir, "dimensions")
+            return (dbDir.exists() && dbDir.isDirectory) ||
+                   (regionDir.exists() && regionDir.isDirectory) ||
+                   (dimensionsDir.exists() && dimensionsDir.isDirectory)
         } else {
             if (inputUri == null) return false
             try {
@@ -773,7 +838,10 @@ class MainActivity : AppCompatActivity() {
                 
                 val dbDir = documentFile.findFile("db")
                 val regionDir = documentFile.findFile("region")
-                return dbDir != null && dbDir.isDirectory || regionDir != null && regionDir.isDirectory
+                val dimensionsDir = documentFile.findFile("dimensions")
+                return (dbDir != null && dbDir.isDirectory) ||
+                       (regionDir != null && regionDir.isDirectory) ||
+                       (dimensionsDir != null && dimensionsDir.isDirectory)
             } catch (e: Exception) {
                 return false
             }
@@ -807,126 +875,22 @@ class MainActivity : AppCompatActivity() {
         isWorldInfoVisible = false
     }
 
-    private fun extractArchiveToInput(uri: Uri): Boolean {
-        try {
-            val inputDir = File(filesDir, "input")
-            if (inputDir.exists()) {
-                inputDir.deleteRecursively()
-            }
-            inputDir.mkdirs()
-
-            contentResolver.openInputStream(uri)?.use { inputStream ->
-                val zipInputStream = ZipInputStream(inputStream)
-                var entry = zipInputStream.nextEntry
-                
-                // 先统计条目总数
-                var totalEntries = 0
-                while (entry != null) {
-                    totalEntries++
-                    entry = zipInputStream.nextEntry
-                }
-                
-                // 重新打开流进行解压
-                contentResolver.openInputStream(uri)?.use { inputStream2 ->
-                    val zipInputStream2 = ZipInputStream(inputStream2)
-                    entry = zipInputStream2.nextEntry
-                    var currentEntry = 0
-                    
-                    while (entry != null) {
-                        val entryName = entry.name
-                        val entryFile = File(inputDir, entryName)
-
-                        if (entry.isDirectory) {
-                            entryFile.mkdirs()
-                            entryFile.setReadable(true)
-                            entryFile.setWritable(true)
-                        } else {
-                            entryFile.parentFile?.mkdirs()
-                            entryFile.outputStream().use { outputStream ->
-                                zipInputStream2.copyTo(outputStream)
-                            }
-                            entryFile.setReadable(true)
-                            entryFile.setWritable(true)
-                        }
-
-                        zipInputStream2.closeEntry()
-                        entry = zipInputStream2.nextEntry
-                        
-                        // 更新进度
-                        currentEntry++
-                        val progress = (currentEntry * 100 / totalEntries).coerceAtMost(99)
-                        runOnUiThread {
-                            binding.progressExtract.progress = progress
-                            binding.tvExtractProgress.text = getString(R.string.extracting_world) + " $progress%"
-                        }
-                    }
-
-                    zipInputStream2.close()
-                }
-                
-                zipInputStream.close()
-            }
-            
-            // 完成进度
-            runOnUiThread {
-                binding.progressExtract.progress = 100
-                binding.tvExtractProgress.text = getString(R.string.extracting_world) + " 100%"
-            }
-
-            return true
-        } catch (e: Exception) {
-            e.printStackTrace()
-            runOnUiThread {
-                showCustomToast("归档文件解压失败: ${e.message}", isError = true)
-            }
-            return false
-        }
-    }
-
     private fun detectPlatformFromDirectory(uri: Uri) {
         try {
             val documentFile = DocumentFile.fromTreeUri(this, uri)
             documentFile?.let { dir ->
                 // Check for /region folder (Java edition has region folder, Bedrock does not)
                 val regionFolder = dir.findFile("region")
-                if (regionFolder != null && regionFolder.isDirectory) {
+                // Check for /dimensions folder (Java edition 26.x uses dimensions instead of region)
+                val dimensionsFolder = dir.findFile("dimensions")
+                if ((regionFolder != null && regionFolder.isDirectory) ||
+                    (dimensionsFolder != null && dimensionsFolder.isDirectory)) {
                     worldPlatform = Platform.JAVA
                     return
                 }
 
-                // Default to Bedrock if no region folder found
+                // Default to Bedrock if no region or dimensions folder found
                 worldPlatform = Platform.BEDROCK
-            }
-        } catch (e: Exception) {
-            worldPlatform = Platform.BEDROCK
-        }
-    }
-
-    private fun detectPlatformFromArchive(uri: Uri) {
-        try {
-            contentResolver.openInputStream(uri)?.use { inputStream ->
-                val zipInputStream = ZipInputStream(inputStream)
-                var entry = zipInputStream.nextEntry
-                var hasRegionFolder = false
-
-                while (entry != null) {
-                    val entryName = entry.name.lowercase()
-
-                    // Check for /region folder (Java edition)
-                    if (entryName.startsWith("region/") || entryName == "region") {
-                        hasRegionFolder = true
-                    }
-
-                    entry = zipInputStream.nextEntry
-                }
-
-                zipInputStream.close()
-
-                if (hasRegionFolder) {
-                    worldPlatform = Platform.JAVA
-                } else {
-                    worldPlatform = Platform.BEDROCK
-                }
             }
         } catch (e: Exception) {
             worldPlatform = Platform.BEDROCK
@@ -1214,9 +1178,5 @@ class MainActivity : AppCompatActivity() {
         const val EXTRA_SHOW_OUTPUT_MANAGER = "extra_show_output_manager"
         const val EXTRA_RESET_TO_INITIAL_STATE = "extra_reset_to_initial_state"
         private const val PREFS_NAME = "chunkoid_prefs"
-    }
-
-    enum class Platform {
-        JAVA, BEDROCK
     }
 }
