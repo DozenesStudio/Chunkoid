@@ -75,7 +75,7 @@
 
 ## 赞助/捐赠
 
-- **爱发电项目页面：** [Afdian](https://ifdian.net/p/5ef51b66663011f1b89352540025c377)
+- **爱发电项目页面：** [Afdian](https://ifdian.net/a/dozener)
 
 ## 致谢
 
