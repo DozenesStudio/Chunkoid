@@ -70,6 +70,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@color/minecraft_surface"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="By Dozener"
+                        android:textColor="@color/minecraft_green"
+                        android:textSize="20sp"
+                        android:textStyle="italic"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_author"
+                            android:layout_width="25dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="Author"
+                            android:src="@drawable/author" />
+
+                        <ImageView
+                            android:id="@+id/iv_bilibili"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:contentDescription="Bilibili"
+                            android:src="@drawable/bilibili" />
+
+                        <ImageView
+                            android:id="@+id/iv_github"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="Github"
+                            android:src="@drawable/github" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="@color/minecraft_surface"
                 app:cardCornerRadius="8dp"
@@ -88,21 +148,6 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:lineSpacingExtra="4dp"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:background="@color/minecraft_gray"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/about_author"
-                        android:textColor="@color/minecraft_green"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="match_parent"

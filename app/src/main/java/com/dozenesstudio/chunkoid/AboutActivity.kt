@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -35,6 +36,18 @@ class AboutActivity : AppCompatActivity() {
         val tvGithubLink = findViewById<TextView>(R.id.tv_github_link)
         tvGithubLink.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://dozenesstudio.github.io/Chunkoid/"))
+            startActivity(intent)
+        }
+
+        val ivBilibili = findViewById<ImageView>(R.id.iv_bilibili)
+        ivBilibili.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://space.bilibili.com/3537108083935954"))
+            startActivity(intent)
+        }
+
+        val ivGithub = findViewById<ImageView>(R.id.iv_github)
+        ivGithub.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/DozenesStudio"))
             startActivity(intent)
         }
     }

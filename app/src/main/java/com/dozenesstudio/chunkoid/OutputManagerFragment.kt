@@ -227,21 +227,7 @@ class OutputManagerFragment : Fragment() {
     }
 
     private fun openWorldFolder(world: WorldInfo) {
-        try {
-            val worldDir = File(world.directoryPath)
-            val uri = androidx.core.content.FileProvider.getUriForFile(
-                requireContext(),
-                "${requireContext().packageName}.fileprovider",
-                worldDir
-            )
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                setDataAndType(uri, "resource/folder")
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            }
-            startActivity(Intent.createChooser(intent, getString(R.string.open_folder)))
-        } catch (e: Exception) {
-            ToastUtils.show(requireContext(), "Error: ${e.message}", isError = true)
-        }
+        ToastUtils.show(requireContext(), "请前往 Storage/Documents/Chunkoid Output 查看")
     }
 
     private fun showGameLauncherMenu(anchor: View) {
