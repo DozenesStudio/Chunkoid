@@ -34,8 +34,7 @@
 ## 下载
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
-- [官网](https://dozenesstudio.github.io/Chunkoid/)
-- [网盘（qou6）](https://cloud.189.cn/web/share?code=f2EBruq2Urqa)
+- [网盘（1234）](https://wwbpu.lanzoub.com/iFF533sfm2gh)
 
 ## 使用说明
 
@@ -71,7 +70,7 @@
 
 - **作者**：Dozener
 - **邮箱**：[DozenesStudio@qq.com](mailto:contact@dozenesstudio.com)
-- **官网**：<https://dozenesstudio.github.io/Chunkoid/>
+- **QQ群**：1103983368
 
 ## 赞助/捐赠
 
