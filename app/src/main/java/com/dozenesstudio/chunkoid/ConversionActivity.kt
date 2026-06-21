@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import android.view.MenuItem
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.lifecycleScope
@@ -59,6 +60,7 @@ class ConversionActivity : AppCompatActivity() {
         setupClickListeners()
         displayConversionDetails()
         bindToService()
+        applyNoElevationToCards()
     }
 
     private fun setupBackground() {
@@ -74,6 +76,22 @@ class ConversionActivity : AppCompatActivity() {
         }
         
         binding.ivBackground.setImageResource(drawableRes)
+    }
+
+    private fun applyNoElevationToCards() {
+        val rootView = findViewById<ViewGroup>(android.R.id.content)
+        removeCardElevation(rootView)
+    }
+
+    private fun removeCardElevation(viewGroup: ViewGroup) {
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            if (child is com.google.android.material.card.MaterialCardView) {
+                child.cardElevation = 0f
+            } else if (child is ViewGroup) {
+                removeCardElevation(child)
+            }
+        }
     }
 
     private fun bindToService() {

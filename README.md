@@ -34,7 +34,7 @@
 ## 下载
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
-- [网盘（1234）](https://wwbpu.lanzoub.com/iFF533sfm2gh)
+- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk)
 
 ## 使用说明
 

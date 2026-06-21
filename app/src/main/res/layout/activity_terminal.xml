@@ -13,7 +13,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp"
-        android:background="@color/minecraft_surface">
+        android:background="@color/minecraft_surface_glass">
 
         <ImageView
             android:layout_width="24dp"
@@ -156,7 +156,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/minecraft_surface"
+        android:background="@color/minecraft_surface_glass"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="12dp">

@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/minecraft_surface"
+            app:cardBackgroundColor="@color/minecraft_surface_glass"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
@@ -66,7 +66,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@color/minecraft_surface_dark"
+                        android:background="@color/minecraft_surface_glass_dark"
                         android:scaleType="centerCrop"
                         android:src="@drawable/unknown"
                         app:shapeAppearanceOverlay="@style/RoundedImageStyle"
@@ -187,7 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/minecraft_surface_dark"
+                app:cardBackgroundColor="@color/minecraft_surface_glass_dark"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp">
 
@@ -199,7 +199,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/minecraft_surface"
+            app:cardBackgroundColor="@color/minecraft_surface_glass"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 

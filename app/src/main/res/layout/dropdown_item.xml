@@ -6,4 +6,4 @@
     android:padding="16dp"
     android:textColor="@color/white"
     android:textSize="16sp"
-    android:background="@color/minecraft_surface" />
+    android:background="@color/minecraft_surface_glass" />

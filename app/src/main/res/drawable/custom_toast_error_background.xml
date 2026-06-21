@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="#3a3a3a" />
+    <solid android:color="@color/minecraft_surface_glass_dark" />
     <corners android:radius="6dp" />
     <stroke
         android:width="2dp"
-        android:color="#FFA500" />
+        android:color="@color/minecraft_red" />
 </shape>

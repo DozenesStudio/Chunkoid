@@ -71,7 +71,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/minecraft_surface"
+                app:cardBackgroundColor="@color/minecraft_surface_glass"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -131,7 +131,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/minecraft_surface"
+                app:cardBackgroundColor="@color/minecraft_surface_glass"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 

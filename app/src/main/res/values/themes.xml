@@ -12,7 +12,7 @@
 
         <!-- Background colors -->
         <item name="android:colorBackground">@color/minecraft_bg</item>
-        <item name="colorSurface">@color/minecraft_surface</item>
+        <item name="colorSurface">@color/minecraft_surface_glass</item>
         <item name="colorError">@color/minecraft_red</item>
 
         <!-- Status bar color -->

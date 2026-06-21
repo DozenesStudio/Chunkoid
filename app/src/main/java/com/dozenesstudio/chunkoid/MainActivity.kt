@@ -15,6 +15,7 @@ import android.os.Environment
 import android.preference.PreferenceManager
 import android.provider.Settings
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -253,6 +254,7 @@ class MainActivity : AppCompatActivity() {
         setupSplashText()
         updateNavDrawerVisibility()
         updateBackground()
+        applyNoElevationToCards()
         
         archiveSearcher = ArchiveSearcher(contentResolver, filesDir)
 
@@ -505,6 +507,22 @@ class MainActivity : AppCompatActivity() {
         }
         
         binding.ivBackground.setImageResource(drawableRes)
+    }
+
+    private fun applyNoElevationToCards() {
+        val rootView = findViewById<ViewGroup>(android.R.id.content)
+        removeCardElevation(rootView)
+    }
+
+    private fun removeCardElevation(viewGroup: ViewGroup) {
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            if (child is com.google.android.material.card.MaterialCardView) {
+                child.cardElevation = 0f
+            } else if (child is ViewGroup) {
+                removeCardElevation(child)
+            }
+        }
     }
 
     private fun setupClickListeners() {

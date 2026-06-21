@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,6 +16,7 @@ class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
+        applyNoElevationToCards()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -49,6 +51,22 @@ class AboutActivity : AppCompatActivity() {
         ivGithub.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/DozenesStudio"))
             startActivity(intent)
+        }
+    }
+
+    private fun applyNoElevationToCards() {
+        val rootView = findViewById<ViewGroup>(android.R.id.content)
+        removeCardElevation(rootView)
+    }
+
+    private fun removeCardElevation(viewGroup: ViewGroup) {
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            if (child is com.google.android.material.card.MaterialCardView) {
+                child.cardElevation = 0f
+            } else if (child is ViewGroup) {
+                removeCardElevation(child)
+            }
         }
     }
 

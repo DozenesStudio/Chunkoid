@@ -13,6 +13,7 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -44,6 +45,7 @@ class TerminalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTerminalBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        applyNoElevationToCards()
 
         binding.tvTerminalOutput.text = ""
         termuxExecutor = TermuxExecutor(this)
@@ -320,6 +322,22 @@ class TerminalActivity : AppCompatActivity() {
             binding.etCommandInput.setText(commandHistory[historyIndex])
         } else {
             super.onBackPressed()
+        }
+    }
+
+    private fun applyNoElevationToCards() {
+        val rootView = findViewById<ViewGroup>(android.R.id.content)
+        removeCardElevation(rootView)
+    }
+
+    private fun removeCardElevation(viewGroup: ViewGroup) {
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            if (child is com.google.android.material.card.MaterialCardView) {
+                child.cardElevation = 0f
+            } else if (child is ViewGroup) {
+                removeCardElevation(child)
+            }
         }
     }
 }
