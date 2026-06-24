@@ -12,8 +12,8 @@ android {
         applicationId "com.dozenesstudio.chunkoid"
         minSdk 26
         targetSdk 34
-        versionCode 11
-        versionName "1.1.0-Release"
+        versionCode 12
+        versionName "1.1.1-beta.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

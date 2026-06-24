@@ -2,6 +2,7 @@ package com.dozenesstudio.chunkoid
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.text.Editable
@@ -116,21 +117,25 @@ class TerminalActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ),
-                PERMISSION_REQUEST_CODE
-            )
-        } else {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             initializeTerminal()
+        } else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ),
+                    PERMISSION_REQUEST_CODE
+                )
+            } else {
+                initializeTerminal()
+            }
         }
     }
 
@@ -145,7 +150,10 @@ class TerminalActivity : AppCompatActivity() {
                 initializeTerminal()
             } else {
                 ToastUtils.show(this, "需要存储权限才能使用终端", isError = true)
-                finish()
+                // 延迟 finish，让用户看到 Toast 消息后再关闭 Activity
+                android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                    finish()
+                }, 3000)
             }
         }
     }
@@ -339,5 +347,11 @@ class TerminalActivity : AppCompatActivity() {
                 removeCardElevation(child)
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // 关闭 ToastUtils 的 PopupWindow，防止 WindowLeaked
+        com.dozenesstudio.chunkoid.utils.ToastUtils.dismissCurrent()
     }
 }

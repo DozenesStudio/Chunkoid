@@ -8,7 +8,7 @@
     <string name="output_folder_not_found">未找到输出文件夹</string>
     <string name="cannot_open_folder">无法打开输出文件夹</string>
     <string name="app_description">一个安卓版JE-BE世界转换器</string>
-    <string name="app_version">Ver.1.1.0 正式版</string>
+    <string name="app_version">测试版 1.1.1-beta.1</string>
     <string name="about">关于</string>
 
     <!-- About Page -->

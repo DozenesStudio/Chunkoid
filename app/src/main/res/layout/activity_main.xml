@@ -47,37 +47,50 @@
                     android:layout_height="match_parent"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="16dp">
 
                         <!-- App Text Logo -->
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
+                            android:id="@+id/layout_logo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="40dp"
                             android:layout_marginBottom="16dp"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:padding="16dp">
+                            android:padding="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintWidth_max="400dp">
 
                             <ImageView
                                 android:id="@+id/app_text"
                                 android:layout_width="270dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="170dp"
                                 android:contentDescription="App Text"
+                                android:maxWidth="270dp"
+                                android:scaleType="fitCenter"
                                 android:src="@drawable/text" />
 
                         </LinearLayout>
 
                         <!-- Prepare World Section -->
                         <LinearLayout
-                            android:layout_width="345dp"
+                            android:id="@+id/layout_world_section"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/layout_logo"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintWidth_max="400dp">
 
                             <!-- Initial Selection State Card -->
                             <com.google.android.material.card.MaterialCardView
@@ -355,7 +368,7 @@
 
                         </LinearLayout>
 
-                    </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.core.widget.NestedScrollView>
 
@@ -395,7 +408,8 @@
         <LinearLayout
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+            android:minHeight="80dp"
             android:layout_gravity="bottom"
             android:background="@android:color/transparent"
             android:elevation="24dp"

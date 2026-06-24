@@ -281,6 +281,7 @@
             font-size: 14px;
         }
 
+        /* 下载区域样式 */
         .download-section {
             background: rgba(30, 30, 30, 0.85);
             padding: 60px;
@@ -318,18 +319,18 @@
         .btn-primary.btn-github {
             display: flex;
             align-items: center;
-            color: #0a0a0a;
+            color: #000000;
         }
 
-        .btn-cloud {
+        .btn-gitee {
             background: #4ade80;
-            color: #0a0a0a;
+            color: #000000;
             font-weight: 700;
             display: flex;
             align-items: center;
         }
 
-        .btn-cloud:hover {
+        .btn-gitee:hover {
             background: #22c55e;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
@@ -342,7 +343,7 @@
         }
 
         footer p {
-            color: #6b6b6b;
+            color: #000000;
             font-size: 14px;
         }
 
@@ -363,23 +364,18 @@
         }
 
         .github-icon {
-            width: 16px;
-            height: 16px;
-            color: #8b8b8b;
+            width: 20px;
+            height: 20px;
         }
 
         .github-link:hover .github-icon {
             color: #ffffff;
         }
 
-        /* 捐赠链接样式 */
-        .donate-link {
-            color: #fbbf24;
-            font-weight: 600;
-        }
-
-        .donate-link:hover {
-            color: #f59e0b;
+        /* Gitee链接样式 */
+        .gitee-icon {
+            width: 20px;
+            height: 20px;
         }
 
         /* 更新提示Toast样式 */
@@ -495,13 +491,11 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-                <a href="#sponsor" class="donate-link">赞助</a>
+                <a href="#sponsor">赞助</a>
                 <a href="#features">功能特性</a>
                 <a href="#download">下载</a>
                 <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
-                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
+                <img src="github_gray.png" alt="Github" class="github-icon">
                     Github
                 </a>
             </nav>
@@ -512,13 +506,10 @@
                 <h1 class="hero-title">Chunkoid</h1>
                 <p class="hero-subtitle">世界转换器 <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span></p>
                 <p class="hero-desc">
-                    Chunker的手机版？它来了！全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑ヾ(≧▽≦*)o
+                    Chunker的手机版？它来了！全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
                 </p>
                 <div class="cta-buttons">
                     <a href="#download" class="btn btn-primary">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-1.4-.52-2.94-.55-4.47-.55-1.53 0-3.07.03-4.47.55L5.65 5.67c-.18-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>
-                        </svg>
                         下载应用
                     </a>
                     <a href="https://www.bilibili.com/video/BV1GEER6sEKn/" class="btn btn-bilibili">B站教程</a>
@@ -530,13 +521,13 @@
                 <div class="image-card phone">
                     <img src="phone.jpg" alt="手机端截图">
                     <div class="image-overlay">
-                        <span class="image-label">手机端版本选择页面</span>
+                        <span class="image-label">手机端实机</span>
                     </div>
                 </div>
                 <div class="image-card tablet">
                     <img src="pad.png" alt="平板端截图">
                     <div class="image-overlay">
-                        <span class="image-label">平板端主页</span>
+                        <span class="image-label">平板端实机</span>
                     </div>
                 </div>
             </div>
@@ -546,20 +537,25 @@
             <h2 class="section-title">功能特性</h2>
             <div class="features">
                 <div class="feature-card">
-                    <h3 class="feature-title">界面简洁</h3>
-                    <p class="feature-description">操作界面一目了然，操作无障碍，加入几张背景图，格调油然而生</p>
+                    <h3 class="feature-title">操作简易</h3>
+                    <p class="feature-description" style="color: #3fb56a;;"><strong>“现已搭载WSS1.0存档分析系统“</strong></p>
+                    <p class="feature-description">只用导入一个ZIP世界包，Chunkoid就可自动分析平台、提取世界</p>
+
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">双端互转</h3>
+                    <p class="feature-description" style="color: #3fb56a;;"><strong>“核心功能“</strong></p>                    
                     <p class="feature-description">JE-BE世界之间相互转换，版本自由升降；之前朝思暮想，如今唾手可得</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">转换日志输出</h3>
-                    <p class="feature-description">转换时白箱运行，Bug知道是哪的问题：不是，我存档区块咋乱了？我物品栏东西哪(╯‵□′)╯︵┻━┻</p>
+                    <p class="feature-description" style="color: #3fb56a;;"><strong>“白箱运行，Bug知道是哪的问题“</strong></p>                                          
+                    <p class="feature-description">不是，我存档区块咋乱了？我物品栏东西哪(╯‵□′)╯︵┻━┻</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">输出管理</h3>
-                    <p class="feature-description">转换结果统一管理，从根源杜绝跟教程头晕目眩，并自带多版MC启动支持</p>
+                    <p class="feature-description" style="color: #3fb56a;;"><strong>“转换结果统一管理“</strong></p>                           
+                    <p class="feature-description">从根源杜绝跟教程头晕目眩，并自带多版MC启动支持</p>
                 </div>
                 <div class="feature-card">
                     <h3 class="feature-title">高级设置</h3>
@@ -587,16 +583,12 @@
             <h2>即刻下载！</h2>
             <p>以下为现有下载渠道，现提供两个直链</p>
             <div class="download-buttons">
-                <a href="https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk" class="btn btn-cloud">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 18H6a4 4 0 01-.38-7.98C5.5 7.05 8.04 5 11 5h1a5.5 5.5 0 015.5 5.5c0 2-.78 3.82-2 5H19zm-7-9.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                    </svg>
+                <a href="https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk" class="btn btn-gitee">
+                <img src="gitee.png" alt="Gitee" class="gitee-icon">
                     Gitee高速直链下载
                 </a>
                 <a href="https://github.com/DozenesStudio/Chunkoid/releases/download/1.1.0/Chunkoid.1.1.0.apk" class="btn btn-primary btn-github">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
+                <img src="github.png" alt="Github" class="github-icon">
                     Github备用直链下载
                 </a>
 
@@ -604,7 +596,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
+            <p style="color: #b0b0b0;"> &copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/DozenesStudio/Chunkoid">GitHub</a> |
                 <span style="color: #4ade80;">加入开发版QQ群：1103983368</span>

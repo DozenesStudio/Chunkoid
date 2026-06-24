@@ -12,6 +12,11 @@ import com.dozenesstudio.chunkoid.R
 object ToastUtils {
     private var currentPopup: PopupWindow? = null
 
+    fun dismissCurrent() {
+        currentPopup?.dismiss()
+        currentPopup = null
+    }
+
     fun show(context: Context, message: String, isError: Boolean = false) {
         currentPopup?.dismiss()
 

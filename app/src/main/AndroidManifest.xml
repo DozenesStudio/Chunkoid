@@ -9,6 +9,8 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +21,8 @@
         android:theme="@style/Theme.Chunkoid"
         android:requestLegacyExternalStorage="true"
         android:largeHeap="true"
+        android:resizeableActivity="true"
+        android:maxAspectRatio="2.1"
         tools:targetApi="34">
 
         <activity
