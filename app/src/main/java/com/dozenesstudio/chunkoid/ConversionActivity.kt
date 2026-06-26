@@ -33,6 +33,8 @@ class ConversionActivity : AppCompatActivity() {
     private var conversionService: ConversionService? = null
     private var isBound = false
     private var worldIconBitmap: android.graphics.Bitmap? = null
+    private val logEntries = mutableListOf<LogEntry>()
+    private var rawLogContent = "" // 原始日志内容
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,6 +128,12 @@ class ConversionActivity : AppCompatActivity() {
 
         conversionService?.logMessage?.observe(this) { logEntry ->
             logEntry?.let { addLogEntry(it) }
+        }
+
+        conversionService?.rawLogOutput?.observe(this) { rawLog ->
+            if (!rawLog.isNullOrEmpty()) {
+                rawLogContent = rawLog
+            }
         }
 
         conversionService?.isRunning?.observe(this) { running ->
@@ -459,6 +467,7 @@ class ConversionActivity : AppCompatActivity() {
     }
 
     private fun addLogEntry(entry: LogEntry) {
+        logEntries.add(entry)
         logAdapter.addLog(entry)
         binding.recyclerLogs.scrollToPosition(logAdapter.itemCount - 1)
     }
@@ -466,6 +475,9 @@ class ConversionActivity : AppCompatActivity() {
     private fun onConversionComplete(success: Boolean) {
         isConversionRunning = false
         updateUIForConversionComplete(success)
+
+        // 直接从 Service 获取原始日志
+        rawLogContent = conversionService?.getRawLog() ?: ""
 
         if (success) {
             binding.tvStatus.text = getString(R.string.conversion_complete)
@@ -528,8 +540,33 @@ class ConversionActivity : AppCompatActivity() {
             }
 
             Log.d("ConversionActivity", "Conversion info saved to: ${convertInfoFile.absolutePath}")
+
+            saveConversionLog(worldOutputDir)
         } catch (e: Exception) {
             Log.e("ConversionActivity", "Failed to save conversion info", e)
+        }
+    }
+
+    private fun saveConversionLog(outputDir: File) {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val enableLogOutput = prefs.getBoolean("enable_conversion_log", false)
+        
+        if (!enableLogOutput || rawLogContent.isEmpty()) {
+            return
+        }
+
+        try {
+            val logFile = File(outputDir, "converse_log.txt")
+            val logContent = buildString {
+                appendLine("世界名称: ${settings.inputWorldName}")
+                appendLine("时间戳: ${java.time.LocalDateTime.now()}")
+                appendLine("=== 以下为Chunker-Cli的输出记录 ===")
+                append(rawLogContent)
+            }
+            logFile.writeText(logContent)
+            Log.d("ConversionActivity", "Conversion log saved to: ${logFile.absolutePath}")
+        } catch (e: Exception) {
+            Log.e("ConversionActivity", "Failed to save conversion log", e)
         }
     }
 

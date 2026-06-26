@@ -83,8 +83,7 @@ class OutputManagerFragment : Fragment() {
     private fun setupRecyclerView() {
         worldAdapter = WorldCardAdapter(
             worlds = worlds,
-            onExportClick = { world, action -> handleExportClick(world, action) },
-            onOpenFolderClick = { world -> openWorldFolder(world) }
+            onExportClick = { world, action -> handleExportClick(world, action) }
         )
         binding.rvWorlds.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -170,9 +169,9 @@ class OutputManagerFragment : Fragment() {
 
     private fun handleExportClick(world: WorldInfo, action: WorldCardAdapter.ExportAction) {
         when (action) {
-            WorldCardAdapter.ExportAction.OPEN_FOLDER -> openWorldFolder(world)
             WorldCardAdapter.ExportAction.EXPORT_MCWORLD -> startExport(world, isMcworld = true)
             WorldCardAdapter.ExportAction.EXPORT_ZIP -> startExport(world, isMcworld = false)
+            WorldCardAdapter.ExportAction.VIEW_LOG -> viewConversionLog(world)
             WorldCardAdapter.ExportAction.DELETE -> deleteWorld(world)
         }
     }
@@ -209,6 +208,36 @@ class OutputManagerFragment : Fragment() {
         }
     }
 
+    private fun viewConversionLog(world: WorldInfo) {
+        try {
+            val logFile = File(world.directoryPath, "converse_log.txt")
+            if (!logFile.exists() || !logFile.isFile) {
+                ToastUtils.show(requireContext(), "转换日志不存在", isError = true)
+                return
+            }
+
+            val uri = androidx.core.content.FileProvider.getUriForFile(
+                requireContext(),
+                requireContext().packageName + ".fileprovider",
+                logFile
+            )
+            
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                setDataAndType(uri, "text/plain")
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+
+            if (intent.resolveActivity(requireContext().packageManager) != null) {
+                startActivity(intent)
+            } else {
+                ToastUtils.show(requireContext(), "未找到可打开文本文件的应用", isError = true)
+            }
+        } catch (e: Exception) {
+            ToastUtils.show(requireContext(), "打开日志失败: ${e.message}", isError = true)
+        }
+    }
+
     private fun deleteWorld(world: WorldInfo) {
         try {
             val worldDir = File(world.directoryPath)
@@ -224,10 +253,6 @@ class OutputManagerFragment : Fragment() {
         } catch (e: Exception) {
             ToastUtils.show(requireContext(), "Delete failed: ${e.message}", isError = true)
         }
-    }
-
-    private fun openWorldFolder(world: WorldInfo) {
-        ToastUtils.show(requireContext(), "请前往 Storage/Documents/Chunkoid Output 查看")
     }
 
     private fun showGameLauncherMenu(anchor: View) {

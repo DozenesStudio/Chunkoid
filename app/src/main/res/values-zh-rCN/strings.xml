@@ -8,7 +8,7 @@
     <string name="output_folder_not_found">未找到输出文件夹</string>
     <string name="cannot_open_folder">无法打开输出文件夹</string>
     <string name="app_description">一个安卓版JE-BE世界转换器</string>
-    <string name="app_version">测试版 1.1.1-beta.1</string>
+    <string name="app_version">测试版 1.1.2-beta.1</string>
     <string name="about">关于</string>
 
     <!-- About Page -->
@@ -43,7 +43,7 @@
 
     <!-- Conversion Settings -->
     <string name="auto_detect">自动检测</string>
-    <string name="select_target_format">选择目标版本（JE与BE通吃）</string>
+    <string name="select_target_format">选择目标版本</string>
     <string name="convert_to">转换为</string>
 
     <!-- Version Subtitles -->
@@ -226,8 +226,13 @@
     <string name="output_management">输出管理</string>
     <string name="developer_mode">开发者选项</string>
     <string name="clear_all_output">清空所有输出世界</string>
+    <string name="output_management_desc">该操作不可逆，仅适用于清理内存占用，手下留情！</string>
     <string name="show_undeveloped_features">侧边栏显示未开发功能</string>
+    <string name="show_undeveloped_desc">新功能前瞻(Pre-View)，开启后会显示在侧边栏，仅供提前预览，无实际作用</string>
     <string name="show_terminal">侧边栏显示控制台</string>
+    <string name="show_terminal_desc">开启一个搭载简易的类Termux内部Linux终端环境，高级用户可通过该控制台来进行更全面的操作，萌新也可以通过控制台底部一键调试按钮进行简易测试</string>
+    <string name="enable_conversion_log_output">启用转换日志输出功能</string>
+    <string name="enable_conversion_log_output_desc">（该功能适用于世界转换出现错误）开启之后可在输出世界的导出选栏中找到该选项（注：无法查看之前没有启用转换日志输出的世界日志）你可以把这份日志输出发给社区寻求帮助</string>
     <string name="output_cleared">所有输出世界已清空</string>
     <string name="theme_changed_immediate">主页面外观已更换！</string>
 
@@ -298,4 +303,5 @@
     <string name="export_failed">导出失败</string>
     <string name="app_not_installed">未安装该应用</string>
     <string name="launch_failed">启动失败</string>
+    <string name="view_conversion_log">查看转换日志</string>
 </resources>

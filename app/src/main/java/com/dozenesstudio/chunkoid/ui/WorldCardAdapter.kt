@@ -15,14 +15,13 @@ import java.io.File
 
 class WorldCardAdapter(
     private val worlds: List<WorldInfo>,
-    private val onExportClick: (WorldInfo, ExportAction) -> Unit,
-    private val onOpenFolderClick: (WorldInfo) -> Unit
+    private val onExportClick: (WorldInfo, ExportAction) -> Unit
 ) : RecyclerView.Adapter<WorldCardAdapter.WorldViewHolder>() {
 
     enum class ExportAction {
-        OPEN_FOLDER,
         EXPORT_MCWORLD,
         EXPORT_ZIP,
+        VIEW_LOG,
         DELETE
     }
 
@@ -54,18 +53,23 @@ class WorldCardAdapter(
         binding.btnExport.setOnClickListener { view ->
             val popup = PopupMenu(context, view)
             popup.menuInflater.inflate(R.menu.menu_export, popup.menu)
+            
+            val logFile = File(world.directoryPath, "converse_log.txt")
+            val viewLogItem = popup.menu.findItem(R.id.action_view_log)
+            viewLogItem.isVisible = logFile.exists() && logFile.isFile
+            
             popup.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
-                    R.id.action_open_folder -> {
-                        onExportClick(world, ExportAction.OPEN_FOLDER)
-                        true
-                    }
                     R.id.action_export_mcworld -> {
                         onExportClick(world, ExportAction.EXPORT_MCWORLD)
                         true
                     }
                     R.id.action_export_zip -> {
                         onExportClick(world, ExportAction.EXPORT_ZIP)
+                        true
+                    }
+                    R.id.action_view_log -> {
+                        onExportClick(world, ExportAction.VIEW_LOG)
                         true
                     }
                     R.id.action_delete -> {

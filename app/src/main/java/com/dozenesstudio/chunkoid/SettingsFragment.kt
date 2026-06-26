@@ -116,6 +116,12 @@ class SettingsFragment : Fragment() {
             prefs.edit().putBoolean("show_terminal", isChecked).apply()
             updateNavDrawerVisibility()
         }
+
+        // Switch for Enable Conversion Log Output (default: false)
+        binding.switchEnableLogOutput.isChecked = prefs.getBoolean("enable_conversion_log", false)
+        binding.switchEnableLogOutput.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("enable_conversion_log", isChecked).apply()
+        }
     }
 
     private fun toggleTheme() {

@@ -5,4 +5,5 @@
     <external-path name="external" path="." />
     <external-files-path name="external_files" path="." />
     <external-cache-path name="external_cache" path="." />
+    <external-path name="documents" path="Documents/" />
 </paths>

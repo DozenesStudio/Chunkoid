@@ -21,9 +21,11 @@ class ConversionService : Service() {
     val status = MutableLiveData<String>("")
     val logMessage = MutableLiveData<com.dozenesstudio.chunkoid.model.LogEntry?>()
     val isRunning = MutableLiveData<Boolean>(false)
+    val rawLogOutput = MutableLiveData<String>("") // 原始日志输出
 
     private lateinit var termuxExecutor: TermuxExecutor
     private var conversionProcess: Process? = null
+    private val rawLogBuilder = StringBuilder() // 收集原始日志
 
     inner class LocalBinder : Binder() {
         fun getService(): ConversionService = this@ConversionService
@@ -71,6 +73,7 @@ class ConversionService : Service() {
     fun startConversionFromUri(inputUri: android.net.Uri, settings: com.dozenesstudio.chunkoid.model.ConversionSettings) {
         isRunning.value = true
         progress.value = 0
+        rawLogBuilder.clear() // 清空原始日志收集器
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -239,7 +242,10 @@ class ConversionService : Service() {
             var lastProgress = 25
 
             fun processLine(lineStr: String) {
-                // 过滤 Android linker 警告
+                // 原始日志：保存所有行，不做任何过滤
+                rawLogBuilder.appendLine(lineStr)
+
+                // 过滤 Android linker 警告（仅用于 UI 显示）
                 if (lineStr.contains("WARNING: linker:") || lineStr.contains("has unsupported flags")) {
                     return
                 }
@@ -378,6 +384,7 @@ class ConversionService : Service() {
         isRunning.value = false
         status.value = "转换成功!"
         progress.value = 100
+        rawLogOutput.value = rawLogBuilder.toString() // 传递原始日志
         cleanInputFolder()
     }
 
@@ -385,6 +392,11 @@ class ConversionService : Service() {
         isRunning.value = false
         status.value = "转换失败: ${error.message}"
         progress.value = 0
+        rawLogOutput.value = rawLogBuilder.toString() // 即使失败也传递原始日志
+    }
+
+    fun getRawLog(): String {
+        return rawLogBuilder.toString()
     }
 
     override fun onDestroy() {

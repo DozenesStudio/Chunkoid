@@ -8,7 +8,7 @@
     <string name="output_folder_not_found">Output folder not found</string>
     <string name="cannot_open_folder">Cannot open output folder</string>
     <string name="app_description">Convert Minecraft worlds between Java and Bedrock editions</string>
-    <string name="app_version">1.1.1-beta.1</string>
+    <string name="app_version">1.1.2-beta.1</string>
     <string name="about">About</string>
 
     <!-- About Page -->
@@ -227,8 +227,13 @@
     <string name="output_management">Output Management</string>
     <string name="developer_mode">Developer Switch</string>
     <string name="clear_all_output">Clear All Output Worlds</string>
+    <string name="output_management_desc">This action is irreversible and should only be used to clear memory usage, so go easy!</string>
     <string name="show_undeveloped_features">Show Undeveloped Features</string>
+    <string name="show_undeveloped_desc">New Feature Preview (Pre-View), once turned on it will show up in the sidebar, for early preview only and has no real function</string>
     <string name="show_terminal">Show Console in Sidebar</string>
+    <string name="show_terminal_desc">Open a simple Termux-like Linux environment inside, where advanced users can use the console for more comprehensive operations, and newbies can use the one-click debug button at the bottom of the console for simple testing.</string>
+    <string name="enable_conversion_log_output">Enable Conversion Log Output</string>
+    <string name="enable_conversion_log_output_desc">(Applicable when there is an error in world conversion) After enabling, you can find this option in the export selection of the output world (Note: you cannot view the world logs for worlds that did not have conversion log output enabled before). You can send this log output to the community for help.</string>
     <string name="output_cleared">All output worlds cleared</string>
     <string name="theme_changed_immediate">Theme changed successfully!</string>
 
@@ -303,4 +308,5 @@
     <string name="export_failed">Export failed</string>
     <string name="app_not_installed">App not installed</string>
     <string name="launch_failed">Launch failed</string>
+    <string name="view_conversion_log">View Conversion Log</string>
 </resources>
