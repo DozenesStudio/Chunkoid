@@ -288,6 +288,7 @@
     <string name="open_folder">打开文件夹</string>
     <string name="export_as_mcworld">导出为.mcworld</string>
     <string name="export_as_zip">导出为.zip</string>
+    <string name="export_as_folder">导出世界文件夹</string>
     <string name="converted_to_java">Java版 %s</string>
     <string name="converted_to_bedrock">基岩版 %s</string>
     <string name="start_game">启动游戏</string>

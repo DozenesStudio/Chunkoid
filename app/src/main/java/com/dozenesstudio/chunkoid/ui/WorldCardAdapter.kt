@@ -21,6 +21,7 @@ class WorldCardAdapter(
     enum class ExportAction {
         EXPORT_MCWORLD,
         EXPORT_ZIP,
+        EXPORT_FOLDER,
         VIEW_LOG,
         DELETE
     }
@@ -66,6 +67,10 @@ class WorldCardAdapter(
                     }
                     R.id.action_export_zip -> {
                         onExportClick(world, ExportAction.EXPORT_ZIP)
+                        true
+                    }
+                    R.id.action_export_folder -> {
+                        onExportClick(world, ExportAction.EXPORT_FOLDER)
                         true
                     }
                     R.id.action_view_log -> {

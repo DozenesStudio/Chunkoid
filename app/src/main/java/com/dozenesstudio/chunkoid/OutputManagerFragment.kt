@@ -16,8 +16,10 @@ import com.dozenesstudio.chunkoid.databinding.FragmentOutputManagerBinding
 import com.dozenesstudio.chunkoid.model.WorldInfo
 import com.dozenesstudio.chunkoid.ui.WorldCardAdapter
 import com.dozenesstudio.chunkoid.utils.ToastUtils
+import androidx.documentfile.provider.DocumentFile
 import java.io.File
 import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
@@ -31,6 +33,7 @@ class OutputManagerFragment : Fragment() {
 
     private var pendingExportWorld: WorldInfo? = null
     private var pendingExportIsMcworld: Boolean = false
+    private var pendingExportIsFolder: Boolean = false
 
     companion object {
         private const val CHUNKOID_OUTPUT_DIR = "chunkoid output"
@@ -46,6 +49,18 @@ class OutputManagerFragment : Fragment() {
         }
         pendingExportWorld = null
         pendingExportIsMcworld = false
+    }
+
+    private val openDocumentTreeLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocumentTree()
+    ) { uri ->
+        uri?.let { treeUri ->
+            pendingExportWorld?.let { world ->
+                exportFolderToTree(world, treeUri)
+            }
+        }
+        pendingExportWorld = null
+        pendingExportIsFolder = false
     }
 
     override fun onCreateView(
@@ -171,9 +186,16 @@ class OutputManagerFragment : Fragment() {
         when (action) {
             WorldCardAdapter.ExportAction.EXPORT_MCWORLD -> startExport(world, isMcworld = true)
             WorldCardAdapter.ExportAction.EXPORT_ZIP -> startExport(world, isMcworld = false)
+            WorldCardAdapter.ExportAction.EXPORT_FOLDER -> startFolderExport(world)
             WorldCardAdapter.ExportAction.VIEW_LOG -> viewConversionLog(world)
             WorldCardAdapter.ExportAction.DELETE -> deleteWorld(world)
         }
+    }
+
+    private fun startFolderExport(world: WorldInfo) {
+        pendingExportWorld = world
+        pendingExportIsFolder = true
+        openDocumentTreeLauncher.launch(null)
     }
 
     private fun startExport(world: WorldInfo, isMcworld: Boolean) {
@@ -205,6 +227,59 @@ class OutputManagerFragment : Fragment() {
             ToastUtils.show(requireContext(), getString(R.string.export_success))
         } catch (e: Exception) {
             ToastUtils.show(requireContext(), getString(R.string.export_failed) + ": ${e.message}", isError = true)
+        }
+    }
+
+    private fun exportFolderToTree(world: WorldInfo, treeUri: Uri) {
+        try {
+            val sourceDir = File(world.directoryPath)
+            if (!sourceDir.exists() || !sourceDir.isDirectory) {
+                ToastUtils.show(requireContext(), "源文件夹不存在", isError = true)
+                return
+            }
+
+            val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            requireContext().contentResolver.takePersistableUriPermission(
+                treeUri,
+                takeFlags
+            )
+
+            val targetRoot = DocumentFile.fromTreeUri(requireContext(), treeUri)
+                ?: run {
+                    ToastUtils.show(requireContext(), "无法访问目标目录", isError = true)
+                    return
+                }
+
+            val targetWorldDir = targetRoot.createDirectory(world.name)
+                ?: run {
+                    ToastUtils.show(requireContext(), "无法创建目标文件夹", isError = true)
+                    return
+                }
+
+            copyDirectoryToDocumentFile(sourceDir, targetWorldDir)
+            ToastUtils.show(requireContext(), getString(R.string.export_success))
+        } catch (e: Exception) {
+            ToastUtils.show(requireContext(), getString(R.string.export_failed) + ": ${e.message}", isError = true)
+        }
+    }
+
+    private fun copyDirectoryToDocumentFile(sourceDir: File, targetDir: DocumentFile) {
+        sourceDir.listFiles()?.forEach { sourceFile ->
+            if (sourceFile.isDirectory) {
+                val newTargetDir = targetDir.createDirectory(sourceFile.name)
+                if (newTargetDir != null) {
+                    copyDirectoryToDocumentFile(sourceFile, newTargetDir)
+                }
+            } else {
+                val targetFile = targetDir.createFile("*/*", sourceFile.name)
+                if (targetFile != null) {
+                    requireContext().contentResolver.openOutputStream(targetFile.uri)?.use { outputStream ->
+                        FileInputStream(sourceFile).use { inputStream ->
+                            inputStream.copyTo(outputStream)
+                        }
+                    }
+                }
+            }
         }
     }
 

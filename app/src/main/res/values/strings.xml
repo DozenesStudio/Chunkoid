@@ -293,6 +293,7 @@
     <string name="open_folder">Open Folder</string>
     <string name="export_as_mcworld">Export as .mcworld</string>
     <string name="export_as_zip">Export as .zip</string>
+    <string name="export_as_folder">Export world Folder</string>
     <string name="converted_to_java">Java %s</string>
     <string name="converted_to_bedrock">Bedrock %s</string>
     <string name="start_game">Start Game</string>
