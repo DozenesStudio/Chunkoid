@@ -468,7 +468,11 @@ class MainActivity : AppCompatActivity() {
 
         navItemMapDownloader.setOnClickListener(featureNotAvailableListener)
         navItemResourceConverter.setOnClickListener(featureNotAvailableListener)
-        navItemDecrypt.setOnClickListener(featureNotAvailableListener)
+
+        navItemDecrypt.setOnClickListener {
+            startActivity(Intent(this, DecryptActivity::class.java))
+            drawerLayout.closeDrawer(navDrawerView)
+        }
 
         navItemAbout.setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
@@ -491,7 +495,7 @@ class MainActivity : AppCompatActivity() {
         navItemTerminal.visibility = if (showTerminal) View.VISIBLE else View.GONE
         navItemMapDownloader.visibility = if (showUndeveloped) View.VISIBLE else View.GONE
         navItemResourceConverter.visibility = if (showUndeveloped) View.VISIBLE else View.GONE
-        navItemDecrypt.visibility = if (showUndeveloped) View.VISIBLE else View.GONE
+        navItemDecrypt.visibility = View.VISIBLE
     }
 
     fun updateBackground() {

@@ -95,6 +95,33 @@
 
         </LinearLayout>
 
+        <!-- Archive Decrypt -->
+        <LinearLayout
+            android:id="@+id/nav_item_decrypt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/key"
+                android:tint="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/archive_decrypt"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginLeft="16dp"/>
+
+        </LinearLayout>
+
         <!-- Map Downloader -->
         <LinearLayout
             android:id="@+id/nav_item_map_downloader"
@@ -143,33 +170,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/resource_converter"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginLeft="16dp"/>
-
-        </LinearLayout>
-
-        <!-- Archive Decrypt -->
-        <LinearLayout
-            android:id="@+id/nav_item_decrypt"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:background="?attr/selectableItemBackground">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/key"
-                android:tint="@color/white"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/archive_decrypt"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:layout_marginLeft="16dp"/>

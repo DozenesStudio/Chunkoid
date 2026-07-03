@@ -8,15 +8,15 @@
     <string name="output_folder_not_found">Output folder not found</string>
     <string name="cannot_open_folder">Cannot open output folder</string>
     <string name="app_description">Convert Minecraft worlds between Java and Bedrock editions</string>
-    <string name="app_version">1.1.2-beta.1</string>
+    <string name="app_version">1.1.3-beta.1</string>
     <string name="about">About</string>
 
     <!-- About Page -->
     <string name="about_intro">A Minecraft Java-Bedrock world converter for Android devices. This unique application supports version downgrade and upgrade functionality, offering a convenient conversion environment for mobile users.</string>
-    <string name="about_credits">Chunker-Cli.jar: from Hive Game open source project Chunker.</string>
+    <string name="about_credits_chunker">Chunker-Cli.jar: from Hive Game open source project Chunker.</string>
+    <string name="about_credits_sdk">The archive decryptor uses Dicecan NetEaseDecryptorSDK (GPL v3)</string>
     <string name="about_thanks">Special Thanks: Ryan Steven</string>
-    <string name="about_github"><a href="https://dozenesstudio.github.io/Chunkoid/">Click to visit website</a></string>
-    <string name="about_sponsor">Sponsor:</string>
+    <string name="about_website"><a href="https://dozenesstudio.github.io/Chunkoid/">Click to visit website</a></string>
     <string name="about_date">2026/6/9</string>
     <string name="check_update">Check for Updates</string>
     <string name="donate">Donate</string>
@@ -33,6 +33,7 @@
     <string name="output_manager">Output Manager</string>
     <string name="map_downloader">Map Downloader</string>
     <string name="resource_converter">Resource Pack Converter</string>
+    <string name="archive_decrypt">Archive Decrypt</string>
     <string name="feature_not_available">Feature not yet available, coming soon!</string>
     <string name="archive">Archive Format</string>
     <string name="folder">Folder Directory</string>
@@ -304,10 +305,19 @@
     <string name="java_zl2">Java: ZL2</string>
     <string name="no_worlds_found">Try to converse a world</string>
     <string name="delete_world">Delete World</string>
-    <string name="archive_decrypt">Archive Decrypt</string>
     <string name="export_success">Export successful</string>
     <string name="export_failed">Export failed</string>
     <string name="app_not_installed">App not installed</string>
     <string name="launch_failed">Launch failed</string>
     <string name="view_conversion_log">View Conversion Log</string>
+
+    <!-- Decryptor -->
+    <string name="decryptor_title">Archive Decryptor</string>
+    <string name="decryptor_desc">Some Bedrock edition saves are restricted by the platform and need to be decrypted before they can be converted. This is a decrypter that can quickly handle these kinds of saves.</string>
+    <string name="select_decrypt_world">Select world to decrypt</string>
+    <string name="ready_to_decrypt">Ready to decrypt</string>
+    <string name="decrypting">Decrypting...</string>
+    <string name="decrypt_complete">Decryption Complete!</string>
+    <string name="decrypt_failed">Decryption Failed</string>
+    <string name="export_decrypted_world">Export Decrypted World</string>
 </resources>

@@ -35,8 +35,20 @@ class AboutActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val tvGithubLink = findViewById<TextView>(R.id.tv_github_link)
-        tvGithubLink.setOnClickListener {
+        val tvchunkerLink = findViewById<TextView>(R.id.tv_chunker_link)
+        tvchunkerLink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/HiveGamesOSS/Chunker"))
+            startActivity(intent)
+        }
+
+        val tvsdkLink = findViewById<TextView>(R.id.tv_sdk_link)
+        tvsdkLink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Dicecan/NetEaseDecryptorSDK"))
+            startActivity(intent)
+        }
+
+        val tvwebsiteLink = findViewById<TextView>(R.id.tv_website_link)
+        tvwebsiteLink.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://dozenesstudio.github.io/Chunkoid/"))
             startActivity(intent)
         }

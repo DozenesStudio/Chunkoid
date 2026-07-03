@@ -86,11 +86,14 @@ Weiyin 1A
 
 ### 第三方依赖
 
-本项目使用了以下开源软件：
+本项目使用了以下开源软件/SDK：
 
-- **chunker-cli** (v1.18.0) - 核心转换引擎，源自The Hive的 [chunker](https://github.com/HiveGamesOSS/Chunker) 开源项目
+- **chunker-cli** - [The Hive](chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
   - 许可证：MIT License
-  - 文件位置：`app/src/main/assets/chunker-cli-1.15.0.jar`
+  - 文件位置：`app\src\main\assets\chunker-cli-1.15.0.jar`
+- 存档解密SDK - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
+  - 许可证：GPL v3.0
+  - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
 
 ## 许可证
 
