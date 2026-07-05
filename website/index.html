@@ -570,10 +570,11 @@
                 font-size: 16px;          /* 字体缩小到16px */
                 bottom: 15px;             /* 距底部15px */
                 border-radius: 20px;       /* 圆角缩小到20px */
+                white-space: nowrap;       /* 禁止文本自动换行 */
             }
 
-            /* ==================== 图片卡片布局 (手机) ==================== */
-            /* Hero截图区域竖向排列 */
+        /* ==================== 图片卡片布局 (手机) ==================== */
+        /* Hero截图区域竖向排列 */
             .hero-images {
                 align-items: center;      /* 水平居中 */
                 gap: 15px;                /* 图片间距15px */
@@ -582,27 +583,27 @@
                 align-items: flex-end;    /* 底部对齐，形成错落感 */
             }
 
-            /* 图片卡片宽度适应屏幕 */
+        /* 图片卡片宽度适应屏幕 */
             .image-card {
                 width: 100%;              /* 宽度100% */
                 max-width: 300px;         /* 最大宽度300px */
                 flex-shrink: 1;           /* 允许缩小 */
             }
 
-            /* 图片卡片内图片响应式 */
+        /* 图片卡片内图片响应式 */
             .image-card img {
                 width: 100%;              /* 宽度100% */
                 height: auto;             /* 高度自适应 */
                 max-height: 400px;        /* 最大高度400px */
             }
 
-            /* 手机截图高度适配 */
+        /* 手机截图高度适配 */
             .image-card.phone img {
                 height: auto;             /* 高度自适应 */
                 max-height: 450px;        /* 最大高度450px */
             }
 
-            /* 平板截图高度适配 */
+        /* 平板截图高度适配 */
             .image-card.tablet img {
                 height: auto;             /* 高度自适应 */
                 max-height: 350px;        /* 最大高度350px */

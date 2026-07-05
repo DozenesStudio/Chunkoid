@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -480,10 +480,41 @@
 
         @media (max-width: 768px) {
             .fixed-download-btn {
-                padding: 16px 40px;
+                padding: 16px 60px;
                 font-size: 16px;
                 bottom: 15px;
                 border-radius: 20px;
+                white-space: nowrap;
+            }
+
+            .hero-images {
+                align-items: center;
+                gap: 15px;
+                max-width: 100%;
+                margin-top: 30px;
+                align-items: flex-end;
+            }
+
+            .image-card {
+                width: 100%;
+                max-width: 300px;
+                flex-shrink: 1;
+            }
+
+            .image-card img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+            }
+
+            .image-card.phone img {
+                height: auto;
+                max-height: 450px;
+            }
+
+            .image-card.tablet img {
+                height: auto;
+                max-height: 350px;
             }
         }
     </style>
