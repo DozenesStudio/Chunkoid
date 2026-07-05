@@ -463,53 +463,6 @@
             color: #ffffff;              /* 悬停时图标变白色 */
         }
 
-        /* ==================== 更新提示Toast样式 ==================== */
-        /* 更新提示弹窗，右下角滑入滑出 */
-        .custom-toast {
-            position: fixed;              /* 固定定位 */
-            right: -400px;               /* 初始位置在屏幕右侧外 */
-            bottom: 40px;                /* 距底部40px */
-            z-index: 9999;               /* 最高层级，确保显示在最上层 */
-            animation: slideIn 0.5s ease forwards, slideOut 0.5s ease 5s forwards;  /* 先滑入，5秒后滑出 */
-        }
-
-        /* Toast内容区域 */
-        .toast-content {
-            background: rgba(10, 10, 10, 0.9);  /* 深灰色90%透明度背景 */
-            border: 3px solid #5D8C22;    /* 绿色边框 */
-            border-radius: 12px;          /* 12px圆角 */
-            padding: 16px 24px;           /* 上下16px，左右24px内边距 */
-            max-width: 320px;            /* 最大宽度320px */
-        }
-
-        /* Toast文字 */
-        .toast-text {
-            color: #5D8C22;              /* 绿色文字 */
-            font-size: 14px;              /* 字体大小14px */
-            font-weight: 500;            /* 中等粗细 */
-            line-height: 1.5;            /* 行高1.5 */
-        }
-
-        /* Toast滑入动画 */
-        @keyframes slideIn {
-            from {
-                right: -400px;           /* 起始位置在右侧外 */
-            }
-            to {
-                right: 20px;             /* 结束位置距右侧20px */
-            }
-        }
-
-        /* Toast滑出动画 */
-        @keyframes slideOut {
-            from {
-                right: 20px;             /* 起始位置距右侧20px */
-            }
-            to {
-                right: -400px;           /* 结束位置在右侧外 */
-            }
-        }
-
         /* ==================== 赞助区域样式 ==================== */
         /* 赞助按钮区域 */
         .sponsor-section {
@@ -746,13 +699,6 @@
                 <a href="https://md3l.top">友情链接：MD3L启动器</a>
             </p>
         </footer>
-
-        <!-- 更新提示Toast -->
-        <div id="update-toast" class="custom-toast">
-            <div class="toast-content">
-                <span class="toast-text">v1.1.0 现已发布，请更新！</span>
-            </div>
-        </div>
 
         <!-- 固定下载按钮 -->
         <a href="#download" class="fixed-download-btn">

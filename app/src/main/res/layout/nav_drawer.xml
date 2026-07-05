@@ -30,7 +30,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/uranus_pixel" />
-
+            
     </LinearLayout>
 
     <!-- Menu Items -->
