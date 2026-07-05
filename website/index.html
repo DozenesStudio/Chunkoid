@@ -483,55 +483,6 @@
             height: 20px;                 /* 高度20px */
         }
 
-        /* ==================== 响应式适配 (平板) ==================== */
-        /* 屏幕宽度 <= 1024px 时的样式，针对平板设备 */
-        @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;   /* Hero区域改为垂直排列 */
-                text-align: center;       /* 文字居中 */
-            }
-
-            .hero-title {
-                font-size: 48px;          /* 标题字体缩小到48px */
-            }
-
-            .hero-subtitle {
-                font-size: 24px;          /* 副标题字体缩小到24px */
-            }
-
-            .hero-desc {
-                margin: 0 auto 40px;      /* 描述文字居中，底部40px间距 */
-            }
-
-            .cta-buttons {
-                justify-content: center;  /* 按钮组居中 */
-            }
-        }
-
-        /* ==================== 响应式适配 (手机) ==================== */
-        /* 屏幕宽度 <= 768px 时的样式，针对手机设备 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;           /* 容器内边距缩小到20px */
-            }
-
-            .nav-links {
-                display: none;            /* 隐藏导航链接 */
-            }
-
-            .hero-title {
-                font-size: 36px;          /* 标题字体缩小到36px */
-            }
-
-            .hero-subtitle {
-                font-size: 20px;          /* 副标题字体缩小到20px */
-            }
-
-            .section-title {
-                font-size: 32px;          /* 区域标题字体缩小到32px */
-            }
-        }
-
         /* ==================== 固定下载按钮 ==================== */
         /* 页面底部固定显示的毛玻璃下载按钮，方便用户随时点击下载 */
         .fixed-download-btn {
@@ -560,6 +511,60 @@
             transform: translateX(-50%) translateY(-2px);  /* 向上移动2px */
             box-shadow: 0 6px 25px rgba(74, 222, 128, 0.3);  /* 阴影增强 */
             border-color: rgba(74, 222, 128, 0.6);  /* 边框透明度增加到60% */
+        }
+
+        /* ==================== 响应式适配 (平板) ==================== */
+        /* 屏幕宽度 <= 1024px 时的样式，针对平板设备 */
+        @media (max-width: 1024px) {
+            .hero-section {
+                flex-direction: column;   /* Hero区域改为垂直排列 */
+                text-align: center;       /* 文字居中 */
+            }
+
+            .hero-title {
+                font-size: 60px;          /* 标题字体缩小到60px */
+            }
+
+            .hero-subtitle {
+                font-size: 24px;          /* 副标题字体缩小到24px */
+            }
+
+            .hero-desc {
+                margin: 0 auto 40px;      /* 描述文字居中，底部40px间距 */
+            }
+
+            .cta-buttons {
+                justify-content: center;  /* 按钮组居中 */
+            }
+        }
+
+        /* ==================== 响应式适配 (手机) ==================== */
+        /* 屏幕宽度 <= 768px 时的样式，针对手机设备 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;           /* 容器内边距缩小到20px */
+            }
+
+            .nav-links {
+                display: flex;             /* 保持导航显示 */
+                gap: 10px;                /* 缩小间距 */
+            }
+
+            .nav-links a:not(.lang-link) {
+                display: none;             /* 隐藏非语言切换的导航链接 */
+            }
+
+            .hero-title {
+                font-size: 50px;          /* 标题字体缩小到50px */
+            }
+
+            .hero-subtitle {
+                font-size: 20px;          /* 副标题字体缩小到20px */
+            }
+
+            .section-title {
+                font-size: 32px;          /* 区域标题字体缩小到32px */
+            }
         }
 
         /* ==================== 固定下载按钮 (手机) ==================== */
@@ -620,7 +625,6 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-
                 <a href="#sponsor">赞助</a>
                 <a href="#features">功能特性</a>
                 <a href="#download">下载</a>

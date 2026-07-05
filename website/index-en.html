@@ -406,51 +406,6 @@
             height: 20px;
         }
 
-        @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .hero-subtitle {
-                font-size: 24px;
-            }
-
-            .hero-desc {
-                margin: 0 auto 40px;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 36px;
-            }
-
-            .hero-subtitle {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-        }
-
         .fixed-download-btn {
             position: fixed;
             bottom: 20px;
@@ -476,6 +431,56 @@
             transform: translateX(-50%) translateY(-2px);
             box-shadow: 0 6px 25px rgba(74, 222, 128, 0.3);
             border-color: rgba(74, 222, 128, 0.6);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 60px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .hero-desc {
+                margin: 0 auto 40px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 10px;
+            }
+
+            .nav-links a:not(.lang-link) {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 50px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
         }
 
         @media (max-width: 768px) {
