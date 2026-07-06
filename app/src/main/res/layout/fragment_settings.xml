@@ -18,9 +18,8 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/minecraft_surface_glass"
             app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:strokeColor="@color/minecraft_green"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/dark_card_secondary"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,9 +59,14 @@
                         android:valueTo="8192"
                         android:stepSize="256"
                         android:value="4096"
+                        app:trackHeight="10dp"
                         app:trackColorActive="@color/minecraft_green"
-                        app:trackColorInactive="@color/minecraft_gray"
-                        app:thumbColor="@color/minecraft_green" />
+                        app:trackColorInactive="@color/transparent"
+                        app:thumbColor="@color/minecraft_green"
+                        app:thumbRadius="0dp"
+                        app:thumbElevation="0dp"
+                        app:tickColorActive="@color/transparent"
+                        app:tickColorInactive="@color/minecraft_green" />
 
                     <TextView
                         android:id="@+id/tv_memory_value"
@@ -134,9 +138,8 @@
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/minecraft_surface_glass"
             app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:strokeColor="@color/minecraft_green"
-            app:strokeWidth="2dp">
+            app:strokeColor="@color/dark_card_secondary"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

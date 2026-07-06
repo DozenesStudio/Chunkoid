@@ -65,6 +65,11 @@
             android:label="@string/decryptor_title"
             android:parentActivityName=".MainActivity" />
 
+        <activity
+            android:name=".PackConverterActivity"
+            android:label="@string/pack_converter_title"
+            android:parentActivityName=".MainActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

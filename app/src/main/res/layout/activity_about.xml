@@ -19,16 +19,26 @@
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/minecraft_green">
+                android:background="@color/transparent">
 
-                <androidx.appcompat.widget.Toolbar
+                <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:navigationIcon="?attr/homeAsUpIndicator"
-                    app:navigationIconTint="@color/white"
                     app:title="@string/about"
-                    app:titleTextColor="@color/white"/>
+                    app:titleTextColor="@color/white"
+                    app:navigationIcon="?attr/homeAsUpIndicator"
+                    app:navigationIconTint="@color/white">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_about"
+                        android:tint="@color/white"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp" />
+
+                </com.google.android.material.appbar.MaterialToolbar>
 
             </com.google.android.material.appbar.AppBarLayout>
 
