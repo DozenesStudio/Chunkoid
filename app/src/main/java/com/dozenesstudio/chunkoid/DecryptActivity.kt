@@ -35,7 +35,10 @@ class DecryptActivity : AppCompatActivity() {
             contentResolver.takePersistableUriPermission(treeUri, takeFlags)
             val docFile = DocumentFile.fromTreeUri(this, treeUri)
             selectedWorldDoc = docFile
-            binding.tvSelectWorld.text = docFile?.name ?: getString(R.string.select_decrypt_world)
+            
+            val displayName = getDisplayNameFromDocFile(docFile)
+            binding.tvSelectWorld.text = displayName ?: getString(R.string.select_decrypt_world)
+            
             startDecryption()
         }
     }
@@ -149,7 +152,7 @@ class DecryptActivity : AppCompatActivity() {
                     return
                 }
 
-            val worldName = sourceDir.name
+            val worldName = getWorldName(sourceDir)
             val targetWorldDir = targetRoot.createDirectory(worldName)
                 ?: run {
                     ToastUtils.show(this, "无法创建目标文件夹", isError = true)
@@ -162,6 +165,34 @@ class DecryptActivity : AppCompatActivity() {
         } catch (e: Exception) {
             ToastUtils.show(this, "${getString(R.string.export_failed)}: ${e.message}", isError = true)
         }
+    }
+
+    private fun getDisplayNameFromDocFile(docFile: DocumentFile?): String? {
+        docFile ?: return null
+        
+        val levelNameFile = docFile.findFile("levelname.txt")
+        if (levelNameFile != null && levelNameFile.isFile) {
+            return try {
+                contentResolver.openInputStream(levelNameFile.uri)?.use { inputStream ->
+                    inputStream.bufferedReader().readText().trim().takeIf { it.isNotEmpty() }
+                } ?: docFile.name
+            } catch (e: Exception) {
+                docFile.name
+            }
+        }
+        return docFile.name
+    }
+
+    private fun getWorldName(sourceDir: File): String {
+        val levelNameFile = File(sourceDir, "levelname.txt")
+        if (levelNameFile.exists() && levelNameFile.isFile) {
+            return try {
+                levelNameFile.readText().trim().takeIf { it.isNotEmpty() } ?: sourceDir.name
+            } catch (e: Exception) {
+                sourceDir.name
+            }
+        }
+        return sourceDir.name
     }
 
     private fun copyDirectoryToDocumentFile(sourceDir: File, targetDir: DocumentFile) {

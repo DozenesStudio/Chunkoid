@@ -190,15 +190,13 @@
 
                     <TextView
                         android:id="@+id/tv_website_link"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:autoLink="web"
-                        android:clickable="true"
-                        android:linksClickable="true"
                         android:text="@string/about_website"
-                        android:textColor="@color/minecraft_green"
-                        android:textSize="14sp" />
+                        android:textColor="@color/minecraft_gray"
+                        android:textSize="11sp"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="4dp"/>
 
 
                     <TextView

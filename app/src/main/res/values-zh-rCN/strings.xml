@@ -17,7 +17,7 @@
     <string name="about_credits_sdk">存档解密器使用了Dicecan的NetEaseDecryptorSDK(GPL v3)</string>
     <string name="about_thanks">特别鸣谢：Ryan Steven</string>
     <string name="about_website"><a href="https://dozenesstudio.github.io/Chunkoid/">进入官网</a></string>
-    <string name="about_date">2026/6/9</string>
+    <string name="about_date">2026/7/5</string>
     <string name="check_update">检查更新</string>
     <string name="donate">捐赠</string>
 
@@ -309,7 +309,7 @@
 
     <!-- Decryptor -->
     <string name="decryptor_title">存档解密器</string>
-    <string name="decryptor_desc">部分基岩版存档受到了平台的限制，需要进行解密处理才可以进行转换，这里提供一个解密器可以快捷处理这类存档</string>
+    <string name="decryptor_desc">网易版存档受到了平台的限制，需要进行解密处理才可以进行转换，这里提供一个解密器可以快捷处理这类存档</string>
     <string name="select_decrypt_world">选择输入存档文件夹位置</string>
     <string name="ready_to_decrypt">准备解密</string>
     <string name="decrypting">正在解密…</string>
