@@ -94,7 +94,7 @@ Weiyin 1A
 - **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
   - 许可证：GPL v3.0
   - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
-  - **NBT解析器** - [PowerNukkit](https://github.com/PowerNukkit)的[NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator)
+- **NBT解析器** - [PowerNukkit](https://github.com/PowerNukkit)的[NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator)
   - 许可证：MIT License
   - 文件位置：`nbt`
 
