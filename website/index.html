@@ -177,6 +177,8 @@
         /* 次要按钮（半透明），用于次要操作 */
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);  /* 白色10%透明度背景 */
+            backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
+            -webkit-backdrop-filter: blur(12px);  /* Safari浏览器兼容 */
             color: white;                /* 白色文字 */
             border: 1px solid rgba(255, 255, 255, 0.2);  /* 白色20%透明度边框 */
         }

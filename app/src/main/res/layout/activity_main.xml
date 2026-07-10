@@ -237,38 +237,81 @@
                                         app:cardCornerRadius="8dp"
                                         app:cardElevation="0dp">
 
-                                        <LinearLayout
+                                        <FrameLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="80dp"
-                                            android:gravity="center_vertical"
-                                            android:orientation="horizontal"
-                                            android:padding="8dp">
+                                            android:layout_height="match_parent">
 
-                                            <!-- World Icon -->
-                                            <com.google.android.material.imageview.ShapeableImageView
-                                                android:id="@+id/iv_world_icon"
-                                                android:layout_width="65dp"
-                                                android:layout_height="65dp"
-                                                android:layout_marginEnd="12dp"
-                                                android:background="@color/minecraft_surface_glass_dark"
-                                                android:scaleType="centerCrop"
-                                                android:src="@drawable/unknown"
-                                                app:shapeAppearanceOverlay="@style/RoundedImageStyle"
-                                                app:strokeColor="@color/transparent"
-                                                app:strokeWidth="0dp" />
+                                            <LinearLayout
+                                                android:id="@+id/layout_world_info_content"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="80dp"
+                                                android:gravity="center_vertical"
+                                                android:orientation="horizontal"
+                                                android:padding="8dp">
 
-                                            <!-- World Name -->
-                                            <TextView
-                                                android:id="@+id/tv_world_name"
-                                                android:layout_width="0dp"
-                                                android:layout_height="wrap_content"
-                                                android:layout_weight="1"
-                                                android:text="世界名称"
-                                                android:textColor="@color/white"
-                                                android:textSize="20sp"
-                                                android:textStyle="bold" />
+                                                <!-- World Icon -->
+                                                <com.google.android.material.imageview.ShapeableImageView
+                                                    android:id="@+id/iv_world_icon"
+                                                    android:layout_width="65dp"
+                                                    android:layout_height="65dp"
+                                                    android:layout_marginEnd="12dp"
+                                                    android:background="@color/minecraft_surface_glass_dark"
+                                                    android:scaleType="centerCrop"
+                                                    android:src="@drawable/unknown"
+                                                    app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+                                                    app:strokeColor="@color/transparent"
+                                                    app:strokeWidth="0dp" />
 
-                                        </LinearLayout>
+                                                <!-- World Name -->
+                                                <TextView
+                                                    android:id="@+id/tv_world_name"
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:text="世界名称"
+                                                    android:textColor="@color/white"
+                                                    android:textSize="20sp"
+                                                    android:textStyle="bold" />
+
+                                            </LinearLayout>
+
+                                            <!-- Delete Overlay -->
+                                            <LinearLayout
+                                                android:id="@+id/layout_delete_overlay"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="#80000000"
+                                                android:clickable="true"
+                                                android:focusable="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical"
+                                                android:visibility="gone"
+                                                tools:visibility="visible">
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center">
+
+                                                    <ImageView
+                                                        android:layout_width="24dp"
+                                                        android:layout_height="24dp"
+                                                        android:src="@drawable/delete"/>
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:text="@string/delete_task"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="20sp"
+                                                        android:textStyle="bold" />
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </FrameLayout>
 
                                     </com.google.android.material.card.MaterialCardView>
 
@@ -278,7 +321,6 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="16dp"
-                                        android:gravity="center"
                                         android:orientation="horizontal">
 
                                         <!-- Platform Card -->
@@ -307,6 +349,16 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="基岩版"
+                                                    android:textColor="@color/white"
+                                                    android:textSize="16sp"
+                                                    android:textStyle="bold" />
+
+                                                <TextView
+                                                    android:id="@+id/tv_version"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="5dp"
+                                                    android:text="1.20.1"
                                                     android:textColor="@color/white"
                                                     android:textSize="16sp"
                                                     android:textStyle="bold" />

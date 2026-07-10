@@ -120,7 +120,7 @@ class DecryptActivity : AppCompatActivity() {
                             decryptedWorldPath = exportPath
                             binding.tvStatus.text = getString(R.string.decrypt_complete)
                             binding.btnExport.visibility = android.view.View.VISIBLE
-                            addLog("解密完成，输出目录: $exportPath", LogEntry.Level.INFO)
+                            addLog("解密完成", LogEntry.Level.INFO)
                             ToastUtils.show(this@DecryptActivity, getString(R.string.decrypt_complete))
                         }
                     }

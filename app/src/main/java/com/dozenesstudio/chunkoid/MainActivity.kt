@@ -249,6 +249,7 @@ class MainActivity : AppCompatActivity() {
 
         setupDrawer()
         setupClickListeners()
+        setupDeleteModeListener()
         setupBottomNavigation()
         checkPermissions()
         setupSplashText()
@@ -899,6 +900,44 @@ class MainActivity : AppCompatActivity() {
         selectedFormat = ""
         selectedFormatDisplayName = ""
         isWorldInfoVisible = false
+        isDeleteMode = false
+        binding.layoutDeleteOverlay.visibility = View.GONE
+        binding.layoutWorldInfoContent.alpha = 1f
+    }
+
+    private var isDeleteMode = false
+
+    private fun cancelDeleteMode() {
+        isDeleteMode = false
+        binding.layoutWorldInfoContent.alpha = 1f
+        binding.layoutDeleteOverlay.visibility = View.GONE
+    }
+
+    private fun setupDeleteModeListener() {
+        binding.cardWorldInfoBar.setOnLongClickListener {
+            isDeleteMode = true
+            val vibrator = getSystemService(VIBRATOR_SERVICE) as android.os.Vibrator
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(android.os.VibrationEffect.createOneShot(50, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+            } else {
+                vibrator.vibrate(50)
+            }
+            binding.layoutWorldInfoContent.alpha = 0.3f
+            binding.layoutDeleteOverlay.visibility = View.VISIBLE
+            true
+        }
+
+        binding.layoutDeleteOverlay.setOnClickListener {
+            isDeleteMode = false
+            clearOutput()
+            switchToInitialState()
+        }
+
+        binding.cardWorldInfo.setOnClickListener {
+            if (isDeleteMode) {
+                cancelDeleteMode()
+            }
+        }
     }
 
     private fun detectPlatformFromDirectory(uri: Uri) {
@@ -1079,10 +1118,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateWorldInfoDisplay() {
-        // Update world name
         binding.tvWorldName.text = inputWorldName
 
-        // Update platform card
         if (worldPlatform == Platform.JAVA) {
             binding.cardPlatform.strokeColor = resources.getColor(R.color.minecraft_green)
             binding.tvPlatform.text = getString(R.string.java_edition)
@@ -1090,6 +1127,37 @@ class MainActivity : AppCompatActivity() {
             binding.cardPlatform.strokeColor = resources.getColor(R.color.minecraft_green)
             binding.tvPlatform.text = getString(R.string.bedrock_edition)
         }
+
+        loadWorldVersion()
+    }
+
+    private fun loadWorldVersion() {
+        binding.cardPlatform.visibility = View.GONE
+
+        Thread {
+            val versionInfo = if (isArchiveMode) {
+                NbtVersionReader.readLevelDat(File(filesDir, "input"))
+            } else {
+                inputUri?.let { uri ->
+                    try {
+                        DocumentFile.fromTreeUri(this, uri)?.findFile("level.dat")?.uri?.let { levelDatUri ->
+                            contentResolver.openInputStream(levelDatUri)?.use { inputStream ->
+                                NbtVersionReader.readLevelDatFromStream(inputStream)
+                            }
+                        }
+                    } catch (e: Exception) {
+                        null
+                    }
+                }
+            }
+
+            runOnUiThread {
+                versionInfo?.let {
+                    binding.tvVersion.text = NbtVersionReader.getVersionDisplay(it)
+                    binding.cardPlatform.visibility = View.VISIBLE
+                }
+            }
+        }.start()
     }
 
     private fun updateTargetVersionDisplay(versionDisplayName: String) {

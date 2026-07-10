@@ -7,25 +7,21 @@
     <string name="ok">确定</string>
     <string name="output_folder_not_found">未找到输出文件夹</string>
     <string name="cannot_open_folder">无法打开输出文件夹</string>
-    <string name="app_description">一个安卓版JE-BE世界转换器</string>
-    <string name="app_version">测试版 1.1.4-beta.1</string>
-    <string name="about">关于</string>
 
     <!-- About Page -->
+    <string name="about">关于</string>
+    <string name="app_version">1.2.0 正式版</string>
     <string name="about_intro">一个安卓端的我的世界JE-BE双端世界转换器\n力求为手机用户提供一个方便快捷的存档转换体验</string>
     <string name="about_credits_chunker">Chunker-Cli为Hive Game的开源项目(MIT)</string>
+    <string name="about_credits_nbt">NBT工具使用了Polyana-Fontes的NBT-Manipulator(MIT)</string>
     <string name="about_credits_sdk">存档解密器使用了Dicecan的NetEaseDecryptorSDK(GPL v3)</string>
     <string name="about_thanks">特别鸣谢：Ryan Steven</string>
-    <string name="about_website"><a href="https://dozenesstudio.github.io/Chunkoid/">进入官网</a></string>
+    <string name="about_website">进入官网</string>
     <string name="about_date">2026/7/5</string>
     <string name="check_update">检查更新</string>
     <string name="donate">捐赠</string>
 
     <!-- Main Activity -->
-    <string name="select_output_location">选择输出位置</string>
-    <string name="input_world">输入世界目录</string>
-    <string name="output_directory">输出目录</string>
-    <string name="not_selected">未选择</string>
     <string name="start_conversion">开始转换</string>
     <string name="settings">设置</string>
     <string name="built_in_terminal">终端控制台</string>
@@ -38,10 +34,9 @@
     <string name="archive">归档格式</string>
     <string name="folder">文件夹目录</string>
     <string name="extracting_world">正在解压缩世界...</string>
+    <string name="delete_task">删除本次任务</string>
     <string name="bedrock_edition">基岩版</string>
     <string name="java_edition">Java版</string>
-    <string name="to_java">转Java</string>
-    <string name="to_bedrock">转基岩</string>
 
     <!-- Conversion Settings -->
     <string name="auto_detect">自动检测</string>
@@ -215,9 +210,9 @@
     <string name="settings_title">设置</string>
     <string name="conversion_settings">转换器设置</string>
     <string name="jvm_max_memory">JVM最大内存（MB）</string>
-    <string name="memory_hint">要转换大存档（超1GB）时，建议根据手机性能增加最大内存，提升转换速率；最大内存过小，转换时则容易报错</string>
+    <string name="memory_hint">要转换大存档（超1GB）时，根据手机性能增加最大内存，提升转换速率；最大内存过小，转换时则容易报错</string>
     <string name="keep_original_nbt">保留原始NBT</string>
-    <string name="keep_original_nbt_desc">保留原始存档物品栏数据，仅在相同平台转换时建议启用</string>
+    <string name="keep_original_nbt_desc">保留原始存档物品栏数据，在相同平台转换时建议启用</string>
     <string name="general_settings">通用</string>
     <string name="theme_switch">外观切换</string>
     <string name="theme_bedrock_black">基岩黑（默认背景）</string>
@@ -309,16 +304,20 @@
 
     <!-- Decryptor -->
     <string name="decryptor_title">存档解密器</string>
+    <string name="decrypt_shortcut_short">存档解密</string>
+    <string name="decrypt_shortcut_long">存档解密</string>
     <string name="decryptor_desc">网易版存档受到了平台的限制，需要进行解密处理才可以进行转换，这里提供一个解密器可以快捷处理这类存档</string>
     <string name="select_decrypt_world">选择输入存档文件夹位置</string>
     <string name="ready_to_decrypt">准备解密</string>
     <string name="decrypting">正在解密…</string>
     <string name="decrypt_complete">解密完成！</string>
     <string name="decrypt_failed">解密失败</string>
-    <string name="export_decrypted_world">导出存档</string>
+    <string name="export_decrypted_world">导出到指定目录</string>
 
     <!-- Pack Converter -->
     <string name="pack_converter_title">材质包转换器</string>
+    <string name="pack_converter_shortcut_short">材质转换</string>
+    <string name="pack_converter_shortcut_long">材质转换</string>
     <string name="pack_converter_desc">JE-BE之间相互转换MC材质包，目前支持文件夹形式的材质包，若为压缩包形式请自行解压缩之后导入</string>
     <string name="select_input_pack_folder">选择输入材质包文件夹位置</string>
     <string name="ready_to_convert">准备转换</string>

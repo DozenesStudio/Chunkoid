@@ -41,6 +41,12 @@ class AboutActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val tvnbtLink = findViewById<TextView>(R.id.tv_nbt_link)
+        tvnbtLink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/PowerNukkit/NBT-Manipulator"))
+            startActivity(intent)
+        }
+
         val tvsdkLink = findViewById<TextView>(R.id.tv_sdk_link)
         tvsdkLink.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Dicecan/NetEaseDecryptorSDK"))

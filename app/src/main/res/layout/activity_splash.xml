@@ -23,7 +23,7 @@
             android:layout_width="167dp"
             android:layout_height="171dp"
             android:contentDescription="App Logo"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_launcher" />
 
         <ImageView
             android:id="@+id/app_text"
