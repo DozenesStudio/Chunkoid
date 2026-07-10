@@ -12,13 +12,11 @@
 
 想弥补这方面的空白，**急需一款移动端的手机转换器！**
 
-于是——
-
 ***
 
 ## Chunkoid，现已发布！
 
-全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑！
+全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
 
 ### 核心功能
 
@@ -88,7 +86,7 @@ Weiyin 1A
 
 本项目使用了以下开源软件/SDK：
 
-- **chunker-cli** - [The Hive](chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
+- **chunker-cli** - [The Hive](https://www.chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
   - 许可证：MIT License
   - 文件位置：`app\src\main\assets\chunker-cli-1.15.0.jar`
 - **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
