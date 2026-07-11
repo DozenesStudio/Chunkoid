@@ -588,7 +588,7 @@ footer a:hover {
     }
 
     .hero-subtitle {
-        font-size: 20px;          /* 副标题字体缩小到20px */
+        display: none;             /* 移动端隐藏副标题 */
     }
 
     .section-title {
