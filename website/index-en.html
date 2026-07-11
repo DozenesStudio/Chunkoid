@@ -1,532 +1,38 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chunkoid - The First Android MC World Converter</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        @font-face {
-            font-family: 'UranusPixel';
-            src: url('uranus_pixel_11px.ttf') format('truetype');
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a url('bg.png') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 60px;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            margin-bottom: 80px;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            color: #b0b0b0;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .hero-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            min-height: calc(100vh - 200px);
-            gap: 60px;
-        }
-
-        .hero-text {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .hero-title {
-            font-size: 90px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
-            text-shadow: 
-                0 0 20px rgba(75, 75, 75, 0.8),
-                0 0 40px rgba(188, 188, 188, 0.6),
-                0 0 60px rgba(255, 255, 255, 0.4),
-                0 0 80px rgba(255, 255, 255, 0.3),
-                0 0 120px rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-subtitle {
-            font-size: 36px;
-            font-weight: 400;
-            color: #8b8b8b;
-            margin-bottom: 30px;
-        }
-
-        .hero-desc {
-            font-size: 18px;
-            color: #b0b0b0;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            max-width: 450px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #4ade80;
-            color: #0a0a0a;
-            font-weight: 700;
-        }
-
-        .btn-primary:hover {
-            background: #22c55e;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px); 
-            webkit-backdrop-filter: blur(12px);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .btn-bilibili {
-            background: linear-gradient(135deg, #ff6b9d, #c44569);
-            color: white;
-        }
-
-        .btn-bilibili:hover {
-            background: linear-gradient(135deg, #ff85ad, #d65a7d);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
-        }
-
-        .hero-images {
-            flex: 0.7;
-            max-width: 580px;
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            align-items: flex-end;
-        }
-
-        .image-card {
-            background: transparent;
-            border-radius: 12px;
-            padding: 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            border: none;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .image-card img {
-            width: auto;
-            height: 300px;
-            border-radius: 12px;
-            display: block;
-            object-fit: contain;
-            background: rgba(10, 10, 10, 0.9);
-        }
-
-        .image-card.phone img {
-            height: 400px;
-        }
-
-        .image-card.tablet img {
-            height: 280px;
-        }
-
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 12px;
-        }
-
-        .image-label {
-            color: #4ade80;
-            font-size: 18px;
-            font-weight: 600;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-        }
-
-        .image-card {
-            position: relative;
-        }
-
-        .image-card:hover .image-overlay {
-            opacity: 1;
-        }
-
-        .features-section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 42px;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 60px;
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .feature-card {
-            background: rgba(30, 30, 30, 0.85);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(74, 222, 128, 0.3);
-        }
-
-        .feature-title {
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .feature-description {
-            color: #b0b0b0;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .download-section {
-            background: rgba(30, 30, 30, 0.85);
-            padding: 60px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 60px 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .download-section h2 {
-            font-size: 32px;
-            color: #ffffff;
-            margin-bottom: 15px;
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;
-        }
-
-        .download-section p {
-            color: #b0b0b0;
-            margin-bottom: 30px;
-        }
-
-        .download-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-        }
-
-        .btn-primary.btn-github {
-            display: flex;
-            align-items: center;
-            color: #000000;
-        }
-
-        .btn-gitee {
-            background: #4ade80;
-            color: #000000;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .btn-gitee:hover {
-            background: #22c55e;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        footer p {
-            color: #000000;
-            font-size: 14px;
-        }
-
-        footer a {
-            color: #4ade80;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .github-link {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .github-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .github-link:hover .github-icon {
-            color: #ffffff;
-        }
-
-        .gitee-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .lang-link {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .lang-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .lang-link:hover .lang-icon {
-            color: #ffffff;
-        }
-
-        .sponsor-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .btn-ifdian {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .ifdian-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .fixed-download-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 20px 60px;
-            background: rgba(74, 222, 128, 0.151);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(74, 222, 128, 0.4);
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 240px;
-            box-shadow: 0 4px 20px rgba(74, 222, 128, 0.2);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .fixed-download-btn:hover {
-            background: rgba(74, 222, 128, 0.35);
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 6px 25px rgba(74, 222, 128, 0.3);
-            border-color: rgba(74, 222, 128, 0.6);
-        }
-
-        @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-title {
-                font-size: 60px;
-            }
-
-            .hero-subtitle {
-                font-size: 24px;
-            }
-
-            .hero-desc {
-                margin: 0 auto 40px;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            .nav-links {
-                display: flex;
-                gap: 10px;
-            }
-
-            .nav-links a:not(.lang-link) {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 50px;
-            }
-
-            .hero-subtitle {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .fixed-download-btn {
-                padding: 16px 20px;
-                font-size: 16px;
-                bottom: 15px;
-                border-radius: 20px;
-                white-space: nowrap;
-            }
-
-            .hero-images {
-                align-items: center;
-                gap: 15px;
-                max-width: 100%;
-                margin-top: 30px;
-                align-items: flex-end;
-            }
-
-            .image-card {
-                width: 100%;
-                max-width: 300px;
-                flex-shrink: 1;
-            }
-
-            .image-card img {
-                width: 100%;
-                height: auto;
-                max-height: 400px;
-            }
-
-            .image-card.phone img {
-                height: auto;
-                max-height: 450px;
-            }
-
-            .image-card.tablet img {
-                height: auto;
-                max-height: 350px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <!-- 移动端汉堡菜单按钮 -->
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </div>
+
+    <!-- 移动端侧边栏遮罩层 -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- 移动端侧边栏 -->
+    <div class="sidebar" id="sidebar">
+        <a href="download-en.html">Download</a>
+        <a href="index.html">
+            <img src="lang.png" alt="Language" class="lang-icon">
+            English
+        </a>
+        <a href="https://github.com/DozenesStudio/Chunkoid">
+            <img src="github_gray.png" alt="Github" class="github-icon">
+            Github
+        </a>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo-area">
@@ -534,9 +40,8 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-                <a href="#sponsor">Sponsor</a>
-                <a href="#features">Features</a>
-                <a href="#download">Download</a>
+                <span style="color: #ffffff;">Home</span>
+                <a href="download-en.html">Download</a>
                 <a href="index.html" class="lang-link">
                     <img src="lang.png" alt="Language" class="lang-icon">
                     English
@@ -551,7 +56,10 @@
         <section class="hero-section">
             <div class="hero-text">
                 <h1 class="hero-title">Chunkoid</h1>
-                <p class="hero-subtitle">World Converter <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span></p>
+                <p class="hero-subtitle">
+                    <img src="mc_logo.png" alt="Minecraft" class="mc-icon">
+                    World Converter <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span>
+                </p>
                 <p class="hero-desc">
                     Chunker on mobile? It's here! The world's first Android-native Minecraft world converter, fully open-source and free. No PC required.
                 </p>
@@ -613,29 +121,13 @@
             </div>
         </section>
 
-                <section id="sponsor" class="sponsor-section">
+        <section id="sponsor" class="sponsor-section">
             <h2 class="section-title">Support Development</h2>
             <p style="color: #b0b0b0; margin-bottom: 30px;">Found it useful? Your support is greatly appreciated!</p>
             <a href="https://ifdian.net/a/dozener" target="_blank" class="btn btn-primary btn-ifdian">
                 <img src="ifdian.png" alt="IfDian" class="ifdian-icon">
                 Support on IfDian
             </a>
-        </section>
-
-        <section id="download" class="download-section">
-            <h2>Download Now!</h2>
-            <p>Available download channels. Two direct links provided.</p>
-            <div class="download-buttons">
-                <a href="https://github.com/DozenesStudio/Chunkoid/releases/download/1.1.0/Chunkoid.1.1.0.apk" class="btn btn-primary btn-github">
-                <img src="github.png" alt="Github" class="github-icon">
-                    GitHub hi-speed Download
-                </a>
-                <a href="https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk" class="btn btn-gitee">
-                <img src="gitee.png" alt="Gitee" class="gitee-icon">
-                    Gitee backup Download
-                </a>
-
-            </div>
         </section>
 
         <footer>
@@ -649,12 +141,20 @@
             </p>
         </footer>
 
-        <a href="#download" class="fixed-download-btn">
+        <a href="download.html" class="fixed-download-btn">
             <span>Download Chunkoid</span>
             <span style="color: #ffffff;">|</span>
             <span style="color: #4ade80;">1.1.0Release</span>
         </a>
 
     </div>
+
+    <script>
+        // 侧边栏开关逻辑
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

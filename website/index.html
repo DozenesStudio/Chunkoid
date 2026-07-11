@@ -5,621 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chunkoid - 首个安卓端MC世界转换器</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        /* ==================== 自定义字体 ==================== */
-        /* 引入自定义像素字体 UranusPixel，用于标题和Logo显示，增强游戏风格 */
-        @font-face {
-            font-family: 'UranusPixel';         /* 字体名称，后续可通过 font-family 引用 */
-            src: url('uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
-        }
+    <link rel="stylesheet" href="main.css">
 
-        /* ==================== 全局重置样式 ==================== */
-        /* 使用通配符选择器重置所有元素的默认样式，确保跨浏览器一致性 */
-        * {
-            margin: 0;                    /* 清除默认外边距 */
-            padding: 0;                   /* 清除默认内边距 */
-            box-sizing: border-box;        /* 采用边框盒模型，padding和border不影响元素总宽度 */
-        }
-
-        /* ==================== 页面基础样式 ==================== */
-        /* 定义整个页面的基础样式，包括背景、字体、文字颜色 */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 首选Segoe UI字体，兼容各平台 */
-            background: #0a0a0a url('bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
-            background-size: cover;       /* 背景图覆盖整个容器 */
-            min-height: 100vh;            /* 最小高度为视口高度，确保页面至少占满一屏 */
-            color: #e0e0e0;              /* 默认文字颜色为浅灰色 */
-        }
-
-        /* ==================== 容器样式 ==================== */
-        /* 页面主容器，控制内容最大宽度和内外边距，使内容居中显示 */
-        .container {
-            max-width: 1400px;            /* 内容最大宽度1400px，防止过宽屏幕内容太松散 */
-            margin: 0 auto;               /* 水平居中 */
-            padding: 40px 60px;           /* 上下40px，左右60px内边距 */
-        }
-
-        /* ==================== 头部导航 ==================== */
-        /* 页面顶部区域，包含Logo和导航链接，采用Flex布局实现两端对齐 */
-        header {
-            display: flex;                /* Flex布局 */
-            justify-content: space-between;  /* Logo左对齐，导航右对齐 */
-            align-items: center;          /* 垂直居中 */
-            padding: 20px 0;             /* 上下20px内边距 */
-            margin-bottom: 80px;          /* 底部80px外边距，与下方Hero区域分隔 */
-        }
-
-        /* Logo区域（图标+文字），Flex布局使图标和文字水平排列 */
-        .logo-area {
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            gap: 15px;                   /* 图标与文字间距15px */
-        }
-
-        /* Logo图标样式 */
-        .logo {
-            width: 50px;                  /* 宽度50px */
-            height: 50px;                 /* 高度50px */
-            border-radius: 12px;          /* 12px圆角，使图标呈圆角矩形 */
-        }
-
-        /* Logo文字样式 */
-        .logo-text {
-            font-size: 24px;              /* 字体大小24px */
-            font-weight: 700;            /* 字体粗细700（粗体） */
-            color: #ffffff;              /* 白色文字 */
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 使用像素字体，降级为Segoe UI */
-        }
-
-        /* 导航链接容器，Flex布局使链接水平排列 */
-        .nav-links {
-            display: flex;                /* Flex布局 */
-            gap: 40px;                   /* 链接之间间距40px */
-        }
-
-        /* 导航链接样式 */
-        .nav-links a {
-            color: #b0b0b0;              /* 灰色文字 */
-            text-decoration: none;        /* 去掉下划线 */
-            font-size: 16px;              /* 字体大小16px */
-            transition: color 0.3s ease;  /* 颜色变化动画0.3秒 */
-        }
-
-        /* 导航链接悬停效果 */
-        .nav-links a:hover {
-            color: #ffffff;              /* 悬停时变为白色 */
-        }
-
-        /* ==================== 主视觉区域 (Hero) ==================== */
-        /* 页面首屏核心展示区域，包含标题、描述和应用截图，Flex布局实现左右分栏 */
-        .hero-section {
-            display: flex;                /* Flex布局 */
-            justify-content: space-between;  /* 文字和图片左右分布 */
-            align-items: center;          /* 垂直居中对齐 */
-            min-height: calc(100vh - 200px);  /* 最小高度为视口高度减200px（Header+Footer高度） */
-            gap: 60px;                   /* 文字与图片间距60px */
-        }
-
-        /* 文字内容区域 */
-        .hero-text {
-            flex: 1;                     /* 占据剩余空间的1份 */
-            max-width: 600px;            /* 最大宽度600px，防止文字过长 */
-        }
-
-        /* 主标题样式 */
-        .hero-title {
-            font-size: 90px;              /* 超大字体90px，视觉冲击力强 */
-            font-weight: 700;            /* 粗体 */
-            color: #ffffff;              /* 白色 */
-            line-height: 1.1;            /* 行高1.1，紧凑排版 */
-            margin-bottom: 20px;          /* 底部20px间距 */
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
-            text-shadow:                 /* 多层文字阴影，营造发光效果 */
-                0 0 20px rgba(75, 75, 75, 0.8),
-                0 0 40px rgba(188, 188, 188, 0.6),
-                0 0 60px rgba(255, 255, 255, 0.4),
-                0 0 80px rgba(255, 255, 255, 0.3),
-                0 0 120px rgba(255, 255, 255, 0.2);
-        }
-
-        /* 副标题样式 */
-        .hero-subtitle {
-            font-size: 36px;              /* 字体大小36px */
-            font-weight: 400;            /* 正常粗细 */
-            color: #8b8b8b;              /* 浅灰色 */
-            margin-bottom: 30px;          /* 底部30px间距 */
-        }
-
-        /* 描述文字样式 */
-        .hero-desc {
-            font-size: 18px;              /* 字体大小18px */
-            color: #b0b0b0;              /* 灰色 */
-            line-height: 1.8;            /* 行高1.8，提高可读性 */
-            margin-bottom: 40px;          /* 底部40px间距 */
-            max-width: 450px;            /* 最大宽度450px */
-        }
-
-        /* 按钮组容器，Flex布局使按钮水平排列 */
-        .cta-buttons {
-            display: flex;                /* Flex布局 */
-            gap: 20px;                   /* 按钮间距20px */
-            flex-wrap: wrap;              /* 空间不足时换行 */
-        }
-
-        /* ==================== 按钮基础样式 ==================== */
-        /* 通用按钮样式，定义按钮的基础外观 */
-        .btn {
-            padding: 16px 32px;           /* 上下16px，左右32px内边距 */
-            border: none;                 /* 无边框 */
-            border-radius: 12px;          /* 12px圆角 */
-            font-size: 16px;              /* 字体大小16px */
-            font-weight: 600;            /* 半粗体 */
-            cursor: pointer;              /* 鼠标指针变为手型 */
-            transition: all 0.3s ease;    /* 所有属性变化动画0.3秒 */
-            text-decoration: none;        /* 去掉下划线（链接按钮） */
-            display: inline-block;        /* 行内块级元素 */
-        }
-
-        /* 主按钮（绿色），用于主要操作 */
-        .btn-primary {
-            background: #4ade80;         /* 绿色背景 */
-            color: #0a0a0a;              /* 深灰色文字 */
-            font-weight: 700;            /* 粗体 */
-        }
-
-        /* 主按钮悬停效果 */
-        .btn-primary:hover {
-            background: #22c55e;         /* 背景变深 */
-            transform: translateY(-2px);  /* 向上移动2px */
-            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);  /* 添加绿色阴影 */
-        }
-
-        /* 次要按钮（半透明），用于次要操作 */
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);  /* 白色10%透明度背景 */
-            backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
-            -webkit-backdrop-filter: blur(12px);  /* Safari浏览器兼容 */
-            color: white;                /* 白色文字 */
-            border: 1px solid rgba(255, 255, 255, 0.2);  /* 白色20%透明度边框 */
-        }
-
-        /* 次要按钮悬停效果 */
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);  /* 透明度增加到15% */
-            transform: translateY(-2px);  /* 向上移动2px */
-        }
-
-        /* B站按钮（粉色渐变），用于链接到B站 */
-        .btn-bilibili {
-            background: linear-gradient(135deg, #ff6b9d, #c44569);  /* 粉色到深红色渐变 */
-            color: white;                /* 白色文字 */
-        }
-
-        /* B站按钮悬停效果 */
-        .btn-bilibili:hover {
-            background: linear-gradient(135deg, #ff85ad, #d65a7d);  /* 渐变颜色变亮 */
-            transform: translateY(-2px);  /* 向上移动2px */
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);  /* 添加粉色阴影 */
-        }
-
-        /* ==================== Hero截图区域 ==================== */
-        /* 应用截图容器，展示手机和平板端效果 */
-        .hero-images {
-            flex: 0.7;                   /* 占据剩余空间的0.7份 */
-            max-width: 580px;            /* 最大宽度580px */
-            display: flex;                /* Flex布局 */
-            flex-direction: row;          /* 水平排列 */
-            gap: 15px;                   /* 图片间距15px */
-            align-items: flex-end;        /* 底部对齐，形成错落感 */
-        }
-
-        /* 图片卡片基础样式 */
-        .image-card {
-            background: transparent;      /* 透明背景 */
-            border-radius: 12px;          /* 12px圆角 */
-            padding: 0;                   /* 无内边距 */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);  /* 深色阴影 */
-            border: none;                 /* 无边框 */
-            overflow: hidden;             /* 隐藏溢出内容 */
-            flex-shrink: 0;               /* 不缩小 */
-        }
-
-        /* 图片卡片内图片 */
-        .image-card img {
-            width: auto;                  /* 宽度自适应 */
-            height: 300px;               /* 高度300px */
-            border-radius: 12px;          /* 12px圆角 */
-            display: block;               /* 块级元素 */
-            object-fit: contain;          /* 保持比例，不拉伸 */
-            background: rgba(10, 10, 10, 0.9);  /* 深灰色背景 */
-        }
-
-        /* 手机截图高度 */
-        .image-card.phone img {
-            height: 400px;               /* 手机截图更高，400px */
-        }
-
-        /* 平板截图高度 */
-        .image-card.tablet img {
-            height: 280px;               /* 平板截图略矮，280px */
-        }
-
-        /* 图片悬停遮罩，覆盖在图片上方 */
-        .image-overlay {
-            position: absolute;           /* 绝对定位 */
-            top: 0;                      /* 顶部对齐 */
-            left: 0;                     /* 左侧对齐 */
-            width: 100%;                 /* 宽度100% */
-            height: 100%;                /* 高度100% */
-            background: rgba(0, 0, 0, 0.7);  /* 黑色70%透明度 */
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            justify-content: center;      /* 水平居中 */
-            opacity: 0;                  /* 默认透明 */
-            transition: opacity 0.3s ease;  /* 透明度变化动画0.3秒 */
-            border-radius: 12px;          /* 12px圆角 */
-        }
-
-        /* 图片遮罩标签文字 */
-        .image-label {
-            color: #4ade80;              /* 绿色文字 */
-            font-size: 18px;              /* 字体大小18px */
-            font-weight: 600;            /* 半粗体 */
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);  /* 文字阴影 */
-        }
-
-        /* 图片卡片定位（需设为relative才能让overlay绝对定位） */
-        .image-card {
-            position: relative;           /* 相对定位 */
-        }
-
-        /* 图片卡片悬停显示遮罩 */
-        .image-card:hover .image-overlay {
-            opacity: 1;                  /* 悬停时显示遮罩 */
-        }
-
-        /* ==================== 功能特性区域 ==================== */
-        /* 展示应用主要功能特性的区域 */
-        .features-section {
-            padding: 80px 0;             /* 上下80px内边距 */
-        }
-
-        /* 区域标题 */
-        .section-title {
-            font-size: 42px;              /* 字体大小42px */
-            font-weight: 600;            /* 半粗体 */
-            color: #ffffff;              /* 白色 */
-            text-align: center;          /* 居中对齐 */
-            margin-bottom: 60px;          /* 底部60px间距 */
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
-        }
-
-        /* 特性网格布局，自动适配列数 */
-        .features {
-            display: grid;                /* Grid布局 */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* 自动填充，最小280px */
-            gap: 25px;                   /* 卡片间距25px */
-        }
-
-        /* 特性卡片 */
-        .feature-card {
-            background: rgba(30, 30, 30, 0.85);  /* 深灰色85%透明度背景 */
-            padding: 30px;               /* 30px内边距 */
-            border-radius: 16px;          /* 16px圆角 */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);  /* 阴影效果 */
-            border: 1px solid rgba(255, 255, 255, 0.05);  /* 白色5%透明度边框 */
-            transition: transform 0.3s ease, border-color 0.3s ease;  /* 变换和边框颜色动画 */
-        }
-
-        /* 特性卡片悬停效果 */
-        .feature-card:hover {
-            transform: translateY(-5px);  /* 向上移动5px */
-            border-color: rgba(74, 222, 128, 0.3);  /* 边框变为绿色30%透明度 */
-        }
-
-        /* 特性卡片标题 */
-        .feature-title {
-            font-size: 18px;              /* 字体大小18px */
-            color: #ffffff;              /* 白色 */
-            margin-bottom: 12px;          /* 底部12px间距 */
-            font-weight: 600;            /* 半粗体 */
-        }
-
-        /* 特性卡片描述 */
-        .feature-description {
-            color: #b0b0b0;              /* 灰色 */
-            line-height: 1.6;            /* 行高1.6 */
-            font-size: 14px;              /* 字体大小14px */
-        }
-
-        /* ==================== 下载区域样式 ==================== */
-        /* 下载按钮区域，突出显示下载入口 */
-        .download-section {
-            background: rgba(30, 30, 30, 0.85);  /* 深灰色85%透明度背景 */
-            padding: 60px;               /* 60px内边距 */
-            border-radius: 20px;          /* 20px圆角 */
-            text-align: center;          /* 文字居中 */
-            margin: 60px 0;              /* 上下60px外边距 */
-            border: 1px solid rgba(255, 255, 255, 0.05);  /* 白色5%透明度边框 */
-        }
-
-        /* 下载区域标题 */
-        .download-section h2 {
-            font-size: 32px;              /* 字体大小32px */
-            color: #ffffff;              /* 白色 */
-            margin-bottom: 15px;          /* 底部15px间距 */
-            font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
-        }
-
-        /* 下载区域描述 */
-        .download-section p {
-            color: #b0b0b0;              /* 灰色 */
-            margin-bottom: 30px;          /* 底部30px间距 */
-        }
-
-        /* 下载按钮组，Flex布局使按钮居中 */
-        .download-buttons {
-            display: flex;                /* Flex布局 */
-            gap: 20px;                   /* 按钮间距20px */
-            justify-content: center;      /* 水平居中 */
-            flex-wrap: wrap;              /* 空间不足时换行 */
-        }
-
-        /* 按钮图标基础样式 */
-        .btn-icon {
-            width: 18px;                  /* 宽度18px */
-            height: 18px;                 /* 高度18px */
-            margin-right: 8px;            /* 右侧8px间距 */
-        }
-
-        /* GitHub下载按钮 */
-        .btn-primary.btn-github {
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            color: #000000;              /* 黑色文字 */
-        }
-
-        /* Gitee下载按钮 */
-        .btn-gitee {
-            background: #4ade80;         /* 绿色背景 */
-            color: #000000;              /* 黑色文字 */
-            font-weight: 700;            /* 粗体 */
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-        }
-
-        /* Gitee按钮悬停效果 */
-        .btn-gitee:hover {
-            background: #22c55e;         /* 背景变深 */
-            transform: translateY(-2px);  /* 向上移动2px */
-            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);  /* 绿色阴影 */
-        }
-
-        /* ==================== 页脚样式 ==================== */
-        /* 页面底部信息区域 */
-        footer {
-            text-align: center;          /* 文字居中 */
-            padding: 40px 0;             /* 上下40px内边距 */
-            border-top: 1px solid rgba(255, 255, 255, 0.05);  /* 顶部细边框分隔 */
-        }
-
-        /* 页脚文字 */
-        footer p {
-            color: #000000;              /* 黑色文字 */
-            font-size: 14px;              /* 字体大小14px */
-        }
-
-        /* 页脚链接 */
-        footer a {
-            color: #4ade80;              /* 绿色文字 */
-            text-decoration: none;        /* 去掉下划线 */
-        }
-
-        /* 页脚链接悬停效果 */
-        footer a:hover {
-            text-decoration: underline;   /* 悬停时显示下划线 */
-        }
-
-        /* ==================== GitHub链接样式 ==================== */
-        /* 导航栏中的GitHub链接 */
-        .github-link {
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            gap: 6px;                    /* 图标与文字间距6px */
-        }
-
-        /* GitHub图标 */
-        .github-icon {
-            width: 20px;                  /* 宽度20px */
-            height: 20px;                 /* 高度20px */
-        }
-
-        /* GitHub链接悬停图标变色 */
-        .github-link:hover .github-icon {
-            color: #ffffff;              /* 悬停时图标变白色 */
-        }
-
-        /* ==================== Gitee链接样式 ==================== */
-        /* Gitee图标 */
-        .gitee-icon {
-            width: 20px;                  /* 宽度20px */
-            height: 20px;                 /* 高度20px */
-        }
-
-        /* ==================== 语言切换样式 ==================== */
-        /* 语言切换链接 */
-        .lang-link {
-            display: flex;                /* Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            gap: 6px;                    /* 图标与文字间距6px */
-        }
-
-        /* 语言图标 */
-        .lang-icon {
-            width: 20px;                  /* 宽度20px */
-            height: 20px;                 /* 高度20px */
-        }
-
-        /* 语言切换悬停图标变色 */
-        .lang-link:hover .lang-icon {
-            color: #ffffff;              /* 悬停时图标变白色 */
-        }
-
-        /* ==================== 赞助区域样式 ==================== */
-        /* 赞助按钮区域 */
-        .sponsor-section {
-            padding: 60px 0;             /* 上下60px内边距 */
-            text-align: center;          /* 文字居中 */
-        }
-
-        /* 爱发电按钮 */
-        .btn-ifdian {
-            display: inline-flex;         /* 行内Flex布局 */
-            align-items: center;          /* 垂直居中 */
-            gap: 10px;                   /* 图标与文字间距10px */
-        }
-
-        /* 爱发电图标 */
-        .ifdian-icon {
-            width: 20px;                  /* 宽度20px */
-            height: 20px;                 /* 高度20px */
-        }
-
-        /* ==================== 固定下载按钮 ==================== */
-        /* 页面底部固定显示的毛玻璃下载按钮，方便用户随时点击下载 */
-        .fixed-download-btn {
-            position: fixed;              /* 固定定位，不随滚动移动 */
-            bottom: 20px;                /* 距底部20px */
-            left: 50%;                   /* 左侧50%位置 */
-            transform: translateX(-50%);  /* 水平居中 */
-            padding: 20px 60px;           /* 上下20px，左右60px内边距 */
-            background: rgba(74, 222, 128, 0.151);  /* 绿色15%透明度背景 */
-            backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
-            -webkit-backdrop-filter: blur(12px);  /* Safari浏览器兼容 */
-            border: 1px solid rgba(74, 222, 128, 0.4);  /* 绿色40%透明度边框 */
-            color: #ffffff;              /* 白色文字 */
-            font-size: 20px;              /* 字体大小20px */
-            font-weight: 700;            /* 粗体 */
-            text-decoration: none;        /* 去掉下划线 */
-            border-radius: 240px;         /* 240px超大圆角，呈胶囊状 */
-            box-shadow: 0 4px 20px rgba(74, 222, 128, 0.2);  /* 绿色阴影 */
-            z-index: 1000;               /* 层级1000，确保显示在内容上方 */
-            transition: all 0.3s ease;    /* 所有属性变化动画0.3秒 */
-        }
-
-        /* 固定下载按钮悬停效果 */
-        .fixed-download-btn:hover {
-            background: rgba(74, 222, 128, 0.35);  /* 背景透明度增加到35% */
-            transform: translateX(-50%) translateY(-2px);  /* 向上移动2px */
-            box-shadow: 0 6px 25px rgba(74, 222, 128, 0.3);  /* 阴影增强 */
-            border-color: rgba(74, 222, 128, 0.6);  /* 边框透明度增加到60% */
-        }
-
-        /* ==================== 响应式适配 (平板) ==================== */
-        /* 屏幕宽度 <= 1024px 时的样式，针对平板设备 */
-        @media (max-width: 1024px) {
-            .hero-section {
-                flex-direction: column;   /* Hero区域改为垂直排列 */
-                text-align: center;       /* 文字居中 */
-            }
-
-            .hero-title {
-                font-size: 60px;          /* 标题字体缩小到60px */
-            }
-
-            .hero-subtitle {
-                font-size: 24px;          /* 副标题字体缩小到24px */
-            }
-
-            .hero-desc {
-                margin: 0 auto 40px;      /* 描述文字居中，底部40px间距 */
-            }
-
-            .cta-buttons {
-                justify-content: center;  /* 按钮组居中 */
-            }
-        }
-
-        /* ==================== 响应式适配 (手机) ==================== */
-        /* 屏幕宽度 <= 768px 时的样式，针对手机设备 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;           /* 容器内边距缩小到20px */
-            }
-
-            .nav-links {
-                display: flex;             /* 保持导航显示 */
-                gap: 10px;                /* 缩小间距 */
-            }
-
-            .nav-links a:not(.lang-link) {
-                display: none;             /* 隐藏非语言切换的导航链接 */
-            }
-
-            .hero-title {
-                font-size: 50px;          /* 标题字体缩小到50px */
-            }
-
-            .hero-subtitle {
-                font-size: 20px;          /* 副标题字体缩小到20px */
-            }
-
-            .section-title {
-                font-size: 32px;          /* 区域标题字体缩小到32px */
-            }
-        }
-
-        /* ==================== 固定下载按钮 (手机) ==================== */
-        /* 手机端固定下载按钮适配 */
-        @media (max-width: 768px) {
-            .fixed-download-btn {
-                padding: 16px 20px;       /* 内边距缩小 */
-                font-size: 16px;          /* 字体缩小到16px */
-                bottom: 15px;             /* 距底部15px */
-                border-radius: 20px;       /* 圆角缩小到20px */
-                white-space: nowrap;       /* 禁止文本自动换行 */
-            }
-
-        /* ==================== 图片卡片布局 (手机) ==================== */
-        /* Hero截图区域竖向排列 */
-            .hero-images {
-                align-items: center;      /* 水平居中 */
-                gap: 15px;                /* 图片间距15px */
-                max-width: 100%;          /* 宽度适应屏幕 */
-                margin-top: 30px;         /* 与上方文字保持间距 */
-                align-items: flex-end;    /* 底部对齐，形成错落感 */
-            }
-
-        /* 图片卡片宽度适应屏幕 */
-            .image-card {
-                width: 100%;              /* 宽度100% */
-                max-width: 300px;         /* 最大宽度300px */
-                flex-shrink: 1;           /* 允许缩小 */
-            }
-
-        /* 图片卡片内图片响应式 */
-            .image-card img {
-                width: 100%;              /* 宽度100% */
-                height: auto;             /* 高度自适应 */
-                max-height: 400px;        /* 最大高度400px */
-            }
-
-        /* 手机截图高度适配 */
-            .image-card.phone img {
-                height: auto;             /* 高度自适应 */
-                max-height: 450px;        /* 最大高度450px */
-            }
-
-        /* 平板截图高度适配 */
-            .image-card.tablet img {
-                height: auto;             /* 高度自适应 */
-                max-height: 350px;        /* 最大高度350px */
-            }
-        }
-    </style>
 </head>
 
 <body>
+    <!-- 移动端导航按钮 -->
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </div>
+
+    <!-- 移动端侧边栏遮罩层 -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- 移动端侧边栏 -->
+    <div class="sidebar" id="sidebar">
+        <a href="download.html">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            下载
+        </a>
+        <a href="index-en.html">
+            <img src="lang.png" alt="Language" class="lang-icon">
+            简体中文
+        </a>
+        <a href="https://github.com/DozenesStudio/Chunkoid">
+            <img src="github_gray.png" alt="Github" class="github-icon">
+            Github
+        </a>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo-area">
@@ -627,9 +49,8 @@
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-                <a href="#sponsor">赞助</a>
-                <a href="#features">功能特性</a>
-                <a href="#download">下载</a>
+                <span style="color: #ffffff;">主页</span>
+                <a href="download.html">下载</a>
                 <a href="index-en.html" class="lang-link">
                     <img src="lang.png" alt="Language" class="lang-icon">
                     简体中文
@@ -644,9 +65,12 @@
         <section class="hero-section">
             <div class="hero-text">
                 <h1 class="hero-title">Chunkoid</h1>
-                <p class="hero-subtitle">世界转换器 <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span></p>
+                <p class="hero-subtitle">
+                    <img src="mc_logo.png" alt="Minecraft" class="mc-icon">
+                    安卓世界转换器 <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span>
+                </p>
                 <p class="hero-desc">
-                    Chunker的手机版？它来了！全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
+                    Chunker手机版！全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
                 </p>
                 <div class="cta-buttons">
                     <a href="https://www.bilibili.com/video/BV1GEER6sEKn/" class="btn btn-bilibili">B站教程</a>
@@ -716,22 +140,6 @@
             </a>
         </section>
 
-        <section id="download" class="download-section">
-            <h2>即刻下载！</h2>
-            <p>以下为现有下载渠道，现提供两个直链</p>
-            <div class="download-buttons">
-                <a href="https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk" class="btn btn-gitee">
-                <img src="gitee.png" alt="Gitee" class="gitee-icon">
-                    Gitee高速直链下载
-                </a>
-                <a href="https://github.com/DozenesStudio/Chunkoid/releases/download/1.1.0/Chunkoid.1.1.0.apk" class="btn btn-primary btn-github">
-                <img src="github.png" alt="Github" class="github-icon">
-                    Github备用直链下载
-                </a>
-
-            </div>
-        </section>
-
         <footer>
             <p style="color: #b0b0b0;"> &copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
             <p style="margin-top: 10px;">
@@ -744,12 +152,20 @@
         </footer>
 
         <!-- 固定下载按钮 -->
-        <a href="#download" class="fixed-download-btn">
+        <a href="download.html" class="fixed-download-btn">
             <span>下载 Chunkoid</span>
             <span style="color: #ffffff;">|</span>
             <span style="color: #4ade80;">1.1.0Release</span>
         </a>
 
     </div>
+
+    <script>
+        // 侧边栏开关逻辑
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,535 @@
+/* ==================== 自定义字体 ==================== */
+/* 引入自定义像素字体 UranusPixel，用于标题和Logo显示，增强游戏风格 */
+@font-face {
+    font-family: 'UranusPixel';         /* 字体名称，后续可通过 font-family 引用 */
+    src: url('uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
+}
+
+/* ==================== 全局重置样式 ==================== */
+/* 使用通配符选择器重置所有元素的默认样式，确保跨浏览器一致性 */
+* {
+    margin: 0;                    /* 清除默认外边距 */
+    padding: 0;                   /* 清除默认内边距 */
+    box-sizing: border-box;        /* 采用边框盒模型，padding和border不影响元素总宽度 */
+}
+
+/* ==================== 页面基础样式 ==================== */
+/* 定义整个页面的基础样式，包括背景、字体、文字颜色 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 首选Segoe UI字体，兼容各平台 */
+    background: #0a0a0a url('bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
+    background-size: cover;       /* 背景图覆盖整个容器 */
+    min-height: 100vh;            /* 最小高度为视口高度，确保页面至少占满一屏 */
+    color: #e0e0e0;              /* 默认文字颜色为浅灰色 */
+}
+
+/* ==================== 容器样式 ==================== */
+/* 页面主容器，控制内容最大宽度和内外边距，使内容居中显示 */
+.container {
+    max-width: 1400px;            /* 内容最大宽度1400px，防止过宽屏幕内容太松散 */
+    margin: 0 auto;               /* 水平居中 */
+    padding: 40px 60px;           /* 上下40px，左右60px内边距 */
+    position: relative;           /* 相对定位，用于返回按钮绝对定位 */
+}
+
+/* ==================== 头部导航 ==================== */
+/* 页面顶部区域，包含Logo和导航链接，采用Flex布局实现两端对齐 */
+header {
+    display: flex;                /* Flex布局 */
+    justify-content: space-between;  /* Logo左对齐，导航右对齐 */
+    align-items: center;          /* 垂直居中 */
+    padding: 20px 0;             /* 上下20px内边距 */
+    margin-bottom: 80px;          /* 底部80px外边距，与下方内容区域分隔 */
+}
+
+/* Logo区域（图标+文字），Flex布局使图标和文字水平排列 */
+.logo-area {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 15px;                   /* 图标与文字间距15px */
+}
+
+/* Logo图标样式 */
+.logo {
+    width: 50px;                  /* 宽度50px */
+    height: 50px;                 /* 高度50px */
+    border-radius: 12px;          /* 12px圆角，使图标呈圆角矩形 */
+}
+
+/* Logo文字样式 */
+.logo-text {
+    font-size: 24px;              /* 字体大小24px */
+    font-weight: 700;            /* 字体粗细700（粗体） */
+    color: #ffffff;              /* 白色文字 */
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 使用像素字体，降级为Segoe UI */
+}
+
+/* 导航链接容器，Flex布局使链接水平排列 */
+.nav-links {
+    display: flex;                /* Flex布局 */
+    gap: 40px;                   /* 链接之间间距40px */
+}
+
+/* 导航链接样式 */
+.nav-links a {
+    color: #b0b0b0;              /* 灰色文字 */
+    text-decoration: none;        /* 去掉下划线 */
+    font-size: 16px;              /* 字体大小16px */
+    transition: color 0.3s ease;  /* 颜色变化动画0.3秒 */
+}
+
+/* 导航链接悬停效果 */
+.nav-links a:hover {
+    color: #ffffff;              /* 悬停时变为白色 */
+}
+
+/* ==================== 语言切换样式 ==================== */
+/* 语言切换链接 */
+.lang-link {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 6px;                    /* 图标与文字间距6px */
+}
+
+/* 语言图标 */
+.lang-icon {
+    width: 20px;                  /* 宽度20px */
+    height: 20px;                 /* 高度20px */
+}
+
+/* ==================== GitHub链接样式 ==================== */
+/* 导航栏中的GitHub链接 */
+.github-link {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 6px;                    /* 图标与文字间距6px */
+}
+
+/* GitHub图标 */
+.github-icon {
+    width: 20px;                  /* 宽度20px */
+    height: 20px;                 /* 高度20px */
+}
+
+/* ==================== 下载主区域 ==================== */
+/* 下载页面核心内容区域，包含版本信息和下载按钮 */
+.download-main {
+    margin-bottom: 80px;          /* 底部80px间距 */
+}
+
+/* 下载标题 */
+.download-title {
+    font-size: 56px;              /* 字体大小56px */
+    font-weight: 700;            /* 粗体 */
+    color: #ffffff;              /* 白色 */
+    margin-bottom: 20px;          /* 底部20px间距 */
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
+}
+
+/* 下载描述 */
+.download-desc {
+    font-size: 25px;              /* 字体大小25px */
+    font-weight: 400;            /* 正常粗细 */
+    color: #8b8b8b;              /* 浅灰色 */
+    margin-bottom: 30px;          /* 底部30px间距 */
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+}
+
+/* 下载卡片容器 */
+.download-card {
+    background: rgba(30, 30, 30, 0.85);  /* 深灰色85%透明度背景 */
+    padding: 60px;               /* 60px内边距 */
+    border-radius: 20px;          /* 20px圆角 */
+    border: 1px solid rgba(255, 255, 255, 0.05);  /* 白色5%透明度边框 */
+    max-width: 800px;             /* 最大宽度800px */
+    position: relative;           /* 相对定位，用于伪元素 */
+}
+
+/* 下载卡片左侧装饰线条 */
+.download-card::after {
+    content: '';                  /* 空内容 */
+    position: absolute;           /* 绝对定位 */
+    left: 0;                      /* 左侧对齐 */
+    top: 15%;                     /* 顶部距离15% */
+    bottom: 15%;                  /* 底部距离15% */
+    width: 4px;                   /* 线条宽度4px */
+    background: linear-gradient(to bottom, #4ade80, #22c55e);  /* 绿色渐变 */
+    border-radius: 0 4px 4px 0;   /* 右侧圆角 */
+}
+
+/* 版本标签 */
+.version-badge {
+    display: inline-block;        /* 行内块级元素 */
+    padding: 8px 20px;           /* 上下8px，左右20px内边距 */
+    background: rgba(74, 222, 128, 0.15);  /* 绿色15%透明度背景 */
+    border: 1px solid rgba(74, 222, 128, 0.3);  /* 绿色30%透明度边框 */
+    border-radius: 20px;          /* 20px圆角 */
+    color: #4ade80;              /* 绿色文字 */
+    font-size: 14px;              /* 字体大小14px */
+    font-weight: 600;            /* 半粗体 */
+}
+
+/* 下载历史版本链接 */
+.version-link {
+    display: inline-block;        /* 行内块级元素 */
+    text-decoration: none;        /* 去掉下划线 */
+    padding: 8px 20px;           /* 上下8px，左右20px内边距 */
+    background: rgba(255, 255, 255, 0.1);  /* 白色10%透明度背景 */
+    border: 1px solid rgba(255, 255, 255, 0.3);  /* 白色30%透明度边框 */
+    border-radius: 20px;          /* 20px圆角 */
+    color: #ffffff60;              /* 白色文字 */
+    font-size: 14px;              /* 字体大小14px */
+    font-weight: 600;            /* 半粗体 */
+    float: right;                 /* 右浮动，吸附右侧 */
+}
+
+/* 下载卡片描述 */
+.download-card p {
+    color: #b0b0b0;              /* 灰色 */
+    margin-bottom: 35px;          /* 底部35px间距 */
+    font-size: 16px;              /* 字体大小16px */
+    line-height: 1.6;            /* 行高1.6 */
+}
+
+/* 下载链接组 */
+.download-links {
+    display: flex;                /* Flex布局 */
+    flex-direction: column;       /* 垂直排列 */
+    gap: 20px;                   /* 链接间距20px */
+    padding-left: 20px;           /* 距离卡片左边缘20px缩进 */
+}
+
+/* 下载链接样式 */
+.download-link {
+    color: #ffffff;              /* 白色文字 */
+    text-decoration: none;        /* 去掉下划线 */
+    font-size: 16px;              /* 字体大小16px */
+    font-weight: 500;            /* 中等粗细 */
+    display: inline-flex;         /* 行内Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 8px;                    /* 文字与图标间距8px */
+    transition: all 0.3s ease;    /* 所有属性变化动画0.3秒 */
+    cursor: pointer;              /* 鼠标指针变为手型 */
+}
+
+/* 下载链接悬停效果 */
+.download-link:hover {
+    color: #4ade80;              /* 悬停时变为绿色 */
+    transform: translateY(-2px);  /* 向上抬起2px */
+}
+
+/* 下载图标 */
+.download-icon {
+    width: 18px;                  /* 宽度18px */
+    height: 18px;                 /* 高度18px */
+}
+
+/* ==================== 更新日志区域 ==================== */
+/* 展示版本更新历史的区域 */
+.changelog-section {
+    padding: 60px 0;             /* 上下60px内边距 */
+    margin-bottom: 60px;          /* 底部60px间距 */
+}
+
+/* 更新日志标题 */
+.changelog-title {
+    font-size: 42px;              /* 字体大小42px */
+    font-weight: 600;            /* 半粗体 */
+    color: #ffffff;              /* 白色 */
+    text-align: center;          /* 居中对齐 */
+    margin-bottom: 50px;          /* 底部50px间距 */
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
+}
+
+/* 更新日志卡片 */
+.changelog-card {
+    background: rgba(30, 30, 30, 0.85);  /* 深灰色85%透明度背景 */
+    padding: 40px;               /* 40px内边距 */
+    border-radius: 20px;          /* 20px圆角 */
+    border: 1px solid rgba(255, 255, 255, 0.05);  /* 白色5%透明度边框 */
+    margin-bottom: 20px;          /* 底部20px间距 */
+    transition: transform 0.3s ease, border-color 0.3s ease;  /* 变换和边框颜色动画 */
+    position: relative;           /* 相对定位，用于伪元素 */
+}
+
+/* 更新日志卡片左侧装饰线条 */
+.changelog-card::after {
+    content: '';                  /* 空内容 */
+    position: absolute;           /* 绝对定位 */
+    left: 0;                      /* 左侧对齐 */
+    top: 15%;                     /* 顶部距离15% */
+    bottom: 15%;                  /* 底部距离15% */
+    width: 4px;                   /* 线条宽度4px */
+    background: linear-gradient(to bottom, #4ade80, #22c55e);  /* 绿色渐变 */
+    border-radius: 0 4px 4px 0;   /* 右侧圆角 */
+    opacity: 0.6;                 /* 默认透明度60% */
+    transition: opacity 0.3s ease;  /* 透明度过渡动画 */
+}
+
+/* 更新日志卡片悬停效果 */
+.changelog-card:hover {
+    transform: translateY(-3px);  /* 向上移动3px */
+    border-color: rgba(74, 222, 128, 0.2);  /* 边框变为绿色20%透明度 */
+}
+
+/* 更新日志卡片悬停时装饰线条变亮 */
+.changelog-card:hover::after {
+    opacity: 1;                   /* 悬停时完全不透明 */
+}
+
+/* 更新日志头部 */
+.changelog-header {
+    display: flex;                /* Flex布局 */
+    justify-content: space-between;  /* 版本号左对齐，日期右对齐 */
+    align-items: center;          /* 垂直居中 */
+    margin-bottom: 20px;          /* 底部20px间距 */
+}
+
+/* 更新日志版本号 */
+.changelog-version {
+    font-size: 24px;              /* 字体大小24px */
+    font-weight: 700;            /* 粗体 */
+    color: #ffffff;              /* 白色 */
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
+}
+
+/* 更新日志日期标签 */
+.changelog-date {
+    padding: 6px 16px;           /* 上下6px，左右16px内边距 */
+    background: rgba(255, 255, 255, 0.08);  /* 白色8%透明度背景 */
+    border-radius: 12px;          /* 12px圆角 */
+    color: #b0b0b0;              /* 灰色文字 */
+    font-size: 14px;              /* 字体大小14px */
+}
+
+/* 更新日志内容列表 */
+.changelog-content ul {
+    list-style: none;             /* 去掉默认列表样式 */
+    padding: 0;                   /* 清除内边距 */
+}
+
+/* 更新日志列表项 */
+.changelog-content li {
+    color: #b0b0b0;              /* 灰色文字 */
+    font-size: 15px;              /* 字体大小15px */
+    line-height: 1.8;            /* 行高1.8 */
+    padding-left: 25px;           /* 左侧25px内边距 */
+    position: relative;           /* 相对定位，用于伪元素 */
+    margin-bottom: 8px;           /* 底部8px间距 */
+}
+
+/* 更新日志列表项前圆点 */
+.changelog-content li::before {
+    content: '•';                 /* 圆点符号 */
+    position: absolute;           /* 绝对定位 */
+    left: 0;                     /* 左侧对齐 */
+    color: #4ade80;              /* 绿色圆点 */
+    font-size: 18px;              /* 字体大小18px */
+    line-height: 1;               /* 行高1 */
+}
+
+/* 更新日志标签 */
+.changelog-tag {
+    display: inline-block;        /* 行内块级元素 */
+    padding: 2px 8px;            /* 上下2px，左右8px内边距 */
+    border-radius: 4px;           /* 4px圆角 */
+    font-size: 12px;              /* 字体大小12px */
+    font-weight: 600;            /* 半粗体 */
+    margin-right: 8px;            /* 右侧8px间距 */
+}
+
+/* 更新日志标签 - 新增 */
+.tag-new {
+    background: rgba(74, 222, 128, 0.2);  /* 绿色20%透明度背景 */
+    color: #4ade80;              /* 绿色文字 */
+}
+
+/* 更新日志标签 - 修复 */
+.tag-fix {
+    background: rgba(251, 191, 36, 0.2);  /* 黄色20%透明度背景 */
+    color: #fbbf24;              /* 黄色文字 */
+}
+
+/* 更新日志标签 - 优化 */
+.tag-opt {
+    background: rgba(96, 165, 250, 0.2);  /* 蓝色20%透明度背景 */
+    color: #60a5fa;              /* 蓝色文字 */
+}
+
+/* ==================== 系统要求区域 ==================== */
+.requirements-section {
+    margin-bottom: 60px;           /* 与更新日志区域拉开间距 */
+}
+
+/* 系统要求列表 */
+.requirements-list {
+    margin: 0;                     /* 无居中 */
+    display: grid;                /* Grid布局 */
+    grid-template-columns: repeat(2, 1fr);  /* 两列 */
+    gap: 20px;                   /* 间距20px */
+}
+
+/* 系统要求项 */
+.requirement-item {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 12px;                   /* 图标与文字间距12px */
+    padding: 15px;               /* 15px内边距 */
+    position: relative;           /* 相对定位，用于伪元素 */
+}
+
+/* 系统要求项左侧装饰线条 */
+.requirement-item::after {
+    content: '';                  /* 空内容 */
+    position: absolute;           /* 绝对定位 */
+    left: 0;                      /* 左侧对齐 */
+    top: 15%;                     /* 顶部距离15% */
+    bottom: 15%;                  /* 底部距离15% */
+    width: 4px;                   /* 线条宽度4px */
+    background: linear-gradient(to bottom, #4ade80, #22c55e);  /* 绿色渐变 */
+    border-radius: 0 4px 4px 0;   /* 右侧圆角 */
+}
+
+/* 系统要求文字 */
+.requirement-text {
+    color: #b0b0b0;              /* 灰色文字 */
+    font-size: 14px;              /* 字体大小14px */
+}
+
+/* 系统要求强调文字 */
+.requirement-text strong {
+    color: #ffffff;              /* 白色粗体 */
+}
+
+/* ==================== 页脚样式 ==================== */
+/* 页面底部信息区域 */
+footer {
+    text-align: center;          /* 文字居中 */
+    padding: 40px 0;             /* 上下40px内边距 */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);  /* 顶部细边框分隔 */
+}
+
+/* 页脚文字 */
+footer p {
+    color: #b0b0b0;              /* 灰色文字 */
+    font-size: 14px;              /* 字体大小14px */
+}
+
+/* 页脚链接 */
+footer a {
+    color: #4ade80;              /* 绿色文字 */
+    text-decoration: none;        /* 去掉下划线 */
+}
+
+/* 页脚链接悬停效果 */
+footer a:hover {
+    text-decoration: underline;   /* 悬停时显示下划线 */
+}
+
+/* ==================== 响应式适配 (平板) ==================== */
+/* 屏幕宽度 <= 1024px 时的样式，针对平板设备 */
+@media (max-width: 1024px) {
+    .download-title {
+        font-size: 42px;          /* 标题字体缩小到42px */
+    }
+
+    .download-subtitle {
+        font-size: 20px;          /* 副标题字体缩小到20px */
+    }
+}
+
+/* 移动端返回按钮（默认隐藏，移动端显示） */
+.back-btn {
+    display: none;                /* 默认隐藏 */
+}
+
+/* ==================== 响应式适配 (手机) ==================== */
+/* 屏幕宽度 <= 768px 时的样式，针对手机设备 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;           /* 容器内边距缩小到20px */
+    }
+
+    header {
+        margin-bottom: 40px;      /* 头部底部间距缩小到40px */
+    }
+
+    /* 隐藏整个导航栏 */
+    .nav-links {
+        display: none;
+    }
+
+    /* 显示返回按钮 */
+    .back-btn {
+        display: flex;            /* Flex布局 */
+        align-items: center;      /* 垂直居中 */
+        position: absolute;       /* 绝对定位 */
+        right: 50px;              /* 右侧50px */
+        top: 50px;                /* 顶部50px */
+        z-index: 100;             /* 层级最高 */
+    }
+
+    .back-btn svg {
+        width: 24px;              /* 图标宽度24px */
+        height: 24px;             /* 图标高度24px */
+        color: #b0b0b0;           /* 灰色图标 */
+        transition: color 0.3s ease;  /* 颜色过渡动画 */
+    }
+
+    .back-btn:hover svg {
+        color: #ffffff;           /* 悬停时变白色 */
+    }
+
+    /* 隐藏下载描述文字 */
+    .download-desc {
+        display: none;
+    }
+
+    /* 隐藏版本徽章、历史版本链接和分隔线 */
+    .version-badge,
+    .version-link,
+    .download-card hr {
+        display: none;
+    }
+
+    .download-title {
+        font-size: 36px;          /* 标题字体缩小到36px */
+    }
+
+    .download-card {
+        padding: 30px 20px;       /* 下载卡片内边距缩小 */
+    }
+
+    .changelog-title {
+        font-size: 32px;          /* 更新日志标题字体缩小到32px */
+    }
+
+    .changelog-card {
+        padding: 25px;           /* 更新日志卡片内边距缩小 */
+    }
+
+    .changelog-header {
+        flex-direction: column;   /* 更新日志头部改为垂直排列 */
+        gap: 10px;               /* 间距10px */
+        align-items: flex-start;  /* 左对齐 */
+    }
+
+    .changelog-version {
+        font-size: 20px;          /* 更新日志版本号字体缩小到20px */
+    }
+
+    /* 系统要求列表水平平铺 */
+    .requirements-list {
+        grid-template-columns: repeat(2, 1fr);  /* 两列平铺 */
+        gap: 10px;               /* 间距缩小 */
+    }
+
+    .requirement-item {
+        padding: 8px;             /* 内边距缩小 */
+    }
+
+    .requirement-text {
+        font-size: 12px;          /* 字体缩小 */
+    }
+}
