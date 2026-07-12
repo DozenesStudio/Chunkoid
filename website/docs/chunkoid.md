@@ -1,11 +1,5 @@
 # Chunkoid-世界转换器
 
-<div align="center">
-  <img src="../drawable/logo.png" alt="Chunkoid Logo" width="128">
-</div>
-
-***
-
 ## R1.2.0 现已发布
 
 全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑

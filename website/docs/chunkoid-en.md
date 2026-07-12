@@ -1,11 +1,5 @@
 # Chunkoid - World Converter
 
-<div align="center">
-  <img src="ic_launcher.png" alt="Chunkoid Logo" width="128">
-</div>
-
-***
-
 ## R1.2.0 Now Available
 
 The world's first Android-native Minecraft world converter, developed by a single developer. Fully open-source and free, no PC required.
