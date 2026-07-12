@@ -237,7 +237,6 @@ header {
     font-size: 42px;              /* 字体大小42px */
     font-weight: 600;            /* 半粗体 */
     color: #ffffff;              /* 白色 */
-    text-align: center;          /* 居中对齐 */
     margin-bottom: 50px;          /* 底部50px间距 */
     font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
 }
