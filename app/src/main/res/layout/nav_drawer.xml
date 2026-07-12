@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/nav_logo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/ic_launcher"
             android:contentDescription="App Logo"/>
 
@@ -30,6 +30,14 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/uranus_pixel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_desc"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
             
     </LinearLayout>
 
@@ -162,13 +170,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/map"
+                android:src="@drawable/nbt"
                 android:tint="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/map_downloader"
+                android:text="@string/nbt_editor"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:layout_marginLeft="16dp"/>

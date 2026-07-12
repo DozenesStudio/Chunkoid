@@ -1,0 +1,608 @@
+/* ==================== 自定义字体 ==================== */
+@font-face {
+    font-family: 'UranusPixel';
+    src: url('../drawable/uranus_pixel_11px.ttf') format('truetype');
+}
+
+/* ==================== 全局重置样式 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== 页面基础样式 ==================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a url('../drawable/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+/* ==================== 容器样式 ==================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    position: relative;
+}
+
+/* ==================== 头部导航 ==================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* ==================== 文档布局 ==================== */
+.doc-layout {
+    display: flex;
+    gap: 40px;
+}
+
+/* ==================== 左侧目录 ==================== */
+.doc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #8b8b8b;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-list li {
+    margin-bottom: 8px;
+}
+
+.toc-list a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.toc-list a:hover {
+    color: #ffffff;
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.toc-list a.active {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.15);
+}
+
+.toc-level-2 {
+    padding-left: 20px;
+}
+
+.toc-level-3 {
+    padding-left: 40px;
+}
+
+/* ==================== 右侧正文 ==================== */
+.doc-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.doc-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;
+}
+
+.doc-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.3);
+    position: relative;
+}
+
+.doc-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #4ade80, #22c55e);
+    border-radius: 2px;
+}
+
+.doc-subtitle-2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 30px 0 15px;
+}
+
+.doc-subtitle-3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 20px 0 10px;
+}
+
+.doc-text {
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.doc-text strong {
+    color: #ffffff;
+}
+
+/* ==================== 代码块 ==================== */
+.doc-code {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.doc-code code {
+    color: #4ade80;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ==================== 列表样式 ==================== */
+.doc-list {
+    margin: 15px 0 15px 30px;
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.doc-list li {
+    margin-bottom: 8px;
+}
+
+.doc-list strong {
+    color: #ffffff;
+}
+
+/* ==================== 表格样式 ==================== */
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(20, 20, 20, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.doc-table th,
+.doc-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.doc-table th {
+    background: rgba(74, 222, 128, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.doc-table td {
+    color: #b0b0b0;
+    font-size: 14px;
+}
+
+.doc-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==================== 链接样式 ==================== */
+.doc-content a {
+    color: #4ade80;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.doc-content a:hover {
+    color: #22c55e;
+    text-decoration: underline;
+}
+
+/* ==================== 高亮标签 ==================== */
+.doc-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.doc-badge-new {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.doc-badge-info {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+}
+
+/* ==================== Markdown解析样式 ==================== */
+.md-h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.3);
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;
+}
+
+.md-h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.md-h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+
+.md-p {
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.md-p strong {
+    color: #ffffff;
+}
+
+.md-ul {
+    list-style: disc;
+    margin: 15px 0 15px 30px;
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.md-ol {
+    list-style: decimal;
+    margin: 15px 0 15px 30px;
+    color: #b0b0b0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.md-ul li,
+.md-ol li {
+    margin-bottom: 8px;
+}
+
+.md-ul li strong,
+.md-ol li strong {
+    color: #ffffff;
+}
+
+.md-code {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+}
+
+.md-pre {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.md-code-block {
+    color: #4ade80;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.md-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(20, 20, 20, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.md-table th,
+.md-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.md-table th {
+    background: rgba(74, 222, 128, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.md-table td {
+    color: #b0b0b0;
+    font-size: 14px;
+}
+
+.md-table tr:last-child td {
+    border-bottom: none;
+}
+
+.md-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.md-hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 30px 0;
+}
+
+#docContent a {
+    color: #4ade80;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#docContent a:hover {
+    color: #22c55e;
+    text-decoration: underline;
+}
+
+#docContent div[align="center"] {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* ==================== 分页器样式 ==================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.pagination-btn {
+    padding: 12px 30px;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: #4ade80;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: rgba(74, 222, 128, 0.2);
+    border-color: #4ade80;
+    transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-info {
+    color: #8b8b8b;
+    font-size: 15px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* ==================== 页脚样式 ==================== */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 60px;
+}
+
+footer p {
+    color: #b0b0b0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #4ade80;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 语言切换样式 ==================== */
+.lang-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== GitHub链接样式 ==================== */
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.github-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== 响应式适配 (平板) ==================== */
+@media (max-width: 1024px) {
+    .doc-layout {
+        flex-direction: column;
+    }
+
+    .doc-sidebar {
+        width: 100%;
+        position: static;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+    }
+
+    .toc-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .toc-list li {
+        margin-bottom: 0;
+    }
+
+    .toc-list a {
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toc-level-2,
+    .toc-level-3 {
+        padding-left: 0;
+    }
+
+    .doc-title {
+        font-size: 36px;
+    }
+}
+
+/* ==================== 响应式适配 (手机) ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .doc-title {
+        font-size: 32px;
+    }
+
+    .doc-subtitle {
+        font-size: 20px;
+    }
+
+    .doc-subtitle-2 {
+        font-size: 18px;
+    }
+
+    .toc-list {
+        flex-direction: column;
+    }
+
+    .doc-table {
+        font-size: 12px;
+    }
+
+    .doc-table th,
+    .doc-table td {
+        padding: 10px;
+    }
+}

@@ -2,7 +2,7 @@
 /* 引入自定义像素字体 UranusPixel，用于标题和Logo显示，增强游戏风格 */
 @font-face {
     font-family: 'UranusPixel';         /* 字体名称，后续可通过 font-family 引用 */
-    src: url('uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
+    src: url('drawable/uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
 }
 
 /* ==================== 全局重置样式 ==================== */
@@ -17,7 +17,7 @@
 /* 定义整个页面的基础样式，包括背景、字体、文字颜色 */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 首选Segoe UI字体，兼容各平台 */
-    background: #0a0a0a url('bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
+    background: #0a0a0a url('drawable/bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
     background-size: cover;       /* 背景图覆盖整个容器 */
     min-height: 100vh;            /* 最小高度为视口高度，确保页面至少占满一屏 */
     color: #e0e0e0;              /* 默认文字颜色为浅灰色 */

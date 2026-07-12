@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chunkoid Documentation</title>
+    <link rel="icon" type="image/png" href="../drawable/logo.png">
+    <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <img src="../drawable/logo.png" alt="Chunkoid Logo" class="logo">
+                <span class="logo-text">Chunkoid</span>
+            </div>
+            <nav class="nav-links">
+                <a href="../en/index-en.html">Home</a>
+                <a href="../en/download-en.html">Download</a>
+                <span style="color: #ffffff;">Docs</span>
+                <a href="index.html" class="lang-link">
+                    <img src="../drawable/lang.png" alt="Language" class="lang-icon">
+                    English
+                </a>
+                <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
+                    <img src="../drawable/github_gray.png" alt="Github" class="github-icon">
+                    Github
+                </a>
+            </nav>
+        </header>
+
+        <div class="doc-layout">
+            <aside class="doc-sidebar">
+                <div class="sidebar-title">Table of Contents</div>
+                <ul class="toc-list" id="tocList"></ul>
+            </aside>
+
+            <main class="doc-content">
+                <h1 class="doc-title" id="docTitle">Loading document...</h1>
+                <div id="docContent"></div>
+            </main>
+        </div>
+
+        <div class="pagination" id="pagination">
+            <button id="prevBtn" class="pagination-btn" disabled>Previous</button>
+            <span id="pageInfo" class="page-info"></span>
+            <button id="nextBtn" class="pagination-btn" disabled>Next</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 DozenesStudio. Licensed under GNU General Public License v3.0</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/DozenesStudio/Chunkoid">GitHub</a>
+                <span style="color: #ffffff;">|</span>
+                <a href="https://md3l.top">MD3L Launcher</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="marked.js"></script>
+    <script>
+        const docs = [
+            { id: 'chunkoid', title: 'Overview', file: 'chunkoid-en.md' },
+            { id: 'instructions', title: 'User Manual', file: 'Instructions-en.md' },
+            { id: 'faq', title: 'FAQ', file: 'FAQ-en.md' },
+            { id: 'community', title: 'About Community', file: 'Community-en.md' },
+            { id: 'privacy', title: 'Privacy Policy', file: 'Privacy-en.md' },
+            { id: 'terms', title: 'Terms of Service', file: 'Terms-en.md' }
+        ];
+
+        let currentIndex = 0;
+
+        function renderToc() {
+            const tocList = document.getElementById('tocList');
+            tocList.innerHTML = docs.map((doc, index) => `
+                <li>
+                    <a href="#" onclick="loadDoc(${index}); return false;" 
+                       class="${index === currentIndex ? 'active' : ''}">
+                        ${doc.title}
+                    </a>
+                </li>
+            `).join('');
+        }
+
+        async function loadDoc(index) {
+            if (index < 0 || index >= docs.length) return;
+            
+            currentIndex = index;
+            const doc = docs[index];
+            
+            document.getElementById('docTitle').textContent = doc.title;
+            
+            try {
+                const response = await fetch(doc.file);
+                const markdown = await response.text();
+                const html = marked(markdown);
+                document.getElementById('docContent').innerHTML = html;
+            } catch (error) {
+                document.getElementById('docContent').innerHTML = '<p class="md-p">Failed to load document. Please try again later.</p>';
+            }
+            
+            renderToc();
+            updatePagination();
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updatePagination() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageInfo = document.getElementById('pageInfo');
+            
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === docs.length - 1;
+            pageInfo.textContent = `${currentIndex + 1} / ${docs.length}`;
+            
+            prevBtn.onclick = () => loadDoc(currentIndex - 1);
+            nextBtn.onclick = () => loadDoc(currentIndex + 1);
+        }
+
+        renderToc();
+        loadDoc(0);
+    </script>
+</body>
+</html>

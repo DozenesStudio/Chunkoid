@@ -2,7 +2,7 @@
 /* 引入自定义像素字体 UranusPixel，用于标题和Logo显示，增强游戏风格 */
 @font-face {
     font-family: 'UranusPixel';         /* 字体名称，后续可通过 font-family 引用 */
-    src: url('uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
+    src: url('drawable/uranus_pixel_11px.ttf') format('truetype');  /* 字体文件路径及格式 */
 }
 
 /* ==================== 全局重置样式 ==================== */
@@ -17,7 +17,7 @@
 /* 定义整个页面的基础样式，包括背景、字体、文字颜色 */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 首选Segoe UI字体，兼容各平台 */
-    background: #0a0a0a url('bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
+    background: #0a0a0a url('drawable/bg.png') no-repeat center center fixed;  /* 深色背景+背景图，居中固定 */
     background-size: cover;       /* 背景图覆盖整个容器 */
     min-height: 100vh;            /* 最小高度为视口高度，确保页面至少占满一屏 */
     color: #e0e0e0;              /* 默认文字颜色为浅灰色 */
@@ -423,9 +423,8 @@ footer a:hover {
 /* 页面底部固定显示的毛玻璃下载按钮，方便用户随时点击下载 */
 .fixed-download-btn {
     position: fixed;              /* 固定定位，不随滚动移动 */
-    bottom: 60px;                /* 距底部100px */
-    left: 50%;                   /* 左侧50%位置 */
-    transform: translateX(-50%);  /* 水平居中 */
+    bottom: 60px;                /* 距底部60px */
+    right: 60px;                 /* 距右边缘60px */
     padding: 20px 60px;           /* 上下20px，左右60px内边距 */
     background: rgba(74, 222, 128, 0.151);  /* 绿色15%透明度背景 */
     backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
@@ -444,7 +443,7 @@ footer a:hover {
 /* 固定下载按钮悬停效果 */
 .fixed-download-btn:hover {
     background: rgba(74, 222, 128, 0.35);  /* 背景透明度增加到35% */
-    transform: translateX(-50%) translateY(-2px);  /* 向上移动2px */
+    transform: translateY(-2px);  /* 向上移动2px */
     box-shadow: 0 6px 25px rgba(74, 222, 128, 0.3);  /* 阴影增强 */
     border-color: rgba(74, 222, 128, 0.6);  /* 边框透明度增加到60% */
 }
