@@ -1,7 +1,7 @@
 # Chunkoid-世界转换器
 
 <div align="center">
-  <img src="ic_launcher.png" alt="Chunkoid Logo" width="128">
+  <img src="../drawable/logo.png" alt="Chunkoid Logo" width="128">
 </div>
 
 ***
