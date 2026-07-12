@@ -62,7 +62,3 @@ This project uses the following open-source software/SDK:
 - **NBT Parser** - [NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator) by [PowerNukkit](https://github.com/PowerNukkit)
   - License: MIT License
   - Location: `nbt`
-
-## License
-
-Copyright © 2026 DozenesStudio. Licensed under the GNU General Public License v3.0.

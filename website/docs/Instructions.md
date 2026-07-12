@@ -15,7 +15,3 @@
 - **外观切换**：在设置中选择喜欢的壁纸主题
 - **输出管理**：清空所有输出世界
 - **开发者选项**：显示一些未开发功能
-
-## 许可证
-
-Copyright © 2026 DozenesStudio. Licensed under the GNU General Public License v3.0.

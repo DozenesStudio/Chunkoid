@@ -15,7 +15,3 @@
 - **Theme Switch**: Choose preferred wallpaper theme in settings
 - **Output Management**: Clear all output worlds
 - **Developer Options**: Show unreleased features
-
-## License
-
-Copyright © 2026 DozenesStudio. Licensed under the GNU General Public License v3.0.

@@ -62,7 +62,3 @@ Weiyin 1A
 - **NBT解析器** - [PowerNukkit](https://github.com/PowerNukkit)的[NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator)
   - 许可证：MIT License
   - 文件位置：`nbt`
-
-## 许可证
-
-Copyright © 2026 DozenesStudio. Licensed under the GNU General Public License v3.0.

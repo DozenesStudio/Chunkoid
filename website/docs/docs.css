@@ -567,6 +567,11 @@ footer a:hover {
     }
 }
 
+/* 移动端返回按钮（默认隐藏，移动端显示） */
+.back-btn {
+        display: none;                /* 默认隐藏 */
+}
+
 /* ==================== 响应式适配 (手机) ==================== */
 @media (max-width: 768px) {
     .container {
@@ -604,5 +609,26 @@ footer a:hover {
     .doc-table th,
     .doc-table td {
         padding: 10px;
+    }
+
+    /* 显示返回按钮 */
+    .back-btn {
+        display: flex;            /* Flex布局 */
+        align-items: center;      /* 垂直居中 */
+        position: absolute;       /* 绝对定位 */
+        right: 50px;              /* 右侧50px */
+        top: 50px;                /* 顶部50px */
+        z-index: 100;             /* 层级最高 */
+    }
+
+    .back-btn svg {
+        width: 24px;              /* 图标宽度24px */
+        height: 24px;             /* 图标高度24px */
+        color: #b0b0b0;           /* 灰色图标 */
+        transition: color 0.3s ease;  /* 颜色过渡动画 */
+    }
+
+    .back-btn:hover svg {
+        color: #ffffff;           /* 悬停时变白色 */
     }
 }
