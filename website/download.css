@@ -170,6 +170,17 @@ header {
     font-weight: 600;            /* 半粗体 */
 }
 
+.version-release-badge {
+    display: inline-block;        /* 行内块级元素 */
+    padding: 8px 20px;           /* 上下8px，左右20px内边距 */
+    background: rgba(222, 180, 74, 0.15);  /* 黄色15%透明度背景 */
+    border: 1px solid rgba(222, 180, 74, 0.3);  /* 黄色30%透明度边框 */
+    border-radius: 20px;          /* 20px圆角 */
+    color: #ddb440;              /* 黄色文字 */
+    font-size: 14px;              /* 字体大小14px */
+    font-weight: 600;            /* 半粗体 */
+}
+
 /* 下载历史版本链接 */
 .version-link {
     display: inline-block;        /* 行内块级元素 */
