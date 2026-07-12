@@ -1,5 +1,3 @@
-# Chunkoid User Manual
-
 ### Basic Operation Instructions
 
 1. Open the app and click "Select World"
