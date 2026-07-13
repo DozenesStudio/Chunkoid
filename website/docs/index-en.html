@@ -68,12 +68,12 @@
     <script src="marked.js"></script>
     <script>
         const docs = [
-            { id: 'chunkoid', title: 'Overview', file: 'chunkoid-en.md' },
-            { id: 'instructions', title: 'User Manual', file: 'Instructions-en.md' },
-            { id: 'faq', title: 'FAQ', file: 'FAQ-en.md' },
-            { id: 'community', title: 'About Community', file: 'Community-en.md' },
-            { id: 'privacy', title: 'Privacy Policy', file: 'Privacy-en.md' },
-            { id: 'terms', title: 'Terms of Service', file: 'Terms-en.md' }
+            { id: 'chunkoid', title: '1.Overview', file: 'chunkoid-en.md' },
+            { id: 'instructions', title: '1.1.User Manual', file: 'Instructions-en.md' },
+            { id: 'faq', title: '1.2.FAQ', file: 'FAQ-en.md' },
+            { id: 'community', title: '2.About Community', file: 'Community-en.md' },
+            { id: 'privacy', title: '3.Privacy Policy', file: 'Privacy-en.md' },
+            { id: 'terms', title: '4.Terms of Service', file: 'Terms-en.md' }
         ];
 
         let currentIndex = 0;
@@ -104,7 +104,7 @@
                 const html = marked(markdown);
                 document.getElementById('docContent').innerHTML = html;
             } catch (error) {
-                document.getElementById('docContent').innerHTML = '<p class="md-p">Failed to load document. Please try again later.</p>';
+                document.getElementById('docContent').innerHTML = '<p class="md-p">Failed to load document. Please ensure you are not using file:// protocol.</p>';
             }
             
             renderToc();

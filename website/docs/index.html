@@ -66,12 +66,12 @@
     <script src="marked.js"></script>
     <script>
         const docs = [
-            { id: 'chunkoid', title: '软件概述', file: 'chunkoid.md' },
-            { id: 'instructions', title: '软件操作手册', file: 'Instructions.md' },
-            { id: 'faq', title: '疑难解答手册', file: 'FAQ.md' },
-            { id: 'community', title: '关于社区', file: 'Community.md' },
-            { id: 'privacy', title: '隐私政策', file: 'Privacy.md' },
-            { id: 'terms', title: '服务条款', file: 'Terms.md' }
+            { id: 'chunkoid', title: '1.软件概述', file: 'chunkoid.md' },
+            { id: 'instructions', title: '1.1.软件操作手册', file: 'Instructions.md' },
+            { id: 'faq', title: '1.2.疑难解答手册', file: 'FAQ.md' },
+            { id: 'community', title: '2.关于社区', file: 'Community.md' },
+            { id: 'privacy', title: '3.隐私政策', file: 'Privacy.md' },
+            { id: 'terms', title: '4.服务条款', file: 'Terms.md' }
         ];
 
         let currentIndex = 0;
@@ -102,7 +102,7 @@
                 const html = marked(markdown);
                 document.getElementById('docContent').innerHTML = html;
             } catch (error) {
-                document.getElementById('docContent').innerHTML = '<p class="md-p">文档加载失败，请稍后重试。</p>';
+                document.getElementById('docContent').innerHTML = '<p class="md-p">文档加载失败，请确保你不是使用 file:// 协议浏览文档</p>';
             }
             
             renderToc();
