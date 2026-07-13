@@ -303,60 +303,6 @@ header {
     opacity: 1;                  /* 悬停时显示遮罩 */
 }
 
-/* ==================== 功能特性区域 ==================== */
-/* 展示应用主要功能特性的区域 */
-.features-section {
-    padding: 80px 0;             /* 上下80px内边距 */
-}
-
-/* 区域标题 */
-.section-title {
-    font-size: 42px;              /* 字体大小42px */
-    font-weight: 600;            /* 半粗体 */
-    color: #ffffff;              /* 白色 */
-    text-align: center;          /* 居中对齐 */
-    margin-bottom: 60px;          /* 底部60px间距 */
-    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
-}
-
-/* 特性网格布局，自动适配列数 */
-.features {
-    display: grid;                /* Grid布局 */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* 自动填充，最小280px */
-    gap: 25px;                   /* 卡片间距25px */
-}
-
-/* 特性卡片 */
-.feature-card {
-    background: rgba(30, 30, 30, 0.85);  /* 深灰色85%透明度背景 */
-    padding: 30px;               /* 30px内边距 */
-    border-radius: 16px;          /* 16px圆角 */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);  /* 阴影效果 */
-    border: 1px solid rgba(255, 255, 255, 0.05);  /* 白色5%透明度边框 */
-    transition: transform 0.3s ease, border-color 0.3s ease;  /* 变换和边框颜色动画 */
-}
-
-/* 特性卡片悬停效果 */
-.feature-card:hover {
-    transform: translateY(-5px);  /* 向上移动5px */
-    border-color: rgba(74, 222, 128, 0.3);  /* 边框变为绿色30%透明度 */
-}
-
-/* 特性卡片标题 */
-.feature-title {
-    font-size: 18px;              /* 字体大小18px */
-    color: #ffffff;              /* 白色 */
-    margin-bottom: 12px;          /* 底部12px间距 */
-    font-weight: 600;            /* 半粗体 */
-}
-
-/* 特性卡片描述 */
-.feature-description {
-    color: #b0b0b0;              /* 灰色 */
-    line-height: 1.6;            /* 行高1.6 */
-    font-size: 14px;              /* 字体大小14px */
-}
-
 /* ==================== 页脚样式 ==================== */
 /* 页面底部信息区域 */
 footer {
