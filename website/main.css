@@ -304,28 +304,124 @@ header {
 }
 
 /* ==================== 页脚样式 ==================== */
-/* 页面底部信息区域 */
-footer {
-    text-align: center;          /* 文字居中 */
-    padding: 40px 0;             /* 上下40px内边距 */
+/* 全屏分界线 */
+.divider-wrapper {
+    margin: 40px 0;
+    position: relative;
+    overflow: visible;
+}
+
+.divider-wrapper hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 分界线以下全部毛玻璃效果 */
+.footer-container  {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: -50vw;
+    width: 100vw;
+    max-width: 100vw;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding:0px 50px;
+    box-sizing: border-box;
+}
+
+/* 页脚内容区域 */
+.footer-content {
+    max-width: 1400px;           /* 内容最大宽度1400px */
+    margin: 0 auto;              /* 水平居中 */
+    padding: 0 60px;             /* 左右60px内边距 */
+}
+
+/* 页脚布局 - 三列 */
+.footer-row {
+    display: flex;               /* Flex布局 */
+    justify-content: space-between;  /* 三列均匀分布 */
+    align-items: flex-start;     /* 顶部对齐 */
+    gap: 40px;                  /* 列间距40px */
+}
+
+/* 页脚左侧 - Logo区域 */
+.footer-left {
+    flex: 0.5;                    /* 占据1份空间 */
+    min-width: 200px;           /* 最小宽度200px */
+}
+
+/* 页脚Logo文字 */
+.footer-logo {
+    font-size: 50px;             /* 字体大小50px */
+    font-weight: 700;           /* 粗体 */
+    font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 像素字体 */
+    color: #ffffff;             /* 白色文字 */
+    margin-bottom: 8px;          /* 底部8px间距 */
+}
+
+/* 页脚Logo中的.top */
+.footer-logo .domain {
+    color: #4ade80;             /* 绿色文字 */
+}
+
+/* 页脚副标题 */
+.footer-slogan {
+    color: #8b8b8b;             /* 浅灰色文字 */
+    font-size: 14px;             /* 字体大小14px */
+}
+
+/* 页脚中间 - 导航链接 */
+.footer-center {
+    flex: 1;                    /* 占据1份空间 */
+    display: flex;               /* Flex布局 */
+    justify-content: center;     /* 水平居中 */
+    gap: 60px;                  /* 列间距60px */
+}
+
+/* 页脚导航列 */
+.footer-column {
+    display: flex;               /* Flex布局 */
+    flex-direction: column;      /* 垂直排列 */
+    gap: 12px;                  /* 链接间距12px */
+}
+
+/* 页脚导航链接 */
+.footer-column a {
+    color: #b0b0b0;             /* 灰色文字 */
+    text-decoration: none;       /* 去掉下划线 */
+    font-size: 14px;             /* 字体大小14px */
+    transition: color 0.3s ease; /* 颜色变化动画0.3秒 */
+    display: flex;               /* Flex布局 */
+    align-items: center;         /* 垂直居中 */
+    gap: 8px;                   /* 图标与文字间距8px */
+}
+
+/* 页脚导航链接悬停效果 */
+.footer-column a:hover {
+    color: #ffffff;             /* 悬停时变白色 */
+}
+
+/* 页脚图标 */
+.footer-icon {
+    width: 18px;                 /* 宽度18px */
+    height: 18px;                /* 高度18px */
+}
+
+/* 底端细线 */
+.footer-line {
+    padding-top: 20px;           /* 顶部40px内边距 */
+    margin-top: 20px;            /* 顶部40px外边距 */
     border-top: 1px solid rgba(255, 255, 255, 0.05);  /* 顶部细边框分隔 */
-}
-
-/* 页脚文字 */
-footer p {
-    color: #b0b0b0;              /* 灰色文字 */
-    font-size: 14px;              /* 字体大小14px */
-}
-
-/* 页脚链接 */
-footer a {
-    color: #4ade80;              /* 绿色文字 */
-    text-decoration: none;        /* 去掉下划线 */
-}
-
-/* 页脚链接悬停效果 */
-footer a:hover {
-    text-decoration: underline;   /* 悬停时显示下划线 */
 }
 
 /* ==================== GitHub链接样式 ==================== */
@@ -368,33 +464,13 @@ footer a:hover {
     height: 20px;                 /* 高度20px */
 }
 
-/* ==================== 赞助区域样式 ==================== */
-/* 赞助按钮区域 */
-.sponsor-section {
-    padding: 60px 0;             /* 上下60px内边距 */
-    text-align: center;          /* 文字居中 */
-}
-
-/* 爱发电按钮 */
-.btn-ifdian {
-    display: inline-flex;         /* 行内Flex布局 */
-    align-items: center;          /* 垂直居中 */
-    gap: 10px;                   /* 图标与文字间距10px */
-}
-
-/* 爱发电图标 */
-.ifdian-icon {
-    width: 20px;                  /* 宽度20px */
-    height: 20px;                 /* 高度20px */
-}
-
 /* ==================== 固定下载按钮 ==================== */
 /* 页面底部固定显示的毛玻璃下载按钮，方便用户随时点击下载 */
 .fixed-download-btn {
     position: fixed;              /* 固定定位，不随滚动移动 */
-    bottom: 60px;                /* 距底部60px */
-    right: 60px;                 /* 距右边缘60px */
-    padding: 20px 60px;           /* 上下20px，左右60px内边距 */
+    bottom: 30px;                /* 距底部30px */
+    right: 30px;                 /* 距右边缘30px */
+    padding: 20px 30px;           /* 上下20px，左右30px内边距 */
     background: rgba(74, 222, 128, 0.151);  /* 绿色15%透明度背景 */
     backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
     -webkit-backdrop-filter: blur(12px);  /* Safari浏览器兼容 */
@@ -475,7 +551,7 @@ footer a:hover {
     background: rgba(20, 20, 20, 0);  /* 深灰色90%透明度背景 */
     backdrop-filter: blur(20px);  /* 毛玻璃模糊效果 */
     -webkit-backdrop-filter: blur(20px);  /* Safari兼容 */
-    border-left: 1px solid rgba(255, 255, 255, 0.1);  /* 左侧边框 */
+    border-left: 1px solid rgba(255, 255, 255, 0.05);  /* 左侧边框 */
     transform: translateX(100%);  /* 默认向右隐藏 */
     transition: transform 0.3s ease;  /* 向左划开动画0.3秒 */
     z-index: 1000;               /* 层级1000 */
@@ -609,5 +685,29 @@ footer a:hover {
     .image-card.tablet img {
         height: auto;             /* 高度自适应 */
         max-height: 350px;        /* 最大高度350px */
+    }
+
+    /* 页脚移动端响应式 */
+    .footer-row {
+        flex-direction: column;   /* 垂直排列 */
+        gap: 20px;               /* 间距缩小 */
+    }
+
+    .footer-center {
+        flex-direction: column;   /* 垂直排列 */
+        gap: 20px;               /* 间距缩小 */
+        align-items: flex-start;  /* 左对齐 */
+    }
+
+    .footer-logo {
+        font-size: 32px;          /* Logo字体缩小 */
+    }
+
+    .footer-content {
+        padding: 0 20px;         /* 内边距缩小 */
+    }
+
+    .footer-container {
+        padding: 0px 20px;       /* 容器内边距缩小 */
     }
 }

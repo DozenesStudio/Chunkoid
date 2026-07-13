@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chunkoid - 首个安卓端MC世界转换器</title>
-    <link rel="icon" type="image/png" href="drawable/logo.png">
-    <link rel="stylesheet" href="main.css">
-
+    <title>About Chunkoid</title>
+    <link rel="icon" type="image/png" href="../drawable/logo.png">
+    <link rel="stylesheet" href="../main.css">
 </head>
-
 <body>
-    <!-- 移动端导航按钮 -->
     <div class="menu-toggle" onclick="toggleSidebar()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="6" x2="21" y2="6"/>
@@ -19,20 +16,18 @@
         </svg>
     </div>
 
-    <!-- 移动端侧边栏遮罩层 -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
-    <!-- 移动端侧边栏 -->
     <div class="sidebar" id="sidebar">
-        <a href="download.html">
+        <a href="../en/download-en.html">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            下载
+            Download
         </a>
-        <a href="docs/index.html">
+        <a href="../docs/index-en.html">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                 <polyline points="14 2 14 8 20 8"/>
@@ -40,14 +35,14 @@
                 <line x1="16" y1="17" x2="8" y2="17"/>
                 <polyline points="10 9 9 9 8 9"/>
             </svg>
-            文档
+            Documentation
         </a>
-        <a href="en/index-en.html">
-            <img src="drawable/lang.png" alt="Language" class="lang-icon">
-            简体中文
+        <a href="../about.html">
+            <img src="../drawable/lang.png" alt="Language" class="lang-icon">
+            English
         </a>
         <a href="https://github.com/DozenesStudio/Chunkoid">
-            <img src="drawable/github_gray.png" alt="Github" class="github-icon">
+            <img src="../drawable/github_gray.png" alt="Github" class="github-icon">
             Github
         </a>
     </div>
@@ -55,19 +50,19 @@
     <div class="container">
         <header>
             <div class="logo-area">
-                <img src="drawable/logo.png" alt="Chunkoid Logo" class="logo">
+                <img src="../drawable/logo.png" alt="Chunkoid Logo" class="logo">
                 <span class="logo-text">Chunkoid</span>
             </div>
             <nav class="nav-links">
-                <span style="color: #ffffff;">主页</span>
-                <a href="download.html">下载</a>
-                <a href="docs/index.html">文档</a>
-                <a href="en/index-en.html" class="lang-link">
-                    <img src="drawable/lang.png" alt="Language" class="lang-icon">
-                    简体中文
+                <a href="../en/index-en.html">Home</a>
+                <a href="../en/download-en.html">Download</a>
+                <a href="../docs/index-en.html">Docs</a>
+                <a href="../about.html" class="lang-link">
+                    <img src="../drawable/lang.png" alt="Language" class="lang-icon">
+                    English
                 </a>
                 <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
-                <img src="drawable/github_gray.png" alt="Github" class="github-icon">
+                    <img src="../drawable/github_gray.png" alt="Github" class="github-icon">
                     Github
                 </a>
             </nav>
@@ -75,33 +70,10 @@
 
         <section class="hero-section">
             <div class="hero-text">
-                <h1 class="hero-title">Chunkoid</h1>
-                <p class="hero-subtitle">
-                    <img src="drawable/mc_logo.png" alt="Minecraft" class="mc-icon">
-                    安卓世界转换器 <span style="font-style: italic; font-size: 0.6em; color: #6b6b6b;">By Dozener</span>
-                </p>
+                <h1 class="hero-title">About</h1>
                 <p class="hero-desc">
-                    Chunker手机版！全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
+                    More content coming soon...
                 </p>
-                <div class="cta-buttons">
-                    <a href="https://www.bilibili.com/video/BV1GEER6sEKn/" class="btn btn-bilibili">B站教程</a>
-                    <a href="https://github.com/DozenesStudio/Chunkoid" class="btn btn-secondary">查看源码</a>
-                </div>
-            </div>
-
-            <div class="hero-images">
-                <div class="image-card phone">
-                    <img src="https://s41.ax1x.com/2026/07/07/pmDisDf.jpg" alt="手机端截图">
-                    <div class="image-overlay">
-                        <span class="image-label">手机端实机</span>
-                    </div>
-                </div>
-                <div class="image-card tablet">
-                    <img src="https://s41.ax1x.com/2026/07/07/pmDiyb8.png" alt="平板端截图">
-                    <div class="image-overlay">
-                        <span class="image-label">平板端实机</span>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -113,22 +85,22 @@
                 <div class="footer-row">
                     <div class="footer-left">
                         <div class="footer-logo">Chunkoid<span class="domain">.top</span></div>
-                        <div class="footer-slogan">首个安卓端MC世界转换器</div>
+                        <div class="footer-slogan">First Android MC World Converter</div>
                         <div class="footer-slogan">&copy; 2026 DozenesStudio. </div>
                         <div class="footer-slogan">Licensed under GNU General Public License v3.0</div>
                     </div>
 
                     <div class="footer-center">
                         <div class="footer-column">
-                            <a href="download.html">下载</a>
-                            <a href="docs/index.html">文档</a>
-                            <a href="en/index-en.html">语言切换</a>
+                            <a href="../en/download-en.html">Download</a>
+                            <a href="../docs/index-en.html">Documentation</a>
+                            <a href="../about.html">Language</a>
                         </div>
 
                         <div class="footer-column">
-                            <a href="about.html">QQ群</a>
-                            <a href="about.html">Bilibili</a>
-                            <a href="about.html">捐赠</a>
+                            <a href="about-en.html">QQ Group</a>
+                            <a href="about-en.html">Bilibili</a>
+                            <a href="about-en.html">Donate</a>
                             <a href="https://github.com/DozenesStudio/Chunkoid">GitHub</a>
                         </div>
 
@@ -142,18 +114,9 @@
                 </div>
             </div>
         </div>
-
-        <!-- 固定下载按钮 -->
-        <a href="download.html" class="fixed-download-btn">
-            <span>下载 Chunkoid</span>
-            <span style="margin: 0 10px;">|</span>
-            <span style="color: #4ade80;">1.2.0Release</span>
-        </a>
-
     </div>
 
     <script>
-        // 侧边栏开关逻辑
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
             document.getElementById('sidebarOverlay').classList.toggle('active');
