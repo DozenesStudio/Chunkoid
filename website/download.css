@@ -498,6 +498,7 @@ footer a:hover {
 
     /* 隐藏版本徽章、历史版本链接和分隔线 */
     .version-badge,
+    .version-release-badge,
     .version-link,
     .download-card hr {
         display: none;
