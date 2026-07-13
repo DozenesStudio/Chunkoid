@@ -30,7 +30,7 @@
 ## 下载
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
-- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk)
+- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases)
 
 ## 使用说明
 

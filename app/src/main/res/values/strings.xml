@@ -17,7 +17,7 @@
     <string name="about_credits_sdk">The archive decryptor uses Dicecan NetEaseDecryptorSDK (GPL v3)</string>
     <string name="about_thanks">Special Thanks: Ryan Steven</string>
     <string name="about_website">Click to visit website</string>
-    <string name="about_docs">Tutorial Documents</string>
+    <string name="about_docs">Help Docs</string>
     <string name="about_date">2026/7/5</string>
     <string name="check_update">Check for Updates</string>
     <string name="donate">Donate</string>

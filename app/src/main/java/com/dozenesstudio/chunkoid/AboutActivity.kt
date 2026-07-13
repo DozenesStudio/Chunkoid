@@ -73,7 +73,7 @@ class AboutActivity : AppCompatActivity() {
 
         val tvdocsLink = findViewById<TextView>(R.id.tv_docs_link)
         tvdocsLink.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://chunkoid.top/docs/chunkoid.md"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://chunkoid.top/docs/index.html"))
             startActivity(intent)
         }
     }
