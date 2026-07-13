@@ -20,6 +20,29 @@ body {
     color: #e0e0e0;
 }
 
+/* ==================== 开场动画 ==================== */
+/* 核心动画 */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 所有子元素依次出现 */
+.container > * {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 用 nth-child 控制延迟 */
+.container > *:nth-child(1) { animation-delay: 0.05s; }
+.container > *:nth-child(2) { animation-delay: 0.15s; }
+.container > *:nth-child(3) { animation-delay: 0.25s; }
+.container > *:nth-child(4) { animation-delay: 0.35s; }
+.container > *:nth-child(5) { animation-delay: 0.45s; }
+.container > *:nth-child(6) { animation-delay: 0.55s; }
+.container > *:nth-child(7) { animation-delay: 0.65s; }
+.container > *:nth-child(8) { animation-delay: 0.75s; }
+
 /* ==================== 容器样式 ==================== */
 .container {
     max-width: 1400px;
