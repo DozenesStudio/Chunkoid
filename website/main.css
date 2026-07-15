@@ -52,6 +52,18 @@ body {
 .container > *:nth-child(7) { animation-delay: 0.65s; }
 .container > *:nth-child(8) { animation-delay: 0.75s; }
 
+/* 关于页面卡片依次从下往上出现 */
+.about-card {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.about-card:nth-child(1) { animation-delay: 0.3s; }
+.about-card:nth-child(2) { animation-delay: 0.4s; }
+.about-card:nth-child(3) { animation-delay: 0.5s; }
+.about-card:nth-child(4) { animation-delay: 0.6s; }
+.about-card:nth-child(5) { animation-delay: 0.7s; }
+
 /* ==================== 容器样式 ==================== */
 /* 页面主容器，控制内容最大宽度和内外边距，使内容居中显示 */
 .container {
@@ -143,7 +155,187 @@ header {
     color: #ffffff;              /* 悬停时变为白色 */
 }
 
-/* ==================== 语言切换样式 ==================== */
+/* ==================== 关于页面卡片样式 ==================== */
+/* 卡片容器，Flex布局横向排列 */
+.about-cards-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 单个卡片基础样式 */
+.about-card {
+    width: 180px;
+    height: 600px;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 卡片悬停效果 */
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 卡片图标区域 */
+.about-card .card-icon {
+    width: 100%;
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* 卡片图标大小 */
+.about-card .card-icon svg {
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 卡片图标链接 */
+.about-card .card-icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 卡片分割线 */
+.about-card hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10px 0;
+}
+
+/* 卡片内容区域 */
+.about-card .card-content {
+    width: 100%;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+/* 卡片标题 */
+.about-card .card-content h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+/* 卡片副标题 */
+.about-card .card-content .card-subtitle {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 8px 0;
+}
+
+/* 卡片正文 */
+.about-card .card-content p {
+    margin: 5px 0;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 卡片按钮 */
+.about-card .card-content .read-btn {
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+/* QQ群号显示 */
+.about-card .card-content .qq-group-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+/* 卡片注意事项标题 */
+.about-card .card-content .card-notice {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+/* 卡片列表 */
+.about-card .card-content .card-list {
+    margin: 5px 0 0 15px;
+    padding: 0;
+    list-style: disc;
+}
+
+.about-card .card-content .card-list li {
+    margin: 3px 0;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 卡片按钮组 */
+.about-card .card-content .card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* 卡片内按钮 */
+.about-card .card-content .card-btn {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.about-card .card-content .card-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 卡片背景色 */
+.card-qq {
+    background: linear-gradient(135deg, #4d84b5 0%, #16a2a9 100%);
+    text-decoration: none;
+}
+
+.card-bilibili {
+    background: linear-gradient(135deg, #8c5aba 0%, #db7aaa 100%);
+    text-decoration: none;
+}
+
+.card-github {
+    background: linear-gradient(135deg, #45b16d 0%, #388554 100%);
+    text-decoration: none;
+}
+
+.card-donation {
+    background: linear-gradient(135deg, #8771ba 0%, #7153a5 100%);
+    text-decoration: none;
+}
+
+.card-email {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    text-decoration: none;
+}
+
+/* ==================== 主视觉区域 (Hero) ==================== */
 /* 语言切换链接 */
 .lang-link {
     display: flex;                /* Flex布局 */
@@ -730,6 +922,67 @@ header {
 
     .section-title {
         font-size: 32px;          /* 区域标题字体缩小到32px */
+    }
+
+    /* 关于页面卡片移动端适配 */
+    .about-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .about-card {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        min-height: 200px;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .about-card .card-icon {
+        flex: 0 0 60px;
+        height: 60px;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+
+    .about-card .card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .about-card hr {
+        display: none;
+    }
+
+    .about-card .card-content {
+        flex: 1;
+        padding-left: 15px;
+        justify-content: center;
+    }
+
+    .about-card .card-content h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .about-card .card-content p {
+        font-size: 11px;
+        margin: 3px 0;
+    }
+
+    .about-card .card-content .card-list {
+        margin: 5px 0 0 10px;
+    }
+
+    .about-card .card-content .card-list li {
+        font-size: 10px;
+    }
+
+    .about-card .card-content .qq-group-number {
+        font-size: 16px;
     }
 }
 
