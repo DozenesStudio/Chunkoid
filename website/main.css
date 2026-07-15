@@ -36,6 +36,12 @@ body {
     animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* 浮动导航栏不受开场动画影响 */
+.container > header.floating-header {
+    opacity: 1;
+    animation: none;
+}
+
 /* 用 nth-child 控制延迟 */
 .container > *:nth-child(1) { animation-delay: 0.05s; }
 .container > *:nth-child(2) { animation-delay: 0.15s; }
