@@ -54,6 +54,38 @@ body {
     padding: 40px 60px;           /* 上下40px，左右60px内边距 */
 }
 
+/* ==================== 头部浮动岛导航栏 ==================== */
+/* 固定在顶部的浮动导航栏容器，不含毛玻璃效果 */
+header.floating-header {
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    right: 20px;
+    z-index: 1000;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* 浮动导航栏激活时，容器顶部留出补偿空间 */
+.floating-nav-active {
+    padding-top: 90px;
+}
+
+/* 浮动导航栏中导航链接单独毛玻璃胶囊 */
+header.floating-header .nav-links {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsla(0, 0%, 100%, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px 25px;
+}
+
 /* ==================== 头部导航 ==================== */
 /* 页面顶部区域，包含Logo和导航链接，采用Flex布局实现两端对齐 */
 header {
@@ -61,7 +93,7 @@ header {
     justify-content: space-between;  /* Logo左对齐，导航右对齐 */
     align-items: center;          /* 垂直居中 */
     padding: 20px 0;             /* 上下20px内边距 */
-    margin-bottom: 80px;          /* 底部80px外边距，与下方Hero区域分隔 */
+    margin-bottom: 80px;          /* 底部80px外边距，与下方内容区域分隔 */
 }
 
 /* Logo区域（图标+文字），Flex布局使图标和文字水平排列 */
@@ -103,6 +135,40 @@ header {
 /* 导航链接悬停效果 */
 .nav-links a:hover {
     color: #ffffff;              /* 悬停时变为白色 */
+}
+
+/* ==================== 语言切换样式 ==================== */
+/* 语言切换链接 */
+.lang-link {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 6px;                    /* 图标与文字间距6px */
+}
+
+/* 语言图标 */
+.lang-icon {
+    width: 20px;                  /* 宽度20px */
+    height: 20px;                 /* 高度20px */
+}
+
+/* ==================== GitHub链接样式 ==================== */
+/* 导航栏中的GitHub链接 */
+.github-link {
+    display: flex;                /* Flex布局 */
+    align-items: center;          /* 垂直居中 */
+    gap: 6px;                    /* 图标与文字间距6px */
+}
+
+/* GitHub图标 */
+.github-icon {
+    width: 20px;                  /* 宽度20px */
+    height: 20px;                 /* 高度20px */
+}
+
+/* ==================== 占位区域 ==================== */
+/* 占位元素 */
+.spacer {
+    height: 10vh;
 }
 
 /* ==================== 主视觉区域 (Hero) ==================== */
@@ -214,17 +280,10 @@ header {
     transform: translateY(-2px);  /* 向上移动2px */
 }
 
-/* B站按钮（粉色渐变），用于链接到B站 */
-.btn-bilibili {
-    background: linear-gradient(135deg, #ff6b9d, #c44569);  /* 粉色到深红色渐变 */
-    color: white;                /* 白色文字 */
-}
-
-/* B站按钮悬停效果 */
-.btn-bilibili:hover {
-    background: linear-gradient(135deg, #ff85ad, #d65a7d);  /* 渐变颜色变亮 */
-    transform: translateY(-2px);  /* 向上移动2px */
-    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);  /* 添加粉色阴影 */
+/* ==================== 占位区域 ==================== */
+/* 占位元素 */
+.spacer {
+    height: 15vh;
 }
 
 /* ==================== Hero截图区域 ==================== */
@@ -443,13 +502,6 @@ header {
     color: #ffffff;              /* 悬停时图标变白色 */
 }
 
-/* ==================== Gitee链接样式 ==================== */
-/* Gitee图标 */
-.gitee-icon {
-    width: 20px;                  /* 宽度20px */
-    height: 20px;                 /* 高度20px */
-}
-
 /* ==================== 语言切换样式 ==================== */
 /* 语言切换链接 */
 .lang-link {
@@ -471,8 +523,8 @@ header {
     bottom: 30px;                /* 距底部30px */
     right: 30px;                 /* 距右边缘30px */
     padding: 20px 30px;           /* 上下20px，左右30px内边距 */
-    background: rgba(74, 222, 128, 0.151);  /* 绿色15%透明度背景 */
-    backdrop-filter: blur(12px);  /* 背景模糊效果（毛玻璃） */
+    background: hsla(0, 0%, 100%, 0.1);  /* 白色1%透明度背景 */
+    backdrop-filter: blur(10px);  /* 背景模糊效果（毛玻璃） */
     -webkit-backdrop-filter: blur(12px);  /* Safari浏览器兼容 */
     border: 1px solid rgba(74, 222, 128, 0.4);  /* 绿色40%透明度边框 */
     color: #ffffff;              /* 白色文字 */
@@ -480,7 +532,6 @@ header {
     font-weight: 700;            /* 粗体 */
     text-decoration: none;        /* 去掉下划线 */
     border-radius: 240px;         /* 240px超大圆角，呈胶囊状 */
-    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.2);  /* 绿色阴影 */
     z-index: 1000;               /* 层级1000，确保显示在内容上方 */
     transition: all 0.3s ease;    /* 所有属性变化动画0.3秒 */
 }
@@ -601,9 +652,45 @@ header {
         padding: 20px;           /* 容器内边距缩小到20px */
     }
 
+    header {
+        margin-bottom: 40px;      /* 头部底部间距缩小到40px */
+    }
+
     /* 隐藏整个导航栏 */
     .nav-links {
         display: none;
+    }
+
+    /* 移动端恢复header原始样式，不固定不毛玻璃 */
+    header.floating-header {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        z-index: auto;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 20px 0;
+        margin-bottom: 40px;
+    }
+
+    /* 移动端恢复nav-links原始样式，无胶囊 */
+    header.floating-header .nav-links {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        display: none;
+    }
+
+    /* 移动端取消容器顶部补偿 */
+    .floating-nav-active {
+        padding-top: 0;
     }
 
     /* 显示导航按钮 */

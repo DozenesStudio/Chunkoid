@@ -17,7 +17,6 @@
     <string name="about_credits_sdk">The archive decryptor uses Dicecan NetEaseDecryptorSDK (GPL v3)</string>
     <string name="about_thanks">Special Thanks: Ryan Steven</string>
     <string name="about_website">Click to visit website</string>
-    <string name="about_docs">Help Docs</string>
     <string name="about_date">2026/7/5</string>
     <string name="check_update">Check for Updates</string>
     <string name="donate">Donate</string>
@@ -32,6 +31,7 @@
     <string name="nbt_editor">NBT Edit Kit</string>
     <string name="resource_converter">Resource Pack Converter</string>
     <string name="archive_decrypt">Archive Decrypt</string>
+    <string name="about_docs">Help Docs</string>
     <string name="feature_not_available">Feature not yet available, coming soon!</string>
     <string name="archive">Archive Format</string>
     <string name="folder">Folder Directory</string>
@@ -217,11 +217,10 @@
     <string name="keep_original_nbt_desc">Preserve original world data, recommended only when converting between same versions</string>
     <string name="general_settings">General</string>
     <string name="theme_switch">Theme Switch</string>
-    <string name="theme_bedrock_black">Bedrock Black (Default)</string>
-    <string name="theme_far_east">Far East Continent</string>
+    <string name="theme_bedrock_black">Bedrock Black</string>
     <string name="theme_jungle">MC Jungle</string>
-    <string name="theme_xingyang">Xingyang City (By Offcial Bean)</string>
-    <string name="theme_furry">Furry (Internet Source)</string>
+    <string name="theme_furry">Furry</string>
+    <string name="theme_custom">Custom Background</string>
     <string name="output_management">Output Management</string>
     <string name="developer_mode">Developer Switch</string>
     <string name="clear_all_output">Clear All Output Worlds</string>
@@ -234,6 +233,8 @@
     <string name="enable_conversion_log_output_desc">(Applicable when there is an error in world conversion) After enabling, you can find this option in the export selection of the output world (Note: you cannot view the world logs for worlds that did not have conversion log output enabled before). You can send this log output to the community for help.</string>
     <string name="output_cleared">All output worlds cleared</string>
     <string name="theme_changed_immediate">Theme changed successfully!</string>
+    <string name="custom_bg_set">Custom background set successfully!</string>
+    <string name="custom_bg_error">Failed to set custom background</string>
 
     <!-- Messages -->
     <string name="error_no_input">Please select an input world</string>

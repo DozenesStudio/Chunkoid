@@ -51,6 +51,38 @@ body {
     position: relative;
 }
 
+/* ==================== 头部浮动岛导航栏 ==================== */
+/* 固定在顶部的浮动导航栏容器，不含毛玻璃效果 */
+header.floating-header {
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    right: 20px;
+    z-index: 1000;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* 浮动导航栏激活时，容器顶部留出补偿空间 */
+.floating-nav-active {
+    padding-top: 90px;
+}
+
+/* 浮动导航栏中导航链接单独毛玻璃胶囊 */
+header.floating-header .nav-links {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsla(0, 0%, 100%, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px 25px;
+}
+
 /* ==================== 头部导航 ==================== */
 header {
     display: flex;
@@ -94,6 +126,12 @@ header {
 
 .nav-links a:hover {
     color: #ffffff;
+}
+
+/* ==================== 占位区域 ==================== */
+/* 占位元素 */
+.spacer {
+    height: 10vh;
 }
 
 /* ==================== 文档布局 ==================== */
@@ -706,6 +744,38 @@ header {
 
     .nav-links {
         display: none;
+    }
+
+    /* 移动端恢复header原始样式，不固定不毛玻璃 */
+    header.floating-header {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        z-index: auto;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+
+    /* 移动端恢复nav-links原始样式，无胶囊 */
+    header.floating-header .nav-links {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        display: none;
+    }
+
+    /* 移动端取消容器顶部补偿 */
+    .floating-nav-active {
+        padding-top: 0;
     }
 
     .doc-title {

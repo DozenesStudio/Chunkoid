@@ -18,6 +18,7 @@ import com.dozenesstudio.chunkoid.model.ConversionSettings
 import com.dozenesstudio.chunkoid.model.LogEntry
 import com.dozenesstudio.chunkoid.service.ConversionService
 import com.dozenesstudio.chunkoid.ui.LogAdapter
+import com.dozenesstudio.chunkoid.utils.BackgroundUtils
 import com.dozenesstudio.chunkoid.utils.ToastUtils
 import kotlinx.coroutines.launch
 import java.io.File
@@ -69,15 +70,27 @@ class ConversionActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val selectedTheme = prefs.getString("selected_theme", "bg")
         
-        val drawableRes = when (selectedTheme) {
-            "bg1" -> R.drawable.bg1
-            "bg2" -> R.drawable.bg2
-            "bg3" -> R.drawable.bg3
-            "bg4" -> R.drawable.bg4
-            else -> R.drawable.bg
+        if (selectedTheme == SettingsActivity.THEME_CUSTOM) {
+            val customBgFile = File(filesDir, SettingsActivity.CUSTOM_BG_FILE_NAME)
+            if (customBgFile.exists()) {
+                try {
+                    val bitmap = android.graphics.BitmapFactory.decodeFile(customBgFile.path)
+                    val darkenedBitmap = BackgroundUtils.applyDarkening(bitmap)
+                    binding.ivBackground.setImageBitmap(darkenedBitmap)
+                } catch (e: Exception) {
+                    binding.ivBackground.setImageResource(R.drawable.bg)
+                }
+            } else {
+                binding.ivBackground.setImageResource(R.drawable.bg)
+            }
+        } else {
+            val drawableRes = when (selectedTheme) {
+                "bg2" -> R.drawable.bg2
+                "bg4" -> R.drawable.bg4
+                else -> R.drawable.bg
+            }
+            binding.ivBackground.setImageResource(drawableRes)
         }
-        
-        binding.ivBackground.setImageResource(drawableRes)
     }
 
     private fun applyNoElevationToCards() {

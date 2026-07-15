@@ -30,6 +30,7 @@ import androidx.documentfile.provider.DocumentFile
 import androidx.drawerlayout.widget.DrawerLayout
 import com.dozenesstudio.chunkoid.databinding.ActivityMainBinding
 import com.dozenesstudio.chunkoid.model.ConversionSettings
+import com.dozenesstudio.chunkoid.utils.BackgroundUtils
 import com.dozenesstudio.chunkoid.utils.ToastUtils
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -451,6 +452,7 @@ class MainActivity : AppCompatActivity() {
         val navItemResourceConverter = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_resource_converter)
         val navItemDecrypt = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_decrypt)
         val navItemAbout = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_about)
+        val navItemHelp = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_help)
 
         navItemSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
@@ -479,6 +481,12 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(navDrawerView)
         }
 
+        navItemHelp.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://chunkoid.top/docs/index.html"))
+            startActivity(intent)
+            drawerLayout.closeDrawer(navDrawerView)
+        }
+
         navItemAbout.setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
             drawerLayout.closeDrawer(navDrawerView)
@@ -495,7 +503,7 @@ class MainActivity : AppCompatActivity() {
         val navItemDecrypt = navDrawerView.findViewById<LinearLayout>(R.id.nav_item_decrypt)
         
         val showTerminal = prefs.getBoolean("show_terminal", true)
-        val showUndeveloped = prefs.getBoolean("show_undeveloped", true)
+        val showUndeveloped = prefs.getBoolean("show_undeveloped", false)
         
         navItemTerminal.visibility = if (showTerminal) View.VISIBLE else View.GONE
         navItemMapDownloader.visibility = if (showUndeveloped) View.VISIBLE else View.GONE
@@ -507,15 +515,31 @@ class MainActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val selectedTheme = prefs.getString("selected_theme", "bg")
         
-        val drawableRes = when (selectedTheme) {
-            "bg1" -> R.drawable.bg1
-            "bg2" -> R.drawable.bg2
-            "bg3" -> R.drawable.bg3
-            "bg4" -> R.drawable.bg4
-            else -> R.drawable.bg
+        if (selectedTheme == SettingsActivity.THEME_CUSTOM) {
+            loadCustomBackground()
+        } else {
+            val drawableRes = when (selectedTheme) {
+                "bg2" -> R.drawable.bg2
+                "bg4" -> R.drawable.bg4
+                else -> R.drawable.bg
+            }
+            binding.ivBackground.setImageResource(drawableRes)
         }
-        
-        binding.ivBackground.setImageResource(drawableRes)
+    }
+
+    private fun loadCustomBackground() {
+        val customBgFile = File(filesDir, SettingsActivity.CUSTOM_BG_FILE_NAME)
+        if (customBgFile.exists()) {
+            try {
+                val bitmap = android.graphics.BitmapFactory.decodeFile(customBgFile.path)
+                val darkenedBitmap = BackgroundUtils.applyDarkening(bitmap)
+                binding.ivBackground.setImageBitmap(darkenedBitmap)
+            } catch (e: Exception) {
+                binding.ivBackground.setImageResource(R.drawable.bg)
+            }
+        } else {
+            binding.ivBackground.setImageResource(R.drawable.bg)
+        }
     }
 
     private fun applyNoElevationToCards() {

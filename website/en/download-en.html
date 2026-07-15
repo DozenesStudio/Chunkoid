@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="../download.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container floating-nav-active">
         <a href="../index.html" class="back-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"/>
                 <polyline points="12 19 5 12 12 5"/>
             </svg>
         </a>
-        <header>
+        <header class="floating-header">
             <div class="logo-area">
                 <img src="../drawable/logo.png" alt="Chunkoid Logo" class="logo">
                 <span class="logo-text">Chunkoid</span>
@@ -23,17 +23,26 @@
             <nav class="nav-links">
                 <a href="../en/index-en.html">Home</a>
                 <span style="color: #ffffff;">Download</span>
-                <a href="../docs/index-en.html">Documentation</a>
+                <a href="../docs/index-en.html">Docs</a>
+                <a href="../en/about-en.html">About</a>
                 <a href="../download.html" class="lang-link">
-                    <img src="../drawable/lang.png" alt="Language" class="lang-icon">
-                    English
+                    <svg alt="Language" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <circle cx="12" cy="12" r="10"/>
+                        <ellipse cx="12" cy="12" rx="4" ry="10"/>
+                        <ellipse cx="12" cy="12" rx="10" ry="4"/>
+                    </svg>
+                    EN
                 </a>
                 <a href="https://github.com/DozenesStudio/Chunkoid" class="github-link">
-                    <img src="../drawable/github_gray.png" alt="Github" class="github-icon">
+                    <svg alt="Github" class="github-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
                     Github
                 </a>
             </nav>
         </header>
+
+        <div class="spacer"></div>
 
         <section class="download-main">
             <h1 class="download-title">Download Chunkoid</h1>

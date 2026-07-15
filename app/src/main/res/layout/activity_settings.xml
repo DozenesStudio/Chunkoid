@@ -310,33 +310,6 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/theme_option_2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:paddingVertical="8dp">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="@string/theme_far_east"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-
-                                <ImageView
-                                    android:id="@+id/theme_check_2"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/ic_check"
-                                    android:tint="@color/minecraft_green"
-                                    android:visibility="gone" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
                                 android:id="@+id/theme_option_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -364,33 +337,6 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/theme_option_4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:paddingVertical="8dp">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="@string/theme_xingyang"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-
-                                <ImageView
-                                    android:id="@+id/theme_check_4"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/ic_check"
-                                    android:tint="@color/minecraft_green"
-                                    android:visibility="gone" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
                                 android:id="@+id/theme_option_5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -409,6 +355,33 @@
 
                                 <ImageView
                                     android:id="@+id/theme_check_5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_check"
+                                    android:tint="@color/minecraft_green"
+                                    android:visibility="gone" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/theme_option_custom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingVertical="8dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/theme_custom"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:id="@+id/theme_check_custom"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:src="@drawable/ic_check"

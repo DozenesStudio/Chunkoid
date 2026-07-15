@@ -17,7 +17,6 @@
     <string name="about_credits_sdk">存档解密器使用了Dicecan的NetEaseDecryptorSDK(GPL v3)</string>
     <string name="about_thanks">特别鸣谢：Ryan Steven</string>
     <string name="about_website">进入官网</string>
-    <string name="about_docs">帮助文档</string>
     <string name="about_date">2026/7/5</string>
     <string name="check_update">检查更新</string>
     <string name="donate">捐赠</string>
@@ -32,6 +31,7 @@
     <string name="nbt_editor">NBT编辑</string>
     <string name="resource_converter">材质转换</string>
     <string name="archive_decrypt">存档解密</string>
+    <string name="about_docs">帮助文档</string>
     <string name="feature_not_available">该功能尚未开发，敬请期待！</string>
     <string name="archive">归档格式</string>
     <string name="folder">文件夹目录</string>
@@ -217,11 +217,10 @@
     <string name="keep_original_nbt_desc">保留原始存档物品栏数据，在相同平台转换时建议启用</string>
     <string name="general_settings">通用</string>
     <string name="theme_switch">外观切换</string>
-    <string name="theme_bedrock_black">基岩黑（默认背景）</string>
-    <string name="theme_far_east">远东大陆（作者自建）</string>
+    <string name="theme_bedrock_black">基岩黑</string>
     <string name="theme_jungle">MC丛林</string>
-    <string name="theme_xingyang">兴阳市（By Offcial Bean）</string>
-    <string name="theme_furry">Furry（网络来源侵权私删）</string>
+    <string name="theme_furry">Furry</string>
+    <string name="theme_custom">选择背景图</string>
     <string name="output_management">输出管理</string>
     <string name="developer_mode">开发者选项</string>
     <string name="clear_all_output">清空所有输出世界</string>
@@ -234,6 +233,8 @@
     <string name="enable_conversion_log_output_desc">（该功能适用于世界转换出现错误）开启之后可在输出世界的导出选栏中找到该选项（注：无法查看之前没有启用转换日志输出的世界日志）你可以把这份日志输出发给社区寻求帮助</string>
     <string name="output_cleared">所有输出世界已清空</string>
     <string name="theme_changed_immediate">主页面外观已更换！</string>
+    <string name="custom_bg_set">自定义背景设置成功！</string>
+    <string name="custom_bg_error">自定义背景设置失败</string>
 
     <!-- Messages -->
     <string name="error_no_input">请选择一个输入世界</string>

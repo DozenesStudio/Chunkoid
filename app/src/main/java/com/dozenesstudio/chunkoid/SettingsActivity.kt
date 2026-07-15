@@ -1,7 +1,11 @@
 package com.dozenesstudio.chunkoid
 
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -11,6 +15,8 @@ import androidx.preference.PreferenceManager
 import com.dozenesstudio.chunkoid.databinding.ActivitySettingsBinding
 import com.dozenesstudio.chunkoid.utils.ToastUtils
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -24,10 +30,11 @@ class SettingsActivity : AppCompatActivity() {
         const val CHUNKOID_OUTPUT_DIR = "chunkoid output"
         const val KEY_SELECTED_THEME = "selected_theme"
         const val THEME_BEDROCK_BLACK = "bg"
-        const val THEME_FAR_EAST = "bg1"
         const val THEME_JUNGLE = "bg2"
-        const val THEME_XINGYANG = "bg3"
         const val THEME_FURRY = "bg4"
+        const val THEME_CUSTOM = "custom"
+        const val REQUEST_CODE_PICK_IMAGE = 1001
+        const val CUSTOM_BG_FILE_NAME = "custom_bg.jpg"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,17 +83,14 @@ class SettingsActivity : AppCompatActivity() {
         binding.themeOption1.setOnClickListener {
             selectTheme(THEME_BEDROCK_BLACK)
         }
-        binding.themeOption2.setOnClickListener {
-            selectTheme(THEME_FAR_EAST)
-        }
         binding.themeOption3.setOnClickListener {
             selectTheme(THEME_JUNGLE)
         }
-        binding.themeOption4.setOnClickListener {
-            selectTheme(THEME_XINGYANG)
-        }
         binding.themeOption5.setOnClickListener {
             selectTheme(THEME_FURRY)
+        }
+        binding.themeOptionCustom.setOnClickListener {
+            pickCustomBackground()
         }
 
         binding.itemOutputHeader.setOnClickListener {
@@ -115,6 +119,38 @@ class SettingsActivity : AppCompatActivity() {
         binding.switchEnableLogOutput.isChecked = prefs.getBoolean("enable_conversion_log", false)
         binding.switchEnableLogOutput.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("enable_conversion_log", isChecked).apply()
+        }
+    }
+
+    private fun pickCustomBackground() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+            type = "image/*"
+            addCategory(Intent.CATEGORY_OPENABLE)
+        }
+        startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK) {
+            data?.data?.let { uri ->
+                saveCustomBackground(uri)
+            }
+        }
+    }
+
+    private fun saveCustomBackground(uri: Uri) {
+        try {
+            contentResolver.openInputStream(uri)?.use { inputStream ->
+                val customBgFile = File(filesDir, CUSTOM_BG_FILE_NAME)
+                FileOutputStream(customBgFile).use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+                selectTheme(THEME_CUSTOM)
+                ToastUtils.show(this, getString(R.string.custom_bg_set))
+            }
+        } catch (e: Exception) {
+            ToastUtils.show(this, getString(R.string.custom_bg_error))
         }
     }
 
@@ -199,10 +235,9 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun updateThemeChecks(selectedTheme: String?) {
         binding.themeCheck1.visibility = if (selectedTheme == THEME_BEDROCK_BLACK) android.view.View.VISIBLE else android.view.View.GONE
-        binding.themeCheck2.visibility = if (selectedTheme == THEME_FAR_EAST) android.view.View.VISIBLE else android.view.View.GONE
         binding.themeCheck3.visibility = if (selectedTheme == THEME_JUNGLE) android.view.View.VISIBLE else android.view.View.GONE
-        binding.themeCheck4.visibility = if (selectedTheme == THEME_XINGYANG) android.view.View.VISIBLE else android.view.View.GONE
         binding.themeCheck5.visibility = if (selectedTheme == THEME_FURRY) android.view.View.VISIBLE else android.view.View.GONE
+        binding.themeCheckCustom.visibility = if (selectedTheme == THEME_CUSTOM) android.view.View.VISIBLE else android.view.View.GONE
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -89,8 +89,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/terminal"
-                android:tint="@color/white"/>
+                android:src="@drawable/terminal"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,8 +115,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/texture"
-                android:tint="@color/white"/>
+                android:src="@drawable/texture"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,8 +141,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/key"
-                android:tint="@color/white"/>
+                android:src="@drawable/key"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -170,13 +167,38 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/nbt"
-                android:tint="@color/white"/>
+                android:src="@drawable/nbt"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nbt_editor"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginLeft="16dp"/>
+
+        </LinearLayout>
+
+        <!-- Help Docs -->
+        <LinearLayout
+            android:id="@+id/nav_item_help"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/help"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_docs"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:layout_marginLeft="16dp"/>
