@@ -1,6 +1,6 @@
 <br />
 
-- [Language Switch](https://gitee.com/dozenesstudio/Chunkoid/README-EN.md)
+- [Language Switch](https://github.com/dozenesstudio/Chunkoid/README-EN.md)
 
 ## R1.2.0 现已发布
 
