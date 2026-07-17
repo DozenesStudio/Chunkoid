@@ -20,7 +20,7 @@ NBT编辑器等功能正在开发中，请持续关注 Chunkoid
 ## 下载
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
-- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases/download/1.1.0/Chunkoid%201.1.0.apk)
+- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases)
 
 ## 技术栈
 
@@ -31,7 +31,7 @@ NBT编辑器等功能正在开发中，请持续关注 Chunkoid
 
 ## 开源协议
 
-本项目采用 GNU General Public License v3.0 协议开源。详见 [LICENSE](LICENSE) 文件。
+本项目采用 GNU General Public License v3.0 协议开源。详见 [LICENSE](https://github.com/DozenesStudio/Chunkoid/blob/main/LICENSE) 文件。
 
 ## 社区/联系方式
 
