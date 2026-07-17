@@ -1,6 +1,6 @@
 <br />
 
-- [语言切换](https://github.com/dozenesstudio/Chunkoid/README.md)
+[语言切换](https://github.com/DozenesStudio/Chunkoid/README.md)
 
 ## R1.2.0 Now Available
 
