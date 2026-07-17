@@ -1,5 +1,7 @@
 <br />
 
+- [语言切换](https://gitee.com/dozenesstudio/Chunkoid/README.md)
+
 ## R1.2.0 Now Available
 
 The world's first Android-native Minecraft world converter, developed by a single developer. Fully open-source and free, no PC required.
