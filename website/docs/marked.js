@@ -3,6 +3,12 @@ function marked(markdown) {
 
     html = html.replace(/^\uFEFF/, '');
 
+    html = parseTables(html);
+
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1" class="md-img">');
+
     html = html.replace(/^### (.*$)/gim, '<h3 class="md-h3">$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2 class="md-h2">$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h1 class="md-h1">$1</h1>');
@@ -10,10 +16,6 @@ function marked(markdown) {
     html = html.replace(/\*\*\*(.+?)\*\*\*/gim, '<strong><em>$1</em></strong>');
     html = html.replace(/\*\*(.+?)\*\*/gim, '<strong>$1</strong>');
     html = html.replace(/\*(.+?)\*/gim, '<em>$1</em>');
-
-    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1" class="md-img">');
 
     html = html.replace(/`([^`]+)`/gim, '<code class="md-code">$1</code>');
 
@@ -33,35 +35,10 @@ function marked(markdown) {
         return '<ul class="md-ul">' + match + '</ul>';
     });
 
-    html = html.replace(/^\|(.+)\|$/gim, function(match, content) {
-        const cells = content.split('|').map(cell => cell.trim());
-        if (cells.every(cell => cell.match(/^-+$/))) {
-            return '';
-        }
-        return '<tr>' + cells.map(cell => '<td>' + cell + '</td>').join('') + '</tr>';
-    });
-
-    html = html.replace(/<tr>[\s\S]*?(?=\n\n|$)/gim, function(match) {
-        const rows = match.trim().split('</tr>').filter(row => row.trim());
-        if (rows.length === 0) return '';
-        
-        let thead = '';
-        let tbody = '';
-        
-        if (rows.length > 1) {
-            thead = '<thead>' + rows[0] + '</thead>';
-            tbody = '<tbody>' + rows.slice(1).join('') + '</tbody>';
-        } else {
-            tbody = '<tbody>' + rows.join('') + '</tbody>';
-        }
-        
-        return '<table class="md-table">' + thead + tbody + '</table>';
-    });
-
     html = html.replace(/^\s*<hr\s*\/?>\s*$/gim, '<hr class="md-hr">');
     html = html.replace(/^-{3,}$/gim, '<hr class="md-hr">');
 
-    html = html.replace(/^(?!<(h[1-3]|li|tr|pre|table|ul|ol))(.+)$/gim, function(match, p1, p2) {
+    html = html.replace(/^(?!<(h[1-3]|li|tr|pre|table|ul|ol|td|th|thead|tbody|\/))(.+)$/gim, function(match, p1, p2) {
         if (p2 && p2.trim()) {
             return '<p class="md-p">' + p2 + '</p>';
         }
@@ -84,6 +61,105 @@ function marked(markdown) {
     html = html.replace(/<li class="md-ul-item">/gim, '<li>');
 
     return html.trim();
+}
+
+function parseTables(text) {
+    const lines = text.split('\n');
+    const result = [];
+    let i = 0;
+
+    while (i < lines.length) {
+        const line = lines[i];
+        const trimmed = line.trim();
+
+        if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+            const tableLines = [line];
+            i++;
+
+            while (i < lines.length) {
+                const nextLine = lines[i];
+                const nextTrimmed = nextLine.trim();
+                
+                if (nextTrimmed.startsWith('|') && nextTrimmed.endsWith('|')) {
+                    tableLines.push(nextLine);
+                    i++;
+                } else {
+                    break;
+                }
+            }
+
+            const tableHtml = convertTableToHtml(tableLines);
+            result.push(tableHtml);
+            continue;
+        }
+
+        result.push(line);
+        i++;
+    }
+
+    return result.join('\n');
+}
+
+function convertTableToHtml(tableLines) {
+    if (tableLines.length < 2) {
+        return tableLines.join('\n');
+    }
+
+    const headers = parseTableRow(tableLines[0]);
+    if (!headers || headers.length === 0) {
+        return tableLines.join('\n');
+    }
+
+    let dataLines = tableLines.slice(1);
+
+    if (dataLines.length > 0 && isSeparatorLine(dataLines[0])) {
+        dataLines = dataLines.slice(1);
+    }
+
+    let theadHtml = '<thead><tr>';
+    headers.forEach(header => {
+        theadHtml += '<th>' + header + '</th>';
+    });
+    theadHtml += '</tr></thead>';
+
+    let tbodyHtml = '<tbody>';
+    dataLines.forEach(line => {
+        const cells = parseTableRow(line);
+        if (cells && cells.length > 0) {
+            tbodyHtml += '<tr>';
+            cells.forEach(cell => {
+                tbodyHtml += '<td>' + cell + '</td>';
+            });
+            tbodyHtml += '</tr>';
+        }
+    });
+    tbodyHtml += '</tbody>';
+
+    return '<table class="md-table">' + theadHtml + tbodyHtml + '</table>';
+}
+
+function parseTableRow(line) {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {
+        return null;
+    }
+
+    const content = trimmed.slice(1, -1);
+    const cells = content.split('|').map(cell => cell.trim());
+    
+    return cells.length > 0 ? cells : null;
+}
+
+function isSeparatorLine(line) {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith('|') || !trimmed.endsWith('|')) {
+        return false;
+    }
+
+    const content = trimmed.slice(1, -1);
+    const cells = content.split('|');
+    
+    return cells.every(cell => cell.trim().match(/^[:\- ]+$/));
 }
 
 function escapeHtml(text) {
