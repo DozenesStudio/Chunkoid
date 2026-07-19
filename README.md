@@ -2,7 +2,7 @@
 
 ## R1.2.0 Now Available
 
-The world's first Android-native Minecraft world converter, developed by a single developer. Fully open-source and free, no PC required.
+The first Android Minecraft world converter, developed by a single developer.Open-source and free, no PC required.
 
 ### Converter Suite - All Features
 
@@ -49,8 +49,6 @@ Ryan steven
 
 Weiyin 1A
 
-And image provider: Offical Bean
-
 ### Third-Party Dependencies
 
 This project uses the following open-source software/SDK:
@@ -69,7 +67,7 @@ This project uses the following open-source software/SDK:
 
 ## R1.2.0 现已发布
 
-全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
+专为安卓端打造的 Minecraft 世界转换器，开源免费，无需电脑
 
 ### 转换器套件-全部功能
 
@@ -115,8 +113,6 @@ NBT编辑器等功能正在开发中，请持续关注 Chunkoid
 Ryan steven
 
 Weiyin 1A
-
-以及图片提供者：Offical Bean
 
 ### 第三方依赖
 
