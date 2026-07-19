@@ -55,7 +55,7 @@ This project uses the following open-source software/SDK:
 
 - **chunker-cli** - [Chunker](https://github.com/HiveGamesOSS/Chunker) by [The Hive](https://www.chunler.app)
   - License: MIT License
-  - Location: `app\src\main\assets\chunker-cli-1.15.0.jar`
+  - Location: `app\src\main\assets\chunker-cli-1.18.0.jar`
 - **World Decryption SDK** - [NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK) by [Dicecan](https://github.com/Dicecan)
   - License: GPL v3.0
   - Location: `app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
@@ -120,7 +120,7 @@ Weiyin 1A
 
 - **chunker-cli** - [The Hive](https://www.chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
   - 许可证：MIT License
-  - 文件位置：`app\src\main\assets\chunker-cli-1.15.0.jar`
+  - 文件位置：`app\src\main\assets\chunker-cli-1.18.0.jar`
 - **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
   - 许可证：GPL v3.0
   - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
