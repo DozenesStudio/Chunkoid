@@ -1209,7 +1209,7 @@ class MainActivity : AppCompatActivity() {
         if (!validateInputs()) return
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(this)
-        val maxMemory = prefs.getInt("max_memory", 2048)
+        val maxMemory = prefs.getInt("max_memory", 4096)
         val keepOriginalNbt = prefs.getBoolean("keep_original_nbt", false)
 
         val settings = ConversionSettings(

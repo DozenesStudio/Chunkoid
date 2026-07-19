@@ -10,7 +10,7 @@
 
     <!-- About Page -->
     <string name="about">关于</string>
-    <string name="app_version">1.2.0 正式版</string>
+    <string name="app_version">1.2.1-beta.1</string>
     <string name="about_intro">一个安卓端的我的世界JE-BE双端世界转换器\n力求为手机用户提供一个方便快捷的存档转换体验</string>
     <string name="about_credits_chunker">Chunker-Cli为Hive Game的开源项目(MIT)</string>
     <string name="about_credits_nbt">NBT工具使用了Polyana-Fontes的NBT-Manipulator(MIT)</string>

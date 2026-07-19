@@ -81,9 +81,6 @@ class ConversionService : Service() {
                 status.postValue("正在初始化环境...")
                 initializeEnvironment()
 
-                // Step 1.5: Set memory limit from settings
-                termuxExecutor.setMaxMemory(settings.maxMemory)
-
                 // Step 2: Copy input world to internal storage
                 status.postValue("准备输入文件...")
                 progress.postValue(10)
@@ -194,6 +191,8 @@ class ConversionService : Service() {
             }
 
             val args = mutableListOf(
+                "-Xms256m",
+                "-Xmx${settings.maxMemory}m",
                 "-jar", jarPath,
                 "-i", inputDir.absolutePath,
                 "-o", outputDir.absolutePath,

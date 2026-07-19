@@ -108,6 +108,7 @@ Thumbs.db
 *.jar
 !app/src/main/assets/chunker-cli-1.18.1.jar
 *.zip
+!app/src/main/assets/rootfs.zip
 *.war
 *.nar
 *.ear

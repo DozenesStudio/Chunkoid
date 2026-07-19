@@ -10,7 +10,7 @@ data class ConversionSettings(
     val inputWorldName: String,
     val targetFormat: String,
     val sourcePlatform: String,
-    val maxMemory: Int = 2048,
+    val maxMemory: Int = 4096,
     val blockMappings: String? = null,
     val worldSettings: String? = null,
     val pruningSettings: String? = null,

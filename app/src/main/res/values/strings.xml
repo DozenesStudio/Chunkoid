@@ -10,7 +10,7 @@
 
     <!-- About Page -->
     <string name="about">About</string>
-    <string name="app_version">1.2.0 Release</string>
+    <string name="app_version">1.2.1-beta.1</string>
     <string name="about_intro">A Minecraft Java-Bedrock world converter for Android devices. This unique application supports version downgrade and upgrade functionality, offering a convenient conversion environment for mobile users.</string>
     <string name="about_credits_chunker">Chunker-Cli is an open-source project (MIT) for Hive Game</string>
     <string name="about_credits_nbt">The NBT tool uses Polyana-Fontes NBT-Manipulator (MIT)</string>
