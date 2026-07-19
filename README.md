@@ -2,7 +2,7 @@
 
 ## R1.2.0 Now Available
 
-The world's first Android-native Minecraft world converter, developed by a single developer. Fully open-source and free, no PC required.
+The first Android Minecraft world converter, developed by a single developer.Open-source and free, no PC required.
 
 ### Converter Suite - All Features
 
@@ -49,15 +49,13 @@ Ryan steven
 
 Weiyin 1A
 
-And image provider: Offical Bean
-
 ### Third-Party Dependencies
 
 This project uses the following open-source software/SDK:
 
 - **chunker-cli** - [Chunker](https://github.com/HiveGamesOSS/Chunker) by [The Hive](https://www.chunler.app)
   - License: MIT License
-  - Location: `app\src\main\assets\chunker-cli-1.15.0.jar`
+  - Location: `app\src\main\assets\chunker-cli-1.18.0.jar`
 - **World Decryption SDK** - [NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK) by [Dicecan](https://github.com/Dicecan)
   - License: GPL v3.0
   - Location: `app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
@@ -69,7 +67,7 @@ This project uses the following open-source software/SDK:
 
 ## R1.2.0 现已发布
 
-全网首创，一人开发，专为安卓端打造的 Minecraft 世界转换器，完全开源免费，无需电脑
+专为安卓端打造的 Minecraft 世界转换器，开源免费，无需电脑
 
 ### 转换器套件-全部功能
 
@@ -116,15 +114,13 @@ Ryan steven
 
 Weiyin 1A
 
-以及图片提供者：Offical Bean
-
 ### 第三方依赖
 
 本项目使用了以下开源软件/SDK：
 
 - **chunker-cli** - [The Hive](https://www.chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
   - 许可证：MIT License
-  - 文件位置：`app\src\main\assets\chunker-cli-1.15.0.jar`
+  - 文件位置：`app\src\main\assets\chunker-cli-1.18.0.jar`
 - **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
   - 许可证：GPL v3.0
   - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
