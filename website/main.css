@@ -133,6 +133,7 @@ header {
     font-size: 24px;              /* 字体大小24px */
     font-weight: 700;            /* 字体粗细700（粗体） */
     color: #ffffff;              /* 白色文字 */
+    text-decoration: none;        /* 去掉下划线 */
     font-family: 'UranusPixel', 'Segoe UI', sans-serif;  /* 使用像素字体，降级为Segoe UI */
 }
 
