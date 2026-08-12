@@ -42,6 +42,7 @@ Chunkoid（以下简称"本软件"）是一款由 Dozener 开发的 Android 原�
 1. **核心转换引擎责任界定**：本软件的核心存档转换功能由 Chunker-cli 引擎实现，该引擎由 The Hive Games 独立开发并开源发布。本软件开发者 Dozener 仅将该引擎集成到 Android 应用中，不对 Chunker-cli 的代码逻辑、算法实现或转换结果承担开发责任。
 2. **本地运行承诺**：上述所有第三方库均在用户设备本地运行，不涉及任何网络传输或云端处理。本软件开发者 Dozener 未对 Chunker-cli 的核心代码进行任何修改，仅提供必要的集成适配。
 3. **许可证合规性**：本软件严格遵守各第三方库的开源许可证要求。Chunker-cli 采用 MIT License，允许商业和非商业用途的免费使用与分发；NetEaseDecryptorSDK 采用 GPL v3.0 License，本软件因此采用相同许可证以确保合规。
+4. **文件命名说明**：为便于版本迭代维护，本项目将 Chunker-cli 引擎的 JAR 文件统一命名为 `cli.jar`，而非保留版本号后缀。此举仅为工程管理需要，不涉及对 Chunker-cli 源代码的任何修改或重新编译。所使用的 Chunker-cli 版本及完整源代码可通过 [GitHub](https://github.com/HiveGamesOSS/Chunker) 查阅。
 
 这些第三方库的隐私政策请参阅其官方文档。
 

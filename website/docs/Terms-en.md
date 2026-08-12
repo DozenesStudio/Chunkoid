@@ -51,6 +51,8 @@ The Software uses the following open-source libraries for data processing. All l
 
 **Open Source Declaration**: The Software is a fully open-source free software. You can view the complete source code on [GitHub](https://github.com/DozenesStudio/Chunkoid). The source code of the core conversion engine Chunker-cli can be viewed on [GitHub](https://github.com/HiveGamesOSS/Chunker).
 
+**File Naming Convention**: For maintainability across version iterations, the Chunker-cli engine JAR file is uniformly named `cli.jar` in this project, without retaining the version number suffix. This is solely for engineering management purposes and does not involve any modification or recompilation of the Chunker-cli source code. The Chunker-cli version used is owned by its original developer, The Hive Games.
+
 ## 6. Disclaimer
 
 - The Software is provided "as is". The developer is not responsible for data loss, damage, or other losses caused by using the Software

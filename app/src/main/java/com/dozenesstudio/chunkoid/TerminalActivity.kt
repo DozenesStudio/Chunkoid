@@ -38,7 +38,7 @@ class TerminalActivity : AppCompatActivity() {
 
     companion object {
         private const val PERMISSION_REQUEST_CODE = 101
-        private const val CHUNKER_CLI_PATH = "chunker-cli-1.18.1.jar"
+        private const val CHUNKER_CLI_PATH = "cli.jar"
         private const val APP_FILES_DIR = "/data/user/0/com.dozenesstudio.chunkoid/files"
     }
 
@@ -96,7 +96,7 @@ class TerminalActivity : AppCompatActivity() {
         }
 
         binding.tvDebugChunker.setOnClickListener {
-            executeAutoCommand("java -jar chunker-cli-1.18.1.jar")
+            executeAutoCommand("java -jar cli.jar")
         }
 
         binding.tvSymbolDash.setOnClickListener {
@@ -266,8 +266,8 @@ class TerminalActivity : AppCompatActivity() {
         val chunkerCliPath = "$APP_FILES_DIR/$CHUNKER_CLI_PATH"
 
         var modifiedCommand = command
-        if (command.contains("chunker-cli-1.18.1.jar")) {
-            modifiedCommand = command.replace("chunker-cli-1.18.1.jar", chunkerCliPath)
+        if (command.contains("cli.jar")) {
+            modifiedCommand = command.replace("cli.jar", chunkerCliPath)
         }
 
         val javaArgs = modifiedCommand.substringAfter("java ").trim().split("\\s+".toRegex()).filter { it.isNotEmpty() }

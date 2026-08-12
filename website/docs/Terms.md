@@ -51,6 +51,8 @@
 
 **开源声明**：本软件是完全开源的免费软件，您可以在 [GitHub](https://github.com/DozenesStudio/Chunkoid) 上查看完整源代码。核心转换引擎 Chunker-cli 的源代码可在 [GitHub](https://github.com/HiveGamesOSS/Chunker) 上查看。
 
+**文件命名说明**：为便于版本迭代维护，本项目将 Chunker-cli 引擎的 JAR 文件统一命名为 `cli.jar`，而非保留版本号后缀。此举仅为工程管理需要，不涉及对 Chunker-cli 源代码的任何修改或重新编译，所使用的 Chunker-cli 版本归其原始开发者 The Hive Games 所有。
+
 ## 6. 免责声明
 
 - 本软件按"原样"提供，开发者不对因使用本软件导致的数据丢失、损坏或其他损失承担责任

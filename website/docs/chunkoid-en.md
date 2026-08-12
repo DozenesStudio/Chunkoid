@@ -55,7 +55,7 @@ This project uses the following open-source software/SDK:
 
 - **chunker-cli** - [Chunker](https://github.com/HiveGamesOSS/Chunker) by [The Hive](https://www.chunler.app)
   - License: MIT License
-  - Location: `app\src\main\assets\chunker-cli-1.18.0.jar`
+  - Location: `app\src\main\assets\cli.jar`
 - **World Decryption SDK** - [NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK) by [Dicecan](https://github.com/Dicecan)
   - License: GPL v3.0
   - Location: `app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
