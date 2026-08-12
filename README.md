@@ -4,14 +4,14 @@
   <br><br>
   <a href="#中文">中文</a> | <a href="#english">English</a>
   <br><br>
-  <img alt="Version" src="https://img.shields.io/badge/version-R1.2.0-2ea043?style=for-the-badge">
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/DozenesStudio/Chunkoid?style=for-the-badge"></a>
-  <a href="https://github.com/DozenesStudio/Chunkoid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/DozenesStudio/Chunkoid?style=for-the-badge"></a>
+  <img alt="Version" src="https://img.shields.io/badge/version-R1.2.0-2ea043">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPLv3-E6B800"></a>
+  <a href="https://github.com/DozenesStudio/Chunkoid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/badge/stars-%E2%98%85-9C27B0"></a>
   <br>
-  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
-  <img alt="Android" src="https://img.shields.io/badge/Android-8.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white">
-  <img alt="Gradle" src="https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
-  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-Bedrock%2FJava-62B47A?style=for-the-badge&logo=minecraft&logoColor=white">
+  <img alt="Kotlin" src="https://img.shields.io/badge/language-Kotlin-7F52FF">
+  <img alt="Android" src="https://img.shields.io/badge/Android-8.0%2B-3DDC84">
+  <img alt="Gradle" src="https://img.shields.io/badge/build-Gradle-02303A">
+  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-Bedrock%2FJava-62B47A">
 </div>
 
 <a id="中文"></a>
