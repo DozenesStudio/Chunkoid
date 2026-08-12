@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="./app/src/main/res/drawable/converter.png" alt="Chunkoid" height="80">
-  <img src="./app/src/main/res/drawable/text.png" alt="Chunkoid Text" height="80">
+  <img src="./app/src/main/res/drawable/converter.png" alt="Chunkoid" height="100">
+  <img src="./app/src/main/res/drawable/text.png" alt="Chunkoid Text" height="100">
   <br><br>
   <a href="#中文">中文</a> | <a href="#english">English</a>
   <br><br>
