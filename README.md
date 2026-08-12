@@ -1,129 +1,109 @@
-<br />
+<div align="center">
+  <img src="./app/src/main/res/drawable/converter.png" alt="Chunkoid" height="80">
+  <img src="./app/src/main/res/drawable/text.png" alt="Chunkoid Text" height="60">
+  <br><br>
+  <a href="#中文">中文</a> | <a href="#english">English</a>
+  <br><br>
+  <img alt="Version" src="https://img.shields.io/badge/version-R1.2.0-2ea043?style=for-the-badge">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/DozenesStudio/Chunkoid?style=for-the-badge"></a>
+  <a href="https://github.com/DozenesStudio/Chunkoid/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/DozenesStudio/Chunkoid?style=for-the-badge"></a>
+  <br>
+  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
+  <img alt="Android" src="https://img.shields.io/badge/Android-8.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white">
+  <img alt="Gradle" src="https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
+  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-Bedrock%2FJava-62B47A?style=for-the-badge&logo=minecraft&logoColor=white">
+</div>
 
-## R1.2.0 Now Available
+<a id="中文"></a>
 
-The first Android Minecraft world converter, developed by a single developer.Open-source and free, no PC required.
+## 中文
 
-### Converter Suite - All Features
+### 项目简介
 
-- **Simple Interface:** Zero learning curve
-- **Cross-Platform Conversion + Version Upgrade/Downgrade:** Core feature, now fully optimized
-- **Resource Pack Conversion:** JE-BE resource pack conversion **(New in 1.2.0)**
-- **World Decryption:** NetEase world decryption
-- **Conversion Logs:** Transparent execution, every step visible
-- **Output Management:** Organize all converted worlds in one place
+Chunkoid 是一款专为安卓设备打造的 **Minecraft 世界转换器**。它开源免费，无需电脑即可实现基岩版（Bedrock）与 Java 版之间的存档互转及版本升降。
 
-### More Features Planned
+### 功能特性
 
-NBT Editor and other features are under development. Stay tuned for Chunkoid updates.
+- **双端互转**：Bedrock ↔ Java 存档格式转换
+- **版本升降**：支持 1.8.8 至 1.21 及 26.x 等多版本升降级
+- **材质转换**：JE-BE 材质包双向转换
+- **存档解密**：网易版加密存档解密
+- **日志输出**：透明化执行过程，每一步清晰可见
+- **输出管理**：所有转换结果统一管理，方便导出
 
-## Download
+### 下载
 
 - [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
 - [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases)
 
-## Tech Stack
+### 技术栈
+
+- **语言**：Kotlin
+- **框架**：Android SDK、Material Components
+- **架构**：MVVM
+- **构建**：Gradle
+- **核心引擎**：[chunker-cli](https://github.com/HiveGamesOSS/Chunker)（MIT License）
+
+### 开源协议
+
+本项目采用 [GNU General Public License v3.0](LICENSE) 协议开源。
+
+### 联系方式
+
+- **作者**：Dozener
+- **邮箱**：[DozenesStudio@qq.com](mailto:DozenesStudio@qq.com)
+- **QQ群**：1103983368
+
+### 致谢
+
+- [The Hive](https://www.chunler.app) - Chunker 转换引擎
+- Ryan Steven
+- Weiyin 1A
+
+---
+
+<a id="english"></a>
+
+## English
+
+### Overview
+
+Chunkoid is a **Minecraft world converter** designed exclusively for Android devices. It is open-source and free, enabling Bedrock ↔ Java world conversion and version upgrades/downgrades without requiring a PC.
+
+### Features
+
+- **Cross-Platform Conversion**: Bedrock ↔ Java world format conversion
+- **Version Upgrade/Downgrade**: Supports versions from 1.8.8 to 1.21+ and 26.x
+- **Resource Pack Conversion**: JE-BE resource pack bidirectional conversion
+- **World Decryption**: NetEase encrypted world decryption
+- **Conversion Logs**: Transparent execution, every step visible
+- **Output Management**: All converted worlds organized in one place
+
+### Download
+
+- [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
+- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases)
+
+### Tech Stack
 
 - **Language**: Kotlin
 - **Framework**: Android SDK, Material Components
 - **Architecture**: MVVM
 - **Build Tool**: Gradle
+- **Core Engine**: [chunker-cli](https://github.com/HiveGamesOSS/Chunker) (MIT License)
 
-## Open Source License
+### Open Source License
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/DozenesStudio/Chunkoid/blob/main/LICENSE) file for details.
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
-## Contact
+### Contact
 
 - **Author**: Dozener
 - **Email**: [DozenesStudio@qq.com](mailto:DozenesStudio@qq.com)
 - **QQ Group**: 1103983368
 
-## Donate
+### Acknowledgments
 
-- **Afdian**: [Support on Afdian](https://ifdian.net/a/dozener)
-
-## Acknowledgments
-
-Ryan steven
-
-Weiyin 1A
-
-### Third-Party Dependencies
-
-This project uses the following open-source software/SDK:
-
-- **chunker-cli** - [Chunker](https://github.com/HiveGamesOSS/Chunker) by [The Hive](https://www.chunler.app)
-  - License: MIT License
-  - Location: `app\src\main\assets\cli.jar`
-- **World Decryption SDK** - [NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK) by [Dicecan](https://github.com/Dicecan)
-  - License: GPL v3.0
-  - Location: `app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
-- **NBT Parser** - [NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator) by [PowerNukkit](https://github.com/PowerNukkit)
-  - License: MIT License
-  - Location: `nbt`
-
-<br />
-
-## R1.2.0 现已发布
-
-专为安卓端打造的 Minecraft 世界转换器，开源免费，无需电脑
-
-### 转换器套件-全部功能
-
-- **界面简洁**：一目了然，零学习成本
-- **双端互转+版本升降**：核心功能，现已全方位优化
-- **材质转换**：JE-BE材质双端转换**（1.2.0新增）**
-- **存档解密**：网易存档解密功能**（1.2.0新增）**
-- **日志输出**：白箱运行，每一步都看得见，出问题不迷茫
-- **输出管理**：转换结果统一管理，方便导出
-
-### 更多功能规划
-
-NBT编辑器等功能正在开发中，请持续关注 Chunkoid
-
-## 下载
-
-- [GitHub Releases](https://github.com/DozenesStudio/Chunkoid/releases)
-- [Gitee Releases](https://gitee.com/dozenesstudio/Chunkoid/releases)
-
-## 技术栈
-
-- **语言**：Kotlin
-- **框架**：Android SDK, Material Components
-- **架构**：MVVM
-- **构建工具**：Gradle
-
-## 开源协议
-
-本项目采用 GNU General Public License v3.0 协议开源。详见 [LICENSE](https://github.com/DozenesStudio/Chunkoid/blob/main/LICENSE) 文件。
-
-## 社区/联系方式
-
-- **作者**：Dozener
-- **邮箱**：[DozenesStudio@qq.com](mailto:contact@dozenesstudio.com)
-- **QQ群**：1103983368
-
-## 赞助/捐赠
-
-- **爱发电项目页面：** [Afdian](https://ifdian.net/a/dozener)
-
-## 致谢
-
-Ryan steven
-
-Weiyin 1A
-
-### 第三方依赖
-
-本项目使用了以下开源软件/SDK：
-
-- **chunker-cli** - [The Hive](https://www.chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)&#x20;
-  - 许可证：MIT License
-  - 文件位置：`app\src\main\assets\cli.jar`
-- **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
-  - 许可证：GPL v3.0
-  - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
-- **NBT解析器** - [PowerNukkit](https://github.com/PowerNukkit)的[NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator)
-  - 许可证：MIT License
-  - 文件位置：`nbt`
+- [The Hive](https://www.chunler.app) - Chunker conversion engine
+- Ryan Steven
+- Weiyin 1A
