@@ -2,7 +2,7 @@
   <img src="./app/src/main/res/drawable/converter.png" alt="Chunkoid" height="100">
   <img src="./app/src/main/res/drawable/text.png" alt="Chunkoid Text" height="100">
   <br><br>
-  <a href="#中文">中文</a> | <a href="#english">English</a>
+  <a href="#中文">中文</a> | <a href="#english">English</a> | <a href="https://www.chunkoid.top">Website</a>
   <br><br>
   <img alt="Version" src="https://img.shields.io/badge/version-R1.2.0-2ea043">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPLv3-E6B800"></a>
@@ -54,9 +54,22 @@ Chunkoid 是一款专为安卓设备打造的 **Minecraft 世界转换器**。�
 - **邮箱**：[DozenesStudio@qq.com](mailto:DozenesStudio@qq.com)
 - **QQ群**：1103983368
 
+### 第三方依赖
+
+本项目使用了以下开源软件/SDK：
+
+- **chunker-cli** - [The Hive](https://www.chunler.app)的 [chunker](https://github.com/HiveGamesOSS/Chunker)
+  - 许可证：MIT License
+  - 文件位置：`app\src\main\assets\cli.jar`
+- **存档解密SDK** - [Dicecan](https://github.com/Dicecan)的[NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK)
+  - 许可证：GPL v3.0
+  - 文件位置：`app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
+- **NBT解析器** - [PowerNukkit](https://github.com/PowerNukkit)的[NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator)
+  - 许可证：MIT License
+  - 文件位置：`nbt`
+
 ### 致谢
 
-- [The Hive](https://www.chunler.app) - Chunker 转换引擎
 - Ryan Steven
 - Weiyin 1A
 
@@ -102,8 +115,21 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE).
 - **Email**: [DozenesStudio@qq.com](mailto:DozenesStudio@qq.com)
 - **QQ Group**: 1103983368
 
+### Third-Party Dependencies
+
+This project uses the following open-source software/SDK:
+
+- **chunker-cli** - [Chunker](https://github.com/HiveGamesOSS/Chunker) by [The Hive](https://www.chunler.app)
+  - License: MIT License
+  - Location: `app\src\main\assets\cli.jar`
+- **World Decryption SDK** - [NetEaseDecryptorSDK](https://github.com/Dicecan/NetEaseDecryptorSDK) by [Dicecan](https://github.com/Dicecan)
+  - License: GPL v3.0
+  - Location: `app\src\main\java\com\dozenesstudio\chunkoid\decryptor`
+- **NBT Parser** - [NBT-Manipulator](https://github.com/PowerNukkit/NBT-Manipulator) by [PowerNukkit](https://github.com/PowerNukkit)
+  - License: MIT License
+  - Location: `nbt`
+
 ### Acknowledgments
 
-- [The Hive](https://www.chunler.app) - Chunker conversion engine
 - Ryan Steven
 - Weiyin 1A
